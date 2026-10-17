@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ConsultationModal from "@/components/ConsultationModal";
 import FloatingWidgets from "@/components/FloatingWidgets";
 import { ModalProvider } from "@/context/ModalContext";
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-jakarta",
-  display: "swap"
-});
 
 export const metadata: Metadata = {
   title: "Viraj Immigration | Certified Canada, Australia, UK & Europe Visa Consultants",
@@ -36,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} scroll-smooth`}>
+    <html lang="en" className="scroll-smooth">
       <body className="min-h-screen flex flex-col font-sans bg-slate-50 text-navy-950 selection:bg-gold-500 selection:text-navy-950">
         <ModalProvider>
           <Navbar />
