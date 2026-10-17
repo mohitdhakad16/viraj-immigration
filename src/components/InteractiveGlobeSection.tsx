@@ -156,38 +156,16 @@ export default function InteractiveGlobeSection() {
   }, [autoRotate]);
 
   return (
-    <section className="py-20 lg:py-28 bg-[#16171A] text-white relative overflow-hidden border-y border-white/10">
+    <section className="py-16 sm:py-24 bg-[#16171A] text-white relative overflow-hidden border-y border-white/10">
       {/* Animated Glowing Background Matrix Overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
       <div className="absolute top-1/4 -left-40 w-96 h-96 bg-[#E20935]/15 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" />
       <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-[#E20935]/10 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Floating Status Badge Marquee */}
-      <div className="w-full border-b border-white/10 bg-black/40 py-2.5 px-4 mb-12 overflow-hidden backdrop-blur-sm">
-        <div className="animate-marquee flex items-center space-x-12 text-xs">
-          <span className="flex items-center gap-2 text-slate-300 font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
-            <strong className="text-white">LIVE PR RADAR:</strong> Subclass 189 Australia Round Issued (85 Pts)
-          </span>
-          <span className="flex items-center gap-2 text-slate-300 font-mono">
-            <span className="w-2 h-2 rounded-full bg-[#E20935] inline-block" />
-            <strong className="text-white">CANADA EXPRESS ENTRY:</strong> Category-Based Healthcare Draw: 422 CRS
-          </span>
-          <span className="flex items-center gap-2 text-slate-300 font-mono">
-            <span className="w-2 h-2 rounded-full bg-amber-400 inline-block" />
-            <strong className="text-white">GERMANY CHANCENKARTE:</strong> 2026 Quota Fast-Track Open for Indian Engineers
-          </span>
-          <span className="flex items-center gap-2 text-slate-300 font-mono">
-            <span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />
-            <strong className="text-white">UK GLOBAL TALENT:</strong> Endorsement Review Window: 21 Calendar Days
-          </span>
-        </div>
-      </div>
-
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-[#E20935]/40 text-[#ff4d6d] text-xs font-bold uppercase tracking-wider mb-4 shadow-inner">
             <Globe className="w-3.5 h-3.5 animate-spin-slow text-[#E20935]" />
             <span>Interactive Global Migration Radar</span>
@@ -200,7 +178,7 @@ export default function InteractiveGlobeSection() {
           </p>
 
           {/* Interactive Mode Tabs */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mt-8">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 flex-wrap">
             <button
               onClick={() => setActiveCategory("skilled")}
               className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
@@ -238,7 +216,7 @@ export default function InteractiveGlobeSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Column: Interactive 3D Globe & Radar Sphere */}
-          <div className="lg:col-span-7 bg-[#0E0F12]/80 rounded-3xl border border-white/10 p-6 sm:p-8 backdrop-blur-xl relative shadow-2xl flex flex-col items-center justify-center min-h-[500px]">
+          <div className="lg:col-span-7 bg-[#0E0F12]/80 rounded-3xl border border-white/10 p-5 sm:p-8 backdrop-blur-xl relative shadow-2xl flex flex-col items-center justify-center min-h-[480px]">
             
             {/* Top Globe Toolbar */}
             <div className="w-full flex items-center justify-between border-b border-white/10 pb-4 mb-4">
@@ -246,19 +224,9 @@ export default function InteractiveGlobeSection() {
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>HQ Origin: <strong>New Delhi / Mumbai</strong></span>
               </div>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setAutoRotate(!autoRotate)}
-                  className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer border ${
-                    autoRotate
-                      ? "bg-[#E20935]/20 text-[#ff4d6d] border-[#E20935]/40"
-                      : "bg-white/5 text-slate-400 border-white/10 hover:text-white"
-                  }`}
-                  title="Toggle automatic rotation"
-                >
-                  <RotateCw className={`w-3.5 h-3.5 ${autoRotate ? "animate-spin" : ""}`} style={{ animationDuration: "3s" }} />
-                  <span>{autoRotate ? "Auto-Cycling" : "Paused"}</span>
-                </button>
+              <div className="flex items-center gap-2 text-xs text-slate-400">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#E20935]" />
+                <span>6 Destination Corridors</span>
               </div>
             </div>
 
@@ -307,7 +275,6 @@ export default function InteractiveGlobeSection() {
                       key={dest.id}
                       onClick={() => {
                         setSelectedDest(dest);
-                        setAutoRotate(false);
                       }}
                       style={{
                         position: "absolute",
@@ -363,7 +330,6 @@ export default function InteractiveGlobeSection() {
                     key={dest.id}
                     onClick={() => {
                       setSelectedDest(dest);
-                      setAutoRotate(false);
                     }}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       isSelected

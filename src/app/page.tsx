@@ -8,6 +8,7 @@ import CountryTabs from "@/components/CountryTabs";
 import EligibilityQuiz from "@/components/EligibilityQuiz";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import InteractiveGlobeSection from "@/components/InteractiveGlobeSection";
+import HomeFaq from "@/components/HomeFaq";
 import { useConsultationModal } from "@/context/ModalContext";
 import {
   SERVICES_LIST,
@@ -66,7 +67,7 @@ export default function HomePage() {
         {/* Subtle grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Column: Value Proposition & Authority */}
@@ -157,7 +158,7 @@ export default function HomePage() {
 
       {/* 3. STATS & ACCREDITATION STRIP */}
       <section className="bg-[#0E0F12] py-10 border-b border-white/10">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {COMPANY_INFO.stats.map((stat, idx) => (
               <div key={idx} className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-[#E20935]/40 transition-colors">
@@ -178,7 +179,7 @@ export default function HomePage() {
 
       {/* 5. CORE VISA SERVICES SECTION */}
       <section className="py-20 relative">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
@@ -295,7 +296,7 @@ export default function HomePage() {
 
       {/* 6. INTERACTIVE DESTINATION COUNTRIES TABS */}
       <section className="py-20 bg-white border-y border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#16171A] text-white">
@@ -335,7 +336,7 @@ export default function HomePage() {
 
       {/* 8. OUR 4-STEP LEGAL MIGRATION PROCESS */}
       <section className="py-20 bg-[#f8f6f1]">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
@@ -401,7 +402,7 @@ export default function HomePage() {
 
       {/* 9. CLIENT SUCCESS STORIES & TESTIMONIALS */}
       <section className="py-20 bg-[#16171A] text-white relative">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E20935]/20 text-[#ff476d] border border-[#E20935]/30">
@@ -429,9 +430,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. PRE-FOOTER CTA STRIP */}
+      {/* 10. HOME FREQUENTLY ASKED QUESTIONS (FAQS) */}
+      <HomeFaq />
+
+      {/* 11. PRE-FOOTER CTA STRIP */}
       <section className="bg-[#16171A] text-white py-16 border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="w-14 h-14 rounded-2xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center mx-auto">
             <Compass className="w-7 h-7 text-[#E20935]" />
           </div>

@@ -80,7 +80,7 @@ export default function HeroLeadForm() {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <input
               type="tel"
               required
@@ -112,7 +112,7 @@ export default function HeroLeadForm() {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="block text-[11px] text-slate-300 mb-1">Target Country</label>
               <select

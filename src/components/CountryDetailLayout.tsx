@@ -178,9 +178,9 @@ export default function CountryDetailLayout({ country }: Props) {
 
             </div>
 
-            {/* Right Sidebar (4 Cols) - Notice Generous Top Spacing when Sticky! */}
+            {/* Right Sidebar (4 Cols) - Clean sticky top spacing */}
             <div className="lg:col-span-4">
-              <div className="sticky top-28 lg:top-32 space-y-6 pt-2">
+              <div className="sticky top-24 space-y-6">
                 
                 <div className="p-7 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-2xl space-y-4">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#ff476d] uppercase tracking-wider">

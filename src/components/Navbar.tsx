@@ -59,9 +59,9 @@ export default function Navbar() {
 
   return (
     <div className="w-full">
-      {/* 1. Visaz Top Strip - Static in document flow */}
-      <div className="bg-[#16171A] text-slate-300 text-xs py-2.5 border-b border-white/10 hidden lg:block">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between">
+      {/* 1. Visaz Top Strip - Aligned with rest of website */}
+      <div className="bg-[#16171A] text-slate-300 text-xs py-2.5 border-b border-white/10 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <span className="flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors cursor-pointer">
               <MapPin className="w-3.5 h-3.5 text-[#E20935]" />
@@ -94,23 +94,19 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 2. Main Sticky Navigation Bar (Fixed 80px height, zero layout shift, ample spacing) */}
-      <header
-        className={`w-full z-50 sticky top-0 bg-white border-b border-slate-200 transition-shadow duration-200 h-20 flex items-center ${
-          isScrolled ? "shadow-lg bg-white/98 backdrop-blur-md" : ""
-        }`}
-      >
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between h-full">
+      {/* 2. Main Sticky Navigation Bar (Strictly sticky, aligned max-w-7xl, zero horizontal overflow) */}
+      <header className="w-full z-50 sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-shadow duration-200 h-20 flex items-center shadow-sm">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
           
-          {/* Brand Logo - Dedicated margins, never gets squeezed */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 mr-4 lg:mr-6 xl:mr-10 group cursor-pointer">
+          {/* Brand Logo */}
+          <Link href="/" className="flex items-center gap-3 shrink-0 mr-4 xl:mr-6 group cursor-pointer">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform shrink-0">
               <div className="w-full h-full bg-[#16171A] rounded-[10px] flex items-center justify-center">
                 <Compass className="w-5 h-5 xl:w-6 xl:h-6 text-[#E20935]" />
               </div>
             </div>
             <div>
-              <span className="text-lg lg:text-xl xl:text-2xl font-extrabold tracking-tight text-[#16171A] block leading-none">
+              <span className="text-lg xl:text-2xl font-extrabold tracking-tight text-[#16171A] block leading-none">
                 VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
               </span>
               <span className="text-[9px] xl:text-[10px] uppercase tracking-widest text-slate-500 block font-semibold mt-1">
@@ -119,11 +115,11 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links - Centered, comfortable responsive gaps, generous breathing room */}
-          <nav className="hidden lg:flex items-center justify-center gap-2 xl:gap-5 2xl:gap-7 flex-1 px-2 xl:px-4">
+          {/* Desktop Navigation Links - Shown on xl screens (1280px+) with comfortable spacing */}
+          <nav className="hidden xl:flex items-center justify-center gap-3 2xl:gap-5 flex-1 px-4">
             <Link
               href="/"
-              className={`text-[13px] xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/"
                   ? "text-[#E20935] bg-red-50/70"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -134,13 +130,13 @@ export default function Navbar() {
 
             <Link
               href="/about"
-              className={`text-[13px] xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/about"
                   ? "text-[#E20935] bg-red-50/70"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
-              About<span className="hidden xl:inline">&nbsp;Us</span>
+              About Us
             </Link>
 
             {/* Visa Services Dropdown */}
@@ -151,7 +147,7 @@ export default function Navbar() {
             >
               <Link
                 href="/services"
-                className={`flex items-center gap-1 text-[13px] xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+                className={`flex items-center gap-1 text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                   pathname.startsWith("/services")
                     ? "text-[#E20935] bg-red-50/70"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -204,7 +200,7 @@ export default function Navbar() {
               onMouseLeave={() => setCountriesDropdown(false)}
             >
               <span
-                className={`flex items-center gap-1 text-[13px] xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors ${
+                className={`flex items-center gap-1 text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg cursor-pointer transition-colors ${
                   pathname.startsWith("/countries")
                     ? "text-[#E20935] bg-red-50/70"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -249,7 +245,7 @@ export default function Navbar() {
 
             <Link
               href="/assessment"
-              className={`text-[13px] xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/assessment"
                   ? "text-[#E20935] bg-red-50/70"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -260,7 +256,7 @@ export default function Navbar() {
 
             <Link
               href="/success-stories"
-              className={`text-[13px] xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/success-stories"
                   ? "text-[#E20935] bg-red-50/70"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -271,7 +267,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className={`text-[13px] xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/contact"
                   ? "text-[#E20935] bg-red-50/70"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -281,38 +277,38 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* Right Action CTA Button - Dedicated Left Margin & Breathing Room */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0 ml-4 lg:ml-6 xl:ml-10">
+          {/* Right Action CTA Button & Mobile Trigger */}
+          <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={() => openModal()}
-              className="flex items-center gap-2 px-4 lg:px-5 xl:px-6 py-2.5 xl:py-3 rounded-xl font-extrabold text-[11px] xl:text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer"
+              className="hidden sm:flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-extrabold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer"
             >
               <Calendar className="w-4 h-4 shrink-0" />
               <span>Book Consultation</span>
             </button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center gap-2">
-            <button
-              onClick={() => openModal()}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#E20935] text-white cursor-pointer"
-            >
-              Assess
-            </button>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-100 text-[#16171A] hover:text-[#E20935] focus:outline-none cursor-pointer"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Mobile / Tablet Toggle Button */}
+            <div className="flex xl:hidden items-center gap-2">
+              <button
+                onClick={() => openModal()}
+                className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-bold bg-[#E20935] text-white cursor-pointer"
+              >
+                Assess
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2.5 rounded-xl bg-slate-100 text-[#16171A] hover:text-[#E20935] focus:outline-none cursor-pointer"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-8 space-y-3 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+          <div className="xl:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-8 space-y-3 shadow-2xl animate-in slide-in-from-top-4 duration-200">
             <div className="space-y-1">
               <Link
                 href="/"

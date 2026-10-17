@@ -23,7 +23,7 @@ export default function Footer() {
 
       {/* Trust & Accreditations Strip */}
       <div className="bg-[#0E0F12] border-b border-white/10 py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {COMPANY_INFO.accreditations.map((item, idx) => (
             <div key={idx} className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#E20935]/40 flex items-center justify-center shrink-0">
