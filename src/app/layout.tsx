@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen flex flex-col font-sans bg-slate-50 text-navy-950 selection:bg-gold-500 selection:text-navy-950">
+      <body className="min-h-screen flex flex-col font-sans bg-slate-50 text-visaz-dark selection:bg-visaz-red selection:text-white" suppressHydrationWarning>
         <ModalProvider>
           <Navbar />
           <main className="flex-1 pb-16 md:pb-0">{children}</main>
