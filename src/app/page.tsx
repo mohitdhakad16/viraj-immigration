@@ -43,18 +43,7 @@ export default function HomePage() {
     "tourist-visitor": <Plane className="w-6 h-6 text-[#E20935]" />
   };
 
-  const tickerItems = [
-    "✦ MARA REGISTERED (MARN 1802914)",
-    "✦ CICC LICENSED (RCIC R531892)",
-    "✦ 98.7% VISA APPROVAL RATE",
-    "✦ CANADA EXPRESS ENTRY & PNP",
-    "✦ AUSTRALIA SUBCLASS 189/190/491",
-    "✦ ZERO REJECTION PROTOCOL",
-    "✦ 8,500+ VISAS GRANTED",
-    "✦ UK SKILLED WORKER & GLOBAL TALENT",
-    "✦ GERMANY CHANCENKARTE OPPORTUNITY CARD",
-    "✦ 100% LEGAL ATTORNEY LODGEMENT"
-  ];
+
 
   return (
     <div className="w-full bg-[#f8f6f1]">
@@ -145,16 +134,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. CONTINUOUS ANIMATED TICKER MARQUEE (Visaz Style) */}
-      <div className="bg-[#E20935] text-white py-3 overflow-hidden select-none border-y border-red-700 shadow-md">
-        <div className="animate-marquee flex items-center gap-8 whitespace-nowrap text-xs font-extrabold uppercase tracking-widest">
-          {tickerItems.concat(tickerItems).map((item, idx) => (
-            <span key={idx} className="flex items-center gap-2">
-              <span>{item}</span>
-            </span>
-          ))}
-        </div>
-      </div>
+
 
       {/* 3. STATS & ACCREDITATION STRIP */}
       <section className="bg-[#0E0F12] py-10 border-b border-white/10">
