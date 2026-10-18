@@ -32,10 +32,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 50) {
+      if (window.scrollY > 40) {
         setIsScrolled(true);
-      } else if (scrollY < 15) {
+      } else {
         setIsScrolled(false);
       }
     };
@@ -58,9 +57,9 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full">
-      {/* 1. Visaz Top Strip - Aligned with rest of website */}
-      <div className="bg-[#16171A] text-slate-300 text-xs py-2.5 border-b border-white/10 hidden md:block">
+    <>
+      {/* 1. Visaz Dark Top Strip (Normal document flow, scrolls naturally with zero layout shift) */}
+      <div className="bg-[#16171A] text-slate-300 text-xs py-2.5 border-b border-white/10 hidden md:block w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <span className="flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors cursor-pointer">
@@ -94,34 +93,40 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 2. Main Sticky Navigation Bar (Strictly sticky, aligned max-w-7xl, zero horizontal overflow) */}
-      <header className="w-full z-50 sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-shadow duration-200 h-20 flex items-center shadow-sm">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+      {/* 2. Main Sticky Navigation Bar (Native position: sticky, perfectly aligned max-w-7xl, zero edge stick) */}
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${
+          isScrolled
+            ? "bg-white/98 shadow-md py-2.5 border-slate-200 backdrop-blur-md"
+            : "bg-white shadow-xs py-3 sm:py-4 border-slate-200"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 mr-4 xl:mr-6 group cursor-pointer">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group cursor-pointer mr-2 lg:mr-4">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform shrink-0">
               <div className="w-full h-full bg-[#16171A] rounded-[10px] flex items-center justify-center">
-                <Compass className="w-5 h-5 xl:w-6 xl:h-6 text-[#E20935]" />
+                <Compass className="w-5 h-5 text-[#E20935]" />
               </div>
             </div>
             <div>
-              <span className="text-lg xl:text-2xl font-extrabold tracking-tight text-[#16171A] block leading-none">
+              <span className="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#16171A] block leading-none">
                 VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
               </span>
-              <span className="text-[9px] xl:text-[10px] uppercase tracking-widest text-slate-500 block font-semibold mt-1">
+              <span className="text-[8px] sm:text-[9px] xl:text-[10px] uppercase tracking-wider text-slate-500 block font-semibold mt-1">
                 Global Visas & Legal Advisory
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links - Shown on xl screens (1280px+) with comfortable spacing */}
-          <nav className="hidden xl:flex items-center justify-center gap-3 2xl:gap-5 flex-1 px-4">
+          {/* Desktop Navigation Links - Compact, comfortable spacing to prevent any edge overflow */}
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 2xl:gap-3.5 flex-1 mx-2">
             <Link
               href="/"
-              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/"
-                  ? "text-[#E20935] bg-red-50/70"
+                  ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
@@ -130,9 +135,9 @@ export default function Navbar() {
 
             <Link
               href="/about"
-              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/about"
-                  ? "text-[#E20935] bg-red-50/70"
+                  ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
@@ -147,9 +152,9 @@ export default function Navbar() {
             >
               <Link
                 href="/services"
-                className={`flex items-center gap-1 text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                   pathname.startsWith("/services")
-                    ? "text-[#E20935] bg-red-50/70"
+                    ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
@@ -200,9 +205,9 @@ export default function Navbar() {
               onMouseLeave={() => setCountriesDropdown(false)}
             >
               <span
-                className={`flex items-center gap-1 text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg cursor-pointer transition-colors ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors ${
                   pathname.startsWith("/countries")
-                    ? "text-[#E20935] bg-red-50/70"
+                    ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
@@ -245,9 +250,9 @@ export default function Navbar() {
 
             <Link
               href="/assessment"
-              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/assessment"
-                  ? "text-[#E20935] bg-red-50/70"
+                  ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
@@ -256,9 +261,9 @@ export default function Navbar() {
 
             <Link
               href="/success-stories"
-              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/success-stories"
-                  ? "text-[#E20935] bg-red-50/70"
+                  ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
@@ -267,9 +272,9 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className={`text-sm font-bold whitespace-nowrap px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 pathname === "/contact"
-                  ? "text-[#E20935] bg-red-50/70"
+                  ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
@@ -278,17 +283,17 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action CTA Button & Mobile Trigger */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-2">
             <button
               onClick={() => openModal()}
-              className="hidden sm:flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-extrabold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 lg:px-4 xl:px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer shrink-0"
             >
-              <Calendar className="w-4 h-4 shrink-0" />
+              <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
               <span>Book Consultation</span>
             </button>
 
             {/* Mobile / Tablet Toggle Button */}
-            <div className="flex xl:hidden items-center gap-2">
+            <div className="flex lg:hidden items-center gap-2">
               <button
                 onClick={() => openModal()}
                 className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-bold bg-[#E20935] text-white cursor-pointer"
@@ -297,10 +302,10 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 rounded-xl bg-slate-100 text-[#16171A] hover:text-[#E20935] focus:outline-none cursor-pointer"
+                className="p-2 rounded-xl bg-slate-100 text-[#16171A] hover:text-[#E20935] focus:outline-none cursor-pointer"
                 aria-label="Toggle navigation menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
               </button>
             </div>
           </div>
@@ -308,7 +313,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-8 space-y-3 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+          <div className="lg:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-8 space-y-3 shadow-2xl animate-in slide-in-from-top-4 duration-200">
             <div className="space-y-1">
               <Link
                 href="/"
@@ -399,6 +404,6 @@ export default function Navbar() {
           </div>
         )}
       </header>
-    </div>
+    </>
   );
 }
