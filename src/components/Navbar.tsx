@@ -101,27 +101,29 @@ export default function Navbar() {
             : "bg-white shadow-xs py-3 sm:py-4 border-slate-200"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 flex items-center justify-between">
           
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-2.5 xl:gap-3 shrink-0 group cursor-pointer">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform shrink-0">
-              <div className="w-full h-full bg-[#16171A] rounded-[10px] flex items-center justify-center">
-                <Compass className="w-4 h-4 xl:w-5 xl:h-5 text-[#E20935]" />
+          {/* 1. Left Column: Brand Logo (Sleek, well-proportioned, flush left) */}
+          <div className="flex items-center justify-start shrink-0">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer">
+              <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 xl:w-9 xl:h-9 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform shrink-0">
+                <div className="w-full h-full bg-[#16171A] rounded-[10px] flex items-center justify-center">
+                  <Compass className="w-4 h-4 xl:w-4.5 xl:h-4.5 text-[#E20935]" />
+                </div>
               </div>
-            </div>
-            <div>
-              <span className="text-sm sm:text-base xl:text-xl font-extrabold tracking-tight text-[#16171A] block leading-none">
-                VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
-              </span>
-              <span className="hidden sm:block text-[8px] xl:text-[9px] uppercase tracking-wider text-slate-500 font-semibold mt-1">
-                Global Visas & Legal Advisory
-              </span>
-            </div>
-          </Link>
+              <div className="flex flex-col">
+                <span className="text-[15px] sm:text-base xl:text-[17px] font-extrabold tracking-tight text-[#16171A] block leading-none">
+                  VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
+                </span>
+                <span className="hidden sm:block text-[8px] xl:text-[8.5px] uppercase tracking-wider text-slate-500 font-semibold mt-1">
+                  Visa & Immigration Advisory
+                </span>
+              </div>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation Links - Responsive compact on lg, expansive on xl */}
-          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-2 2xl:gap-3.5 flex-1 mx-1 xl:mx-2">
+          {/* 2. Center Column: Navigation Links (Strictly centered with equal space on left and right via mx-auto) */}
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 2xl:gap-3 mx-auto">
             <Link
               href="/"
               className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
@@ -141,8 +143,7 @@ export default function Navbar() {
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
-              <span className="inline xl:hidden">About</span>
-              <span className="hidden xl:inline">About Us</span>
+              About Us
             </Link>
 
             {/* Visa Services Dropdown */}
@@ -153,15 +154,14 @@ export default function Navbar() {
             >
               <Link
                 href="/services"
-                className={`flex items-center gap-0.5 xl:gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                   pathname.startsWith("/services")
                     ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
-                <span className="inline xl:hidden">Services</span>
-                <span className="hidden xl:inline">Visa Services</span>
-                <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-[#E20935]" />
+                <span>Visa Services</span>
+                <ChevronDown className="w-3.5 h-3.5 text-[#E20935]" />
               </Link>
 
               {servicesDropdown && (
@@ -207,14 +207,14 @@ export default function Navbar() {
               onMouseLeave={() => setCountriesDropdown(false)}
             >
               <span
-                className={`flex items-center gap-0.5 xl:gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors ${
                   pathname.startsWith("/countries")
                     ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
                 <span>Countries</span>
-                <ChevronDown className="w-3 h-3 xl:w-3.5 xl:h-3.5 text-[#E20935]" />
+                <ChevronDown className="w-3.5 h-3.5 text-[#E20935]" />
               </span>
 
               {countriesDropdown && (
@@ -258,8 +258,7 @@ export default function Navbar() {
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
-              <span className="inline xl:hidden">Calculator</span>
-              <span className="hidden xl:inline">Points Calculator</span>
+              Points Calculator
             </Link>
 
             <Link
@@ -270,8 +269,7 @@ export default function Navbar() {
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
-              <span className="inline xl:hidden">Stories</span>
-              <span className="hidden xl:inline">Success Stories</span>
+              Success Stories
             </Link>
 
             <Link
@@ -286,11 +284,11 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* Right Action CTA Button & Mobile Trigger */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* 3. Right Column: CTA Action Button & Mobile Trigger (Aligned to far right) */}
+          <div className="flex items-center justify-end shrink-0 gap-2 sm:gap-3">
             <button
               onClick={() => openModal()}
-              className="hidden sm:inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer shrink-0"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 xl:px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer shrink-0"
             >
               <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
               <span>Book Consultation</span>
