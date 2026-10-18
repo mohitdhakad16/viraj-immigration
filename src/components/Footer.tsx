@@ -13,8 +13,18 @@ import {
   ArrowRight
 } from "lucide-react";
 import { COMPANY_INFO, SERVICES_LIST, COUNTRIES_LIST } from "@/data/immigrationData";
+import CountryFlag from "@/components/CountryFlag";
 
 export default function Footer() {
+  const getAccreditationFlag = (country: string) => {
+    switch (country) {
+      case "Australia": return "AU";
+      case "Canada": return "CA";
+      case "New Zealand": return "NZ";
+      default: return null;
+    }
+  };
+
   return (
     <footer className="bg-[#16171A] text-slate-300 border-t border-white/10 relative overflow-hidden">
       {/* Background ambient lighting */}
@@ -24,17 +34,24 @@ export default function Footer() {
       {/* Trust & Accreditations Strip */}
       <div className="bg-[#0E0F12] border-b border-white/10 py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {COMPANY_INFO.accreditations.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#E20935]/40 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-5 h-5 text-[#E20935]" />
+          {COMPANY_INFO.accreditations.map((item, idx) => {
+            const flagCode = getAccreditationFlag(item.country);
+            return (
+              <div key={idx} className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#E20935]/40 flex items-center justify-center shrink-0">
+                  {flagCode ? (
+                    <CountryFlag code={flagCode} size="sm" />
+                  ) : (
+                    <ShieldCheck className="w-5 h-5 text-[#E20935]" />
+                  )}
+                </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-bold text-white tracking-wide">{item.title}</div>
+                  <div className="text-[11px] sm:text-xs text-[#ff476d] font-mono">{item.code}</div>
+                </div>
               </div>
-              <div>
-                <div className="text-xs font-bold text-white tracking-wide">{item.title}</div>
-                <div className="text-[11px] text-[#ff476d] font-mono">{item.code}</div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -92,14 +109,14 @@ export default function Footer() {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-[#E20935] pl-2.5">
               Visa Categories
             </h4>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-3 text-xs sm:text-sm">
               {SERVICES_LIST.map((service) => (
                 <li key={service.id}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="hover:text-[#E20935] transition-colors flex items-center gap-1.5 group"
+                    className="hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer"
                   >
-                    <ArrowRight className="w-3 h-3 text-[#E20935] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#E20935] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     <span>{service.title}</span>
                   </Link>
                 </li>
@@ -107,7 +124,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-[#ff476d] font-semibold hover:underline block pt-1"
+                  className="text-[#ff476d] font-semibold hover:underline block pt-1 cursor-pointer"
                 >
                   View All Services →
                 </Link>
@@ -120,14 +137,14 @@ export default function Footer() {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-[#E20935] pl-2.5">
               Destinations
             </h4>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-3 text-xs sm:text-sm">
               {COUNTRIES_LIST.map((country) => (
                 <li key={country.id}>
                   <Link
                     href={`/countries/${country.slug}`}
-                    className="hover:text-[#E20935] transition-colors flex items-center gap-1.5 group"
+                    className="hover:text-[#E20935] transition-colors flex items-center gap-2.5 group cursor-pointer"
                   >
-                    <ArrowRight className="w-3 h-3 text-[#E20935] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    <CountryFlag code={country.flagCode} size="sm" />
                     <span>{country.name} Immigration</span>
                   </Link>
                 </li>
@@ -135,7 +152,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/assessment"
-                  className="text-[#ff476d] font-semibold hover:underline block pt-1"
+                  className="text-[#ff476d] font-semibold hover:underline block pt-1 cursor-pointer"
                 >
                   Calculate PR Points →
                 </Link>
@@ -148,34 +165,34 @@ export default function Footer() {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-[#E20935] pl-2.5">
               Company & Tools
             </h4>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-3 text-xs sm:text-sm">
               <li>
-                <Link href="/about" className="hover:text-[#E20935] transition-colors">
+                <Link href="/about" className="hover:text-[#E20935] transition-colors cursor-pointer">
                   About Our Counsel & MARA Team
                 </Link>
               </li>
               <li>
-                <Link href="/assessment" className="hover:text-[#E20935] transition-colors">
+                <Link href="/assessment" className="hover:text-[#E20935] transition-colors cursor-pointer">
                   Free PR Points Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/success-stories" className="hover:text-[#E20935] transition-colors">
+                <Link href="/success-stories" className="hover:text-[#E20935] transition-colors cursor-pointer">
                   Client Success Stories & Grants
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#E20935] transition-colors">
+                <Link href="/contact" className="hover:text-[#E20935] transition-colors cursor-pointer">
                   Global Office Locations
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="hover:text-[#E20935] transition-colors">
+                <Link href="/privacy-policy" className="hover:text-[#E20935] transition-colors cursor-pointer">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="hover:text-[#E20935] transition-colors">
+                <Link href="/terms-of-service" className="hover:text-[#E20935] transition-colors cursor-pointer">
                   Terms & Conditions
                 </Link>
               </li>

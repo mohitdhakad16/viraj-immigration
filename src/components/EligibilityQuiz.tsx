@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { CheckCircle2, ChevronRight, ChevronLeft, Sparkles, AlertCircle, ArrowRight, ShieldCheck } from "lucide-react";
 import confetti from "canvas-confetti";
 import { useConsultationModal } from "@/context/ModalContext";
+import CountryFlag from "@/components/CountryFlag";
 
 export default function EligibilityQuiz() {
   const [step, setStep] = useState(1);
@@ -97,30 +98,37 @@ export default function EligibilityQuiz() {
           {step === 1 && (
             <div className="space-y-6 animate-in fade-in duration-300">
               <div>
-                <label className="block text-sm font-bold text-white mb-3">
+                <label className="block text-sm sm:text-base font-bold text-white mb-3">
                   1. Select Your Target Migration Destination:
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {["Canada", "Australia", "United Kingdom", "Europe / Germany"].map((item) => (
+                  {[
+                    { name: "Canada", code: "CA" },
+                    { name: "Australia", code: "AU" },
+                    { name: "United Kingdom", code: "GB" },
+                    { name: "Europe / Germany", code: "DE" }
+                  ].map((item) => (
                     <button
-                      key={item}
+                      key={item.name}
                       type="button"
-                      onClick={() => setDestination(item)}
-                      className={`p-4 rounded-xl text-left border text-sm font-semibold transition-all ${
-                        destination === item
+                      onClick={() => setDestination(item.name)}
+                      className={`p-4 rounded-xl text-left border text-sm font-bold transition-all cursor-pointer ${
+                        destination === item.name
                           ? "bg-[#E20935]/20 border-[#E20935] text-white shadow-lg shadow-red-600/10"
                           : "bg-black/40 border-white/10 text-slate-300 hover:border-[#E20935]/50"
                       }`}
                     >
-                      <div className="text-base mb-1">{item === "Canada" ? "🇨🇦" : item === "Australia" ? "🇦🇺" : item === "United Kingdom" ? "🇬🇧" : "🇪🇺"}</div>
-                      <div>{item}</div>
+                      <div className="mb-2.5">
+                        <CountryFlag code={item.code} size="md" />
+                      </div>
+                      <div>{item.name}</div>
                     </button>
                   ))}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-white mb-3">
+                <label className="block text-sm sm:text-base font-bold text-white mb-3">
                   2. What is your current age group?
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
@@ -135,7 +143,7 @@ export default function EligibilityQuiz() {
                       key={item.val}
                       type="button"
                       onClick={() => setAgeGroup(item.val)}
-                      className={`p-3 rounded-xl text-center border text-xs font-semibold transition-all ${
+                      className={`p-3.5 rounded-xl text-center border text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                         ageGroup === item.val
                           ? "bg-[#E20935]/20 border-[#E20935] text-white ring-1 ring-[#E20935]"
                           : "bg-black/40 border-white/10 text-slate-300 hover:border-[#E20935]/50"
@@ -153,10 +161,10 @@ export default function EligibilityQuiz() {
           {step === 2 && (
             <div className="space-y-6 animate-in fade-in duration-300">
               <div>
-                <label className="block text-sm font-bold text-white mb-3">
+                <label className="block text-sm sm:text-base font-bold text-white mb-3">
                   3. What is your highest completed educational credential?
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   {[
                     { title: "Master's Degree / Post-Graduation", desc: "M.Tech, MBA, M.Sc, MCA or dual degree", val: "Masters" },
                     { title: "Bachelor's Degree (4-Year Program)", desc: "B.Tech, B.E., B.Sc (Hons), B.Arch", val: "Bachelors" },
@@ -167,14 +175,14 @@ export default function EligibilityQuiz() {
                       key={item.val}
                       type="button"
                       onClick={() => setEducation(item.val)}
-                      className={`p-4 rounded-xl text-left border transition-all ${
+                      className={`p-4 sm:p-5 rounded-xl text-left border transition-all cursor-pointer ${
                         education === item.val
                           ? "bg-[#E20935]/20 border-[#E20935] text-white shadow-lg shadow-red-600/10"
                           : "bg-black/40 border-white/10 text-slate-300 hover:border-[#E20935]/50"
                       }`}
                     >
-                      <div className="text-sm font-bold text-white">{item.title}</div>
-                      <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>
+                      <div className="text-sm sm:text-base font-bold text-white">{item.title}</div>
+                      <div className="text-xs sm:text-sm text-slate-300 mt-1">{item.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -186,7 +194,7 @@ export default function EligibilityQuiz() {
           {step === 3 && (
             <div className="space-y-6 animate-in fade-in duration-300">
               <div>
-                <label className="block text-sm font-bold text-white mb-3">
+                <label className="block text-sm sm:text-base font-bold text-white mb-3">
                   4. Years of continuous skilled work experience:
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -200,7 +208,7 @@ export default function EligibilityQuiz() {
                       key={item.val}
                       type="button"
                       onClick={() => setExperience(item.val)}
-                      className={`p-3.5 rounded-xl text-center border text-xs font-semibold transition-all ${
+                      className={`p-4 rounded-xl text-center border text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                         experience === item.val
                           ? "bg-[#E20935]/20 border-[#E20935] text-white ring-1 ring-[#E20935]"
                           : "bg-black/40 border-white/10 text-slate-300 hover:border-[#E20935]/50"
@@ -213,7 +221,7 @@ export default function EligibilityQuiz() {
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-white mb-3">
+                <label className="block text-sm sm:text-base font-bold text-white mb-3">
                   5. English Language Proficiency (IELTS / PTE / CELPIP):
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -226,14 +234,14 @@ export default function EligibilityQuiz() {
                       key={item.val}
                       type="button"
                       onClick={() => setEnglishScore(item.val)}
-                      className={`p-3.5 rounded-xl text-left border transition-all ${
+                      className={`p-4 rounded-xl text-left border transition-all cursor-pointer ${
                         englishScore === item.val
                           ? "bg-[#E20935]/20 border-[#E20935] text-white shadow-md shadow-red-600/10"
                           : "bg-black/40 border-white/10 text-slate-300 hover:border-[#E20935]/50"
                       }`}
                     >
-                      <div className="text-xs font-bold text-white">{item.title}</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">{item.sub}</div>
+                      <div className="text-xs sm:text-sm font-bold text-white">{item.title}</div>
+                      <div className="text-xs text-slate-300 mt-1">{item.sub}</div>
                     </button>
                   ))}
                 </div>
@@ -245,10 +253,10 @@ export default function EligibilityQuiz() {
           {step === 4 && (
             <div className="space-y-6 animate-in fade-in duration-300">
               <div>
-                <label className="block text-sm font-bold text-white mb-3">
+                <label className="block text-sm sm:text-base font-bold text-white mb-3">
                   6. Do you currently hold a verified job offer or state sponsorship?
                 </label>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
                     { title: "Yes, I have an offer/sponsor", desc: "Adds significant bonus points on CRS/SkillSelect", val: "Yes" },
                     { title: "No, seeking direct skilled pathway", desc: "Eligible for independent skilled migration streams", val: "No" }
@@ -257,14 +265,14 @@ export default function EligibilityQuiz() {
                       key={item.val}
                       type="button"
                       onClick={() => setHasJobOffer(item.val)}
-                      className={`p-4 rounded-xl text-left border transition-all ${
+                      className={`p-5 rounded-xl text-left border transition-all cursor-pointer ${
                         hasJobOffer === item.val
                           ? "bg-[#E20935]/20 border-[#E20935] text-white ring-1 ring-[#E20935]"
                           : "bg-black/40 border-white/10 text-slate-300 hover:border-[#E20935]/50"
                       }`}
                     >
-                      <div className="text-sm font-bold text-white">{item.title}</div>
-                      <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>
+                      <div className="text-sm sm:text-base font-bold text-white">{item.title}</div>
+                      <div className="text-xs sm:text-sm text-slate-300 mt-1">{item.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -273,12 +281,12 @@ export default function EligibilityQuiz() {
           )}
 
           {/* Step Navigation Controls */}
-          <div className="flex items-center justify-between pt-4 border-t border-white/10">
+          <div className="flex items-center justify-between pt-5 border-t border-white/10">
             {step > 1 ? (
               <button
                 type="button"
                 onClick={() => setStep(step - 1)}
-                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 bg-white/5 hover:bg-white/10 transition-colors"
+                className="flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-slate-200 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Previous Step</span>
@@ -289,7 +297,7 @@ export default function EligibilityQuiz() {
               <button
                 type="button"
                 onClick={() => setStep(step + 1)}
-                className="flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/20"
+                className="flex items-center gap-2 px-7 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/20 cursor-pointer"
               >
                 <span>Continue</span>
                 <ChevronRight className="w-4 h-4" />
@@ -298,7 +306,7 @@ export default function EligibilityQuiz() {
               <button
                 type="button"
                 onClick={handleFinish}
-                className="flex items-center gap-1.5 px-8 py-3 rounded-xl text-sm font-bold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider"
+                className="flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm sm:text-base font-extrabold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider cursor-pointer"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Calculate My PR Score</span>
@@ -338,7 +346,7 @@ export default function EligibilityQuiz() {
                 </>
               )}
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
               Based on your age ({ageGroup}), {education} qualification, and {experience} years experience, you are in a prime tier for {destination}. With professional skills assessment guidance, you can maximize your chances of an official Invitation to Apply (ITA).
             </p>
           </div>
@@ -346,7 +354,7 @@ export default function EligibilityQuiz() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={() => openModal(`Permanent Residency (${destination})`, destination)}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-sm bg-[#E20935] hover:bg-[#c5072d] text-white shadow-xl shadow-red-600/30 active:scale-95 transition-all flex items-center justify-center gap-2 uppercase tracking-wider"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold text-sm bg-[#E20935] hover:bg-[#c5072d] text-white shadow-xl shadow-red-600/30 active:scale-95 transition-all flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer"
             >
               <span>Get Detailed Profile Audit & Visa Roadmap</span>
               <ArrowRight className="w-4 h-4" />
@@ -357,7 +365,7 @@ export default function EligibilityQuiz() {
                 setIsFinished(false);
                 setStep(1);
               }}
-              className="w-full sm:w-auto px-5 py-3.5 rounded-xl text-xs font-semibold text-slate-300 bg-white/5 hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto px-6 py-4 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
             >
               Recalculate Score
             </button>

@@ -9,6 +9,8 @@ import EligibilityQuiz from "@/components/EligibilityQuiz";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import InteractiveGlobeSection from "@/components/InteractiveGlobeSection";
 import HomeFaq from "@/components/HomeFaq";
+import RunningMarquee from "@/components/RunningMarquee";
+import CountryFlag from "@/components/CountryFlag";
 import { useConsultationModal } from "@/context/ModalContext";
 import {
   SERVICES_LIST,
@@ -43,8 +45,6 @@ export default function HomePage() {
     "tourist-visitor": <Plane className="w-6 h-6 text-[#E20935]" />
   };
 
-
-
   return (
     <div className="w-full bg-[#f8f6f1]">
       {/* 1. HERO SECTION (Visaz Red + Charcoal Theme) */}
@@ -61,43 +61,43 @@ export default function HomePage() {
             
             {/* Left Column: Value Proposition & Authority */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/15 border border-[#E20935]/40 text-[#ff476d] shadow-md">
-                <ShieldCheck className="w-4 h-4 text-[#E20935]" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#E20935]/15 border border-[#E20935]/40 text-[#ff476d] shadow-md">
+                <ShieldCheck className="w-4 h-4 text-[#E20935] shrink-0" />
                 <span>MARA Registered: 1802914 & CICC Licensed: R531892</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
                 Your Direct Pathway to{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
                   Global Residency & PR
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-slate-200 max-w-xl leading-relaxed">
                 Legally accredited immigration counsel for <strong>Canada Express Entry & PNP</strong>, <strong>Australia Subclass 189/190/491</strong>, Work Permits & Global Migration with an audited <strong>98.7% success rate</strong>.
               </p>
 
               {/* Trust Value Badges */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="font-semibold text-slate-200">Zero Rejection Protocol</span>
+                  <span className="text-slate-200">Zero Rejection Protocol</span>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
+                <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
                   <Award className="w-4 h-4 text-[#E20935] shrink-0" />
-                  <span className="font-semibold text-slate-200">8,500+ Visa Grants</span>
+                  <span className="text-slate-200">8,500+ Visa Grants</span>
                 </div>
-                <div className="col-span-2 sm:col-span-1 flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
+                <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
                   <Building2 className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span className="font-semibold text-slate-200">India & Melbourne Offices</span>
+                  <span className="text-slate-200">India & Melbourne Offices</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <button
                   onClick={() => openModal()}
-                  className="px-8 py-3.5 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 flex items-center gap-2 uppercase tracking-wider cursor-pointer"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer"
                 >
                   <span>Book Free Legal Assessment</span>
                   <ArrowRight className="w-4 h-4" />
@@ -105,7 +105,7 @@ export default function HomePage() {
 
                 <Link
                   href="/assessment"
-                  className="px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#E20935] transition-colors flex items-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-4 rounded-xl font-bold text-sm text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#E20935] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#E20935]" />
                   <span>Calculate PR Points</span>
@@ -113,8 +113,8 @@ export default function HomePage() {
               </div>
 
               {/* Direct Hotline Pill */}
-              <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
-                <PhoneCall className="w-3.5 h-3.5 text-[#E20935] animate-pulse" />
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 pt-1">
+                <PhoneCall className="w-4 h-4 text-[#E20935] animate-pulse" />
                 <span>Immediate Consultant Hotline:</span>
                 <a
                   href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
@@ -134,18 +134,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 2. RUNNING RED MARQUEE TICKER (High-Impact Immigration Announcements) */}
+      <RunningMarquee />
+
 
 
       {/* 3. STATS & ACCREDITATION STRIP */}
-      <section className="bg-[#0E0F12] py-10 border-b border-white/10">
+      <section className="bg-[#0E0F12] py-10 sm:py-14 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
             {COMPANY_INFO.stats.map((stat, idx) => (
-              <div key={idx} className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-[#E20935]/40 transition-colors">
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#E20935] font-mono">
+              <div key={idx} className="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#E20935]/40 transition-colors">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E20935] font-mono">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm text-slate-300 mt-1 font-semibold">
+                <div className="text-xs sm:text-sm lg:text-base text-slate-200 mt-2 font-bold">
                   {stat.label}
                 </div>
               </div>
@@ -161,14 +164,14 @@ export default function HomePage() {
       <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
               Specialized Legal Practice Areas
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#16171A] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
               Comprehensive Visa & Immigration Pathways
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               Every visa category is managed directly by registered barristers, ensuring error-free documentation, strict timeline adherence, and maximum point score claims.
             </p>
           </div>
@@ -180,7 +183,7 @@ export default function HomePage() {
                 className="bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
               >
                 {/* Image Header with Badge */}
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-52 w-full overflow-hidden">
                   <Image
                     src={service.heroImage}
                     alt={service.title}
@@ -188,53 +191,53 @@ export default function HomePage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#16171A]/80 via-[#16171A]/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#16171A]/85 via-[#16171A]/25 to-transparent" />
                   
-                  <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-bold bg-[#E20935] text-white shadow-md">
+                  <span className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935] text-white shadow-md">
                     {service.badge}
                   </span>
 
                   <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white shadow-md flex items-center justify-center">
+                    <div className="w-11 h-11 rounded-xl bg-white shadow-md flex items-center justify-center">
                       {serviceIcons[service.id]}
                     </div>
-                    <span className="text-xs font-semibold text-white">
+                    <span className="text-xs sm:text-sm font-bold text-white">
                       Success: {service.successRate}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-lg font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
+                    <h3 className="text-xl font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed mt-2">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed mt-2.5">
                       {service.shortDesc}
                     </p>
 
-                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-[#E20935]" />
-                        Avg Time: {service.processingTime}
+                    <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600">
+                      <span className="flex items-center gap-1.5 font-medium">
+                        <Clock className="w-4 h-4 text-[#E20935]" />
+                        Avg: {service.processingTime}
                       </span>
-                      <span className="text-emerald-600 font-bold">100% Legal Filing</span>
+                      <span className="text-emerald-700 font-bold">100% Legal Filing</span>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
                     <Link
                       href={`/services/${service.slug}`}
-                      className="text-xs font-bold text-[#16171A] group-hover:text-[#E20935] flex items-center gap-1 hover:underline cursor-pointer"
+                      className="text-xs sm:text-sm font-bold text-[#16171A] group-hover:text-[#E20935] flex items-center gap-1 hover:underline cursor-pointer"
                     >
                       <span>Explore Requirements</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
 
                     <button
                       onClick={() => openModal(service.title)}
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#E20935] text-white hover:bg-[#c5072d] transition-colors cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#E20935] text-white hover:bg-[#c5072d] transition-colors shadow-md shadow-red-600/20 cursor-pointer"
                     >
                       Apply Now
                     </button>
@@ -249,13 +252,13 @@ export default function HomePage() {
                 <div className="w-12 h-12 rounded-2xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-[#E20935]" />
                 </div>
-                <span className="text-xs font-bold text-[#ff476d] uppercase tracking-wider block">
+                <span className="text-xs sm:text-sm font-bold text-[#ff476d] uppercase tracking-wider block">
                   Not Sure Which Visa Fits?
                 </span>
-                <h3 className="text-2xl font-extrabold text-white">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                   Let Our Licensed Lawyers Evaluate Your Profile
                 </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
                   Avoid costly application rejections. We analyze your age, education, language test, and work background to recommend the highest probability pathway.
                 </p>
               </div>
@@ -263,7 +266,7 @@ export default function HomePage() {
               <div className="pt-6">
                 <button
                   onClick={() => openModal()}
-                  className="w-full py-3.5 rounded-xl font-bold text-xs bg-[#E20935] hover:bg-[#c5072d] text-white uppercase tracking-wider shadow-lg shadow-red-600/30 active:scale-95 transition-all text-center block cursor-pointer"
+                  className="w-full py-4 rounded-xl font-extrabold text-sm bg-[#E20935] hover:bg-[#c5072d] text-white uppercase tracking-wider shadow-lg shadow-red-600/30 active:scale-95 transition-all text-center block cursor-pointer"
                 >
                   Request Profile Evaluation
                 </button>
@@ -318,14 +321,14 @@ export default function HomePage() {
       <section className="py-20 bg-[#f8f6f1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
               Streamlined Legal Roadmap
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#16171A] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
               How We Turn Your Dream Into Permanent Residency
             </h2>
-            <p className="text-sm text-slate-600">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               Our 4-phase immigration pipeline guarantees zero filing errors and full legal representation.
             </p>
           </div>
@@ -361,16 +364,16 @@ export default function HomePage() {
                 key={idx}
                 className="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#E20935] transition-all duration-300 relative group cursor-pointer"
               >
-                <div className="text-4xl font-extrabold text-slate-200 font-mono group-hover:text-[#E20935]/30 transition-colors mb-4">
+                <div className="text-4xl sm:text-5xl font-extrabold text-slate-200 font-mono group-hover:text-[#E20935]/40 transition-colors mb-4">
                   {item.step}
                 </div>
                 <div className="w-12 h-12 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-base font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -428,17 +431,17 @@ export default function HomePage() {
             Get your qualifications, work history, and points audited by our Senior Migration Counsel. The initial assessment is 100% free with no obligations.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={() => openModal()}
-              className="px-8 py-3.5 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider cursor-pointer"
             >
               Book Free Consultation
             </button>
 
             <a
               href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-              className="px-8 py-3.5 rounded-xl font-bold text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 transition-colors flex items-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4 text-[#E20935]" />
               <span>Call {COMPANY_INFO.phone}</span>

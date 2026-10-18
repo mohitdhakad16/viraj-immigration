@@ -14,6 +14,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { useConsultationModal } from "@/context/ModalContext";
+import CountryFlag from "@/components/CountryFlag";
 
 interface FAQItem {
   q: string;
@@ -88,23 +89,24 @@ export default function HomeFaq() {
           </p>
 
           {/* Filter Tabs */}
-          <div className="flex items-center justify-center gap-2 pt-4 flex-wrap">
+          <div className="flex items-center justify-center gap-2.5 pt-4 flex-wrap">
             {[
-              { id: "all", label: "All Questions" },
-              { id: "general", label: "Legal & General" },
-              { id: "canada", label: "Canada Express Entry" },
-              { id: "australia", label: "Australia GSM PR" }
+              { id: "all", label: "All Questions", flag: null },
+              { id: "general", label: "Legal & General", flag: null },
+              { id: "canada", label: "Canada Express Entry", flag: "CA" },
+              { id: "australia", label: "Australia GSM PR", flag: "AU" }
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === tab.id
                     ? "bg-[#E20935] text-white shadow-md shadow-red-600/25 scale-105"
                     : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                 }`}
               >
-                {tab.label}
+                {tab.flag && <CountryFlag code={tab.flag} size="sm" />}
+                <span>{tab.label}</span>
               </button>
             ))}
           </div>
@@ -123,11 +125,11 @@ export default function HomeFaq() {
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   className="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
                 >
-                  <span className="text-sm sm:text-base font-bold text-[#16171A] leading-snug">
+                  <span className="text-base sm:text-lg font-bold text-[#16171A] leading-snug">
                     {faq.q}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
                         ? "bg-[#E20935] text-white rotate-180"
                         : "bg-slate-100 text-slate-600"
@@ -138,7 +140,7 @@ export default function HomeFaq() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/60 animate-in fade-in duration-200">
+                  <div className="px-5 pb-6 sm:px-6 pt-1 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/60 animate-in fade-in duration-200">
                     <p>{faq.a}</p>
                   </div>
                 )}
@@ -149,19 +151,19 @@ export default function HomeFaq() {
 
         {/* Bottom CTA Card */}
         <div className="max-w-4xl mx-auto mt-12 p-6 sm:p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="text-lg sm:text-xl font-bold text-white flex items-center justify-center sm:justify-start gap-2">
+          <div className="space-y-1.5 text-center sm:text-left">
+            <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center justify-center sm:justify-start gap-2">
               <Sparkles className="w-5 h-5 text-[#E20935]" />
               <span>Have a Specific Visa Inquiry?</span>
             </h3>
-            <p className="text-xs text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-300">
               Our registered migration barristers evaluate your resume and points free of charge.
             </p>
           </div>
 
           <button
             onClick={() => openModal()}
-            className="px-6 py-3.5 rounded-xl font-extrabold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-lg shadow-red-600/30 uppercase tracking-wider shrink-0 cursor-pointer"
+            className="w-full sm:w-auto px-7 py-4 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-lg shadow-red-600/30 uppercase tracking-wider shrink-0 cursor-pointer"
           >
             Ask a Registered Lawyer
           </button>

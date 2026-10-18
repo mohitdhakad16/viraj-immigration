@@ -21,6 +21,7 @@ import {
   Calendar
 } from "lucide-react";
 import { COMPANY_INFO, SERVICES_LIST, COUNTRIES_LIST } from "@/data/immigrationData";
+import CountryFlag from "@/components/CountryFlag";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -229,9 +230,7 @@ export default function Navbar() {
                       className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="w-7 h-5 rounded overflow-hidden shadow-xs flex items-center justify-center font-bold text-xs bg-[#16171A] text-white border border-slate-200">
-                          {country.flagCode}
-                        </span>
+                        <CountryFlag code={country.flagCode} size="md" className="rounded shadow-xs" />
                         <div>
                           <div className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
                             {country.name}
@@ -315,7 +314,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-8 space-y-3 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+          <div className="lg:hidden bg-white border-b border-slate-200 px-5 sm:px-6 pt-3 pb-8 space-y-4 shadow-2xl max-h-[calc(100vh-75px)] overflow-y-auto overscroll-contain animate-in slide-in-from-top-4 duration-200">
             <div className="space-y-1">
               <Link
                 href="/"
@@ -337,29 +336,30 @@ export default function Navbar() {
               </Link>
 
               {/* Mobile Services Sub-list */}
-              <div className="pl-4 space-y-1 border-l-2 border-[#E20935] my-2">
+              <div className="pl-3.5 space-y-1.5 border-l-2 border-[#E20935] my-2">
                 {SERVICES_LIST.map((service) => (
                   <Link
                     key={service.id}
                     href={`/services/${service.slug}`}
-                    className="block py-1.5 text-xs font-medium text-slate-700 hover:text-[#E20935] cursor-pointer"
+                    className="block py-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#E20935] cursor-pointer"
                   >
                     • {service.title}
                   </Link>
                 ))}
               </div>
 
-              <div className="text-xs uppercase tracking-wider text-[#E20935] font-extrabold px-3 pt-2">
+              <div className="text-xs uppercase tracking-wider text-[#E20935] font-extrabold px-3 pt-3">
                 Destination Guides
               </div>
-              <div className="pl-4 space-y-1 border-l-2 border-[#E20935] my-2">
+              <div className="pl-3.5 space-y-2 border-l-2 border-[#E20935] my-2">
                 {COUNTRIES_LIST.map((country) => (
                   <Link
                     key={country.id}
                     href={`/countries/${country.slug}`}
-                    className="block py-1.5 text-xs font-medium text-slate-700 hover:text-[#E20935] cursor-pointer"
+                    className="flex items-center gap-2 py-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#E20935] cursor-pointer"
                   >
-                    • {country.name} Immigration Guide
+                    <CountryFlag code={country.flagCode} size="sm" />
+                    <span>{country.name} Immigration Guide</span>
                   </Link>
                 ))}
               </div>
@@ -397,7 +397,7 @@ export default function Navbar() {
 
               <a
                 href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-                className="flex items-center justify-center gap-2 text-sm text-[#16171A] font-semibold hover:text-[#E20935] py-1 cursor-pointer"
+                className="flex items-center justify-center gap-2 text-sm text-[#16171A] font-semibold hover:text-[#E20935] py-2 cursor-pointer"
               >
                 <Phone className="w-4 h-4 text-[#E20935]" />
                 <span>Call Hotline: {COMPANY_INFO.phone}</span>

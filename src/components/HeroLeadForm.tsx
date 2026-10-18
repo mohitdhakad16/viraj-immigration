@@ -68,7 +68,7 @@ export default function HeroLeadForm() {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-3.5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <input
               type="text"
@@ -76,18 +76,18 @@ export default function HeroLeadForm() {
               placeholder="Your Full Name *"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <input
               type="tel"
               required
               placeholder="Mobile (WhatsApp) *"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
             />
             <input
               type="number"
@@ -97,7 +97,7 @@ export default function HeroLeadForm() {
               placeholder="Your Age (e.g. 28) *"
               value={formData.age}
               onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
             />
           </div>
 
@@ -108,17 +108,17 @@ export default function HeroLeadForm() {
               placeholder="Email Address *"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <div>
-              <label className="block text-[11px] text-slate-300 mb-1">Target Country</label>
+              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Target Country</label>
               <select
                 value={formData.country}
                 onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                className="w-full px-3 py-2 rounded-xl bg-black/50 border border-white/15 text-white text-xs focus:border-[#E20935] focus:outline-none transition-colors"
+                className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
               >
                 <option value="Canada" className="bg-[#16171A]">Canada 🇨🇦</option>
                 <option value="Australia" className="bg-[#16171A]">Australia 🇦🇺</option>
@@ -129,11 +129,11 @@ export default function HeroLeadForm() {
             </div>
 
             <div>
-              <label className="block text-[11px] text-slate-300 mb-1">Visa Category</label>
+              <label className="block text-xs font-semibold text-slate-300 mb-1.5">Visa Category</label>
               <select
                 value={formData.visa}
                 onChange={(e) => setFormData({ ...formData, visa: e.target.value })}
-                className="w-full px-3 py-2 rounded-xl bg-black/50 border border-white/15 text-white text-xs focus:border-[#E20935] focus:outline-none transition-colors"
+                className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
               >
                 <option value="Permanent Residency (PR)" className="bg-[#16171A]">Permanent Residency (PR)</option>
                 <option value="Work Permit & Skilled" className="bg-[#16171A]">Work Permit</option>
@@ -145,11 +145,11 @@ export default function HeroLeadForm() {
           </div>
 
           <div>
-            <label className="block text-[11px] text-slate-300 mb-1">Highest Education</label>
+            <label className="block text-xs font-semibold text-slate-300 mb-1.5">Highest Education</label>
             <select
               value={formData.education}
               onChange={(e) => setFormData({ ...formData, education: e.target.value })}
-              className="w-full px-3 py-2 rounded-xl bg-black/50 border border-white/15 text-white text-xs focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
             >
               <option value="Masters" className="bg-[#16171A]">Master's / Post Graduate</option>
               <option value="Bachelors" className="bg-[#16171A]">Bachelor's Degree (4-Year)</option>
@@ -158,11 +158,11 @@ export default function HeroLeadForm() {
             </select>
           </div>
 
-          <div className="pt-1">
+          <div className="pt-2">
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 px-4 rounded-xl font-extrabold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-[0.99] transition-all shadow-lg shadow-red-600/30 text-xs sm:text-sm tracking-wide uppercase flex items-center justify-center gap-2"
+              className="w-full py-4 px-4 rounded-xl font-extrabold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-[0.99] transition-all shadow-lg shadow-red-600/30 text-sm tracking-wide uppercase flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading ? (
                 <>

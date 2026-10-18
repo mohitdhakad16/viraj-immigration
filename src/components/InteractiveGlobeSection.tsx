@@ -19,6 +19,7 @@ import {
   ExternalLink
 } from "lucide-react";
 import { useConsultationModal } from "@/context/ModalContext";
+import CountryFlag from "@/components/CountryFlag";
 
 interface GlobeDestination {
   id: string;
@@ -42,7 +43,7 @@ const DESTINATIONS: GlobeDestination[] = [
     id: "canada",
     name: "Canada",
     countryCode: "CA",
-    flag: "🍁",
+    flag: "🇨🇦",
     city: "Toronto / Vancouver",
     cx: 28,
     cy: 35,
@@ -58,7 +59,7 @@ const DESTINATIONS: GlobeDestination[] = [
     id: "australia",
     name: "Australia",
     countryCode: "AU",
-    flag: "🦘",
+    flag: "🇦🇺",
     city: "Melbourne / Sydney",
     cx: 78,
     cy: 72,
@@ -331,13 +332,13 @@ export default function InteractiveGlobeSection() {
                     onClick={() => {
                       setSelectedDest(dest);
                     }}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    className={`flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                       isSelected
                         ? "bg-[#E20935] text-white shadow-md shadow-red-600/30 scale-105"
                         : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white"
                     }`}
                   >
-                    <span>{dest.flag}</span>
+                    <CountryFlag code={dest.countryCode} size="sm" />
                     <span>{dest.name}</span>
                   </button>
                 );
@@ -352,8 +353,8 @@ export default function InteractiveGlobeSection() {
             {/* Country Banner */}
             <div className="flex items-start justify-between border-b border-white/10 pb-5 mb-6">
               <div>
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="text-2xl">{selectedDest.flag}</span>
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <CountryFlag code={selectedDest.countryCode} size="lg" className="rounded shadow-sm" />
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                     {selectedDest.name}
                   </h3>
@@ -361,7 +362,7 @@ export default function InteractiveGlobeSection() {
                     {selectedDest.countryCode}
                   </span>
                 </div>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs sm:text-sm text-slate-400">
                   Target Metros: <strong className="text-slate-200">{selectedDest.city}</strong>
                 </p>
               </div>
@@ -378,15 +379,15 @@ export default function InteractiveGlobeSection() {
 
             {/* Key Metrics Grid */}
             <div className="grid grid-cols-2 gap-3.5 mb-6">
-              <div className="p-3.5 rounded-2xl bg-black/40 border border-white/5">
-                <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#E20935]" />
-                  <span>Success Probability</span>
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-300 mb-1">
+                  <ShieldCheck className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold">Success Rate</span>
                 </div>
-                <div className="text-xl font-extrabold text-white">
+                <div className="text-xl sm:text-2xl font-extrabold text-white">
                   {selectedDest.acceptanceRate}%
                 </div>
-                <div className="w-full bg-white/10 h-1.5 rounded-full mt-2 overflow-hidden">
+                <div className="w-full bg-white/10 h-1.5 rounded-full mt-2.5 overflow-hidden">
                   <div
                     className="bg-[#E20935] h-full rounded-full transition-all duration-700"
                     style={{ width: `${selectedDest.acceptanceRate}%` }}
@@ -394,63 +395,63 @@ export default function InteractiveGlobeSection() {
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-black/40 border border-white/5">
-                <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
-                  <Clock className="w-3.5 h-3.5 text-[#E20935]" />
-                  <span>Est. Processing</span>
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-300 mb-1">
+                  <Clock className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold">Est. Processing</span>
                 </div>
-                <div className="text-xl font-extrabold text-white">
+                <div className="text-xl sm:text-2xl font-extrabold text-white">
                   ~{selectedDest.processingWeeks} Weeks
                 </div>
-                <span className="text-[10px] text-emerald-400 font-semibold block mt-1">
+                <span className="text-xs text-emerald-400 font-bold block mt-1">
                   Verified Bar Filing
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-black/40 border border-white/5">
-                <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
-                  <DollarSign className="w-3.5 h-3.5 text-[#E20935]" />
-                  <span>Average Starting Salary</span>
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-300 mb-1">
+                  <DollarSign className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold">Avg Salary</span>
                 </div>
-                <div className="text-lg font-bold text-white">
+                <div className="text-lg sm:text-xl font-bold text-white">
                   {selectedDest.avgIncome}
                 </div>
-                <span className="text-[10px] text-slate-400 block mt-1">
+                <span className="text-xs text-slate-400 block mt-1">
                   Yearly median package
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-black/40 border border-white/5">
-                <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
-                  <Award className="w-3.5 h-3.5 text-[#E20935]" />
-                  <span>Primary Pathway</span>
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-300 mb-1">
+                  <Award className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold">Primary Pathway</span>
                 </div>
-                <div className="text-xs font-bold text-white line-clamp-2">
+                <div className="text-xs sm:text-sm font-bold text-white line-clamp-2">
                   {selectedDest.visaType}
                 </div>
               </div>
             </div>
 
             {/* Threshold & Demand List */}
-            <div className="p-4 rounded-2xl bg-black/50 border border-white/10 mb-6 space-y-3">
+            <div className="p-4 sm:p-5 rounded-2xl bg-black/50 border border-white/10 mb-6 space-y-3">
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold block mb-1">
+                <span className="text-xs uppercase tracking-wider text-[#ff476d] font-extrabold block mb-1">
                   Eligibility Benchmark:
                 </span>
-                <p className="text-xs text-slate-200 font-medium">
+                <p className="text-sm text-slate-200 font-medium leading-relaxed">
                   {selectedDest.keyRequirement}
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-white/10">
-                <span className="text-[11px] uppercase tracking-wider text-slate-400 font-bold block mb-1.5">
+              <div className="pt-2.5 border-t border-white/10">
+                <span className="text-xs uppercase tracking-wider text-slate-300 font-bold block mb-2">
                   High-Priority In-Demand Occupations:
                 </span>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {selectedDest.topRoles.map((role, idx) => (
                     <span
                       key={idx}
-                      className="text-[11px] px-2.5 py-1 rounded-lg bg-white/5 text-slate-300 border border-white/5"
+                      className="text-xs px-3 py-1.5 rounded-lg bg-white/5 text-slate-200 border border-white/10 font-medium"
                     >
                       {role}
                     </span>
