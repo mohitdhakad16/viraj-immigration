@@ -28,6 +28,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [countriesDropdown, setCountriesDropdown] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileCountriesOpen, setMobileCountriesOpen] = useState(false);
   const pathname = usePathname();
   const { openModal } = useConsultationModal();
 
@@ -98,8 +100,8 @@ export default function Navbar() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${
           isScrolled
-            ? "bg-white/98 shadow-md py-2.5 border-slate-200 backdrop-blur-md"
-            : "bg-white shadow-xs py-3 sm:py-4 border-slate-200"
+            ? "bg-white/98 shadow-md py-3 sm:py-3.5 border-slate-200 backdrop-blur-md"
+            : "bg-white shadow-xs py-4 sm:py-5 lg:py-5.5 border-slate-200"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 flex items-center justify-between">
@@ -201,13 +203,14 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Country Guides Dropdown */}
+            {/* Country Guides Mega Menu */}
             <div
               className="relative"
               onMouseEnter={() => setCountriesDropdown(true)}
               onMouseLeave={() => setCountriesDropdown(false)}
             >
-              <span
+              <Link
+                href="/countries"
                 className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors ${
                   pathname.startsWith("/countries")
                     ? "text-[#E20935] bg-red-50"
@@ -216,35 +219,63 @@ export default function Navbar() {
               >
                 <span>Countries</span>
                 <ChevronDown className="w-3.5 h-3.5 text-[#E20935]" />
-              </span>
+              </Link>
 
               {countriesDropdown && (
-                <div className="absolute top-full left-0 w-72 bg-white border border-slate-200 rounded-2xl shadow-2xl p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold px-3 py-1 mb-1 border-b border-slate-100">
-                    Migration Destinations
-                  </div>
-                  {COUNTRIES_LIST.map((country) => (
+                <div className="absolute top-full -left-36 xl:-left-24 w-[640px] xl:w-[700px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
+                    <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
+                      <Compass className="w-3.5 h-3.5" />
+                      Global Migration Corridors & PR Directories
+                    </span>
                     <Link
-                      key={country.id}
-                      href={`/countries/${country.slug}`}
-                      className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
+                      href="/countries"
+                      className="text-xs font-bold text-slate-500 hover:text-[#E20935] transition-colors"
                     >
-                      <div className="flex items-center gap-3">
-                        <CountryFlag code={country.flagCode} size="md" className="rounded shadow-xs" />
-                        <div>
-                          <div className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
-                            {country.name}
+                      View All Countries →
+                    </Link>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {COUNTRIES_LIST.filter((c) => c.id !== "europe-usa").map((country) => (
+                      <Link
+                        key={country.id}
+                        href={`/countries/${country.slug}`}
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all group cursor-pointer"
+                      >
+                        <div className="mt-0.5 shrink-0">
+                          <CountryFlag code={country.flagCode} size="md" className="rounded shadow-xs" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors truncate">
+                              {country.name}
+                            </span>
+                            <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
+                              {country.salaryStat?.amount || country.avgSalary.split("/")[0]}
+                            </span>
                           </div>
-                          <div className="text-[11px] text-slate-500">
-                            {country.minPointsNeeded}
+                          <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                            {country.pathwayStat?.title ? `${country.pathwayStat.title} • ${country.pointsStat?.score || country.minPointsNeeded}` : country.minPointsNeeded}
                           </div>
                         </div>
-                      </div>
-                      <span className="text-xs text-[#E20935] opacity-0 group-hover:opacity-100 transition-opacity">
-                        →
-                      </span>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Mega Menu Footer Banner */}
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between px-2 bg-slate-50/80 rounded-xl p-2.5">
+                    <div className="text-xs text-slate-600">
+                      <span className="font-bold text-[#16171A]">Not sure which country you qualify for?</span> Find out in 60 seconds.
+                    </div>
+                    <Link
+                      href="/assessment"
+                      className="text-xs font-bold text-[#E20935] hover:underline flex items-center gap-1 shrink-0"
+                    >
+                      <span>Take Points Audit</span>
+                      <span>→</span>
                     </Link>
-                  ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -297,13 +328,13 @@ export default function Navbar() {
             <div className="flex lg:hidden items-center gap-2">
               <button
                 onClick={() => openModal()}
-                className="sm:hidden px-3 py-1.5 rounded-lg text-xs font-bold bg-[#E20935] text-white cursor-pointer"
+                className="sm:hidden px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#E20935] text-white flex items-center justify-center min-h-[36px] active:scale-95 shadow-xs cursor-pointer"
               >
                 Assess
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl bg-slate-100 text-[#16171A] hover:text-[#E20935] focus:outline-none cursor-pointer"
+                className="p-2 rounded-xl bg-slate-100 text-[#16171A] hover:text-[#E20935] focus:outline-none cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
@@ -314,70 +345,115 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-5 sm:px-6 pt-3 pb-8 space-y-4 shadow-2xl max-h-[calc(100vh-75px)] overflow-y-auto overscroll-contain animate-in slide-in-from-top-4 duration-200">
+          <div className="lg:hidden bg-white border-b border-slate-200 px-5 sm:px-6 pt-3 pb-8 space-y-3 shadow-2xl max-h-[calc(100vh-75px)] overflow-y-auto overscroll-contain animate-in slide-in-from-top-4 duration-200">
             <div className="space-y-1">
               <Link
                 href="/"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-bold text-[#16171A] hover:bg-red-50 hover:text-[#E20935] cursor-pointer"
               >
                 Home
               </Link>
               <Link
                 href="/about"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-bold text-[#16171A] hover:bg-red-50 hover:text-[#E20935] cursor-pointer"
               >
                 About Us
               </Link>
-              <Link
-                href="/services"
-                className="block px-3 py-2.5 rounded-lg text-base font-bold text-[#16171A] hover:bg-red-50 hover:text-[#E20935] cursor-pointer"
-              >
-                All Visa Services
-              </Link>
 
-              {/* Mobile Services Sub-list */}
-              <div className="pl-3.5 space-y-1.5 border-l-2 border-[#E20935] my-2">
-                {SERVICES_LIST.map((service) => (
-                  <Link
-                    key={service.id}
-                    href={`/services/${service.slug}`}
-                    className="block py-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#E20935] cursor-pointer"
-                  >
-                    • {service.title}
+              {/* Collapsible Visa Services */}
+              <div>
+                <div
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-bold text-[#16171A] hover:bg-red-50 hover:text-[#E20935] cursor-pointer"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                >
+                  <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="flex-1">
+                    All Visa Services
                   </Link>
-                ))}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setMobileServicesOpen(!mobileServicesOpen);
+                    }}
+                    className="p-1 text-slate-500 hover:text-[#E20935]"
+                    aria-label="Toggle services menu"
+                  >
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                </div>
+
+                {mobileServicesOpen && (
+                  <div className="pl-3.5 space-y-1.5 border-l-2 border-[#E20935] my-2 animate-in fade-in duration-150">
+                    {SERVICES_LIST.map((service) => (
+                      <Link
+                        key={service.id}
+                        href={`/services/${service.slug}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#E20935] cursor-pointer"
+                      >
+                        • {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              <div className="text-xs uppercase tracking-wider text-[#E20935] font-extrabold px-3 pt-3">
-                Destination Guides
-              </div>
-              <div className="pl-3.5 space-y-2 border-l-2 border-[#E20935] my-2">
-                {COUNTRIES_LIST.map((country) => (
-                  <Link
-                    key={country.id}
-                    href={`/countries/${country.slug}`}
-                    className="flex items-center gap-2 py-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#E20935] cursor-pointer"
+              {/* Collapsible Destination Guides */}
+              <div>
+                <div
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-bold text-[#16171A] hover:bg-red-50 hover:text-[#E20935] cursor-pointer"
+                  onClick={() => setMobileCountriesOpen(!mobileCountriesOpen)}
+                >
+                  <span className="flex-1">Destination Guides</span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setMobileCountriesOpen(!mobileCountriesOpen);
+                    }}
+                    className="p-1 text-slate-500 hover:text-[#E20935]"
+                    aria-label="Toggle destinations menu"
                   >
-                    <CountryFlag code={country.flagCode} size="sm" />
-                    <span>{country.name} Immigration Guide</span>
-                  </Link>
-                ))}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileCountriesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                </div>
+
+                {mobileCountriesOpen && (
+                  <div className="pl-3.5 space-y-2 border-l-2 border-[#E20935] my-2 animate-in fade-in duration-150">
+                    {COUNTRIES_LIST.filter((c) => c.id !== "europe-usa").map((country) => (
+                      <Link
+                        key={country.id}
+                        href={`/countries/${country.slug}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-2 py-1.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#E20935] cursor-pointer"
+                      >
+                        <CountryFlag code={country.flagCode} size="sm" />
+                        <span>{country.name} Guide</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <Link
                 href="/assessment"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-bold text-[#E20935] hover:bg-red-50 cursor-pointer"
               >
                 Free Points Calculator
               </Link>
               <Link
                 href="/success-stories"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-bold text-[#16171A] hover:bg-red-50 hover:text-[#E20935] cursor-pointer"
               >
                 Success Stories & Grants
               </Link>
               <Link
                 href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-bold text-[#16171A] hover:bg-red-50 hover:text-[#E20935] cursor-pointer"
               >
                 Contact & Offices

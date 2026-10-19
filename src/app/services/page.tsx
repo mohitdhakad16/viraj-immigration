@@ -38,21 +38,21 @@ export default function ServicesOverviewPage() {
   return (
     <div className="w-full bg-[#f8f6f1]">
       {/* 1. HERO SECTION */}
-      <section className="relative bg-[#16171A] text-white py-16 sm:py-24 border-b border-white/10 overflow-hidden">
+      <section className="relative bg-[#16171A] text-white py-14 sm:py-20 border-b border-white/10 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#E20935]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-3.5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/15 border border-[#E20935]/40 text-[#ff476d]">
             <ShieldCheck className="w-4 h-4 text-[#E20935]" />
             <span>Full Spectrum Visa Advisory</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Comprehensive{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               Immigration & Visa
             </span>{" "}
             Practices
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
             From initial skills assessment and CRS points optimization to federal filing and settlement in Canada, Australia, the UK, Europe, and the USA.
           </p>
 
@@ -125,7 +125,7 @@ export default function ServicesOverviewPage() {
                 <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <h2 className="text-2xl font-extrabold text-[#16171A]">
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-[#16171A]">
                         {service.title}
                       </h2>
                       <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 flex items-center gap-1">
@@ -134,7 +134,7 @@ export default function ServicesOverviewPage() {
                       </span>
                     </div>
 
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                       {service.fullDesc}
                     </p>
 
@@ -157,7 +157,7 @@ export default function ServicesOverviewPage() {
                   <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
                     <Link
                       href={`/services/${service.slug}`}
-                      className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-xs text-white bg-[#16171A] hover:bg-black transition-colors flex items-center justify-center gap-2"
+                      className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs text-white bg-[#16171A] hover:bg-black transition-colors flex items-center justify-center gap-2"
                     >
                       <span>Complete Requirements & Process</span>
                       <ArrowRight className="w-4 h-4 text-[#ff476d]" />
@@ -165,7 +165,7 @@ export default function ServicesOverviewPage() {
 
                     <button
                       onClick={() => openModal(service.title)}
-                      className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider"
+                      className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider"
                     >
                       Check Eligibility
                     </button>
@@ -184,10 +184,10 @@ export default function ServicesOverviewPage() {
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-950/70 text-[#ff476d] border border-[#E20935]/40">
               Interactive Migration Corridors
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Test Visa Routes & Starting Salaries Across Destination Hubs
             </h2>
-            <p className="text-sm text-slate-400">
+            <p className="text-xs sm:text-sm text-slate-400">
               Select any destination hub on the radar to inspect PR streams, processing windows, and in-demand occupations.
             </p>
           </div>
@@ -199,16 +199,16 @@ export default function ServicesOverviewPage() {
       <section className="bg-[#0E0F12] text-white py-16 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <Sparkles className="w-8 h-8 text-[#E20935] mx-auto" />
-          <h2 className="text-3xl font-extrabold text-white">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Unsure Which Visa Category Applies to Your Background?
           </h2>
-          <p className="text-sm text-slate-300 max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
             Our Senior Licensed Immigration Counsel will assess your qualification, work experience, age, and language test scores to identify the quickest route to approval.
           </p>
           <div className="pt-2">
             <button
               onClick={() => openModal()}
-              className="px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider"
             >
               Get Free Profile Evaluation
             </button>

@@ -66,38 +66,38 @@ export default function HomePage() {
                 <span>MARA Registered: 1802914 & CICC Licensed: R531892</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.14]">
                 Your Direct Pathway to{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
                   Global Residency & PR
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl text-slate-200 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm lg:text-base text-slate-200 max-w-xl leading-relaxed">
                 Legally accredited immigration counsel for <strong>Canada Express Entry & PNP</strong>, <strong>Australia Subclass 189/190/491</strong>, Work Permits & Global Migration with an audited <strong>98.7% success rate</strong>.
               </p>
 
               {/* Trust Value Badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span className="text-slate-200">Zero Rejection Protocol</span>
                 </div>
-                <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
                   <Award className="w-4 h-4 text-[#E20935] shrink-0" />
                   <span className="text-slate-200">8,500+ Visa Grants</span>
                 </div>
-                <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
                   <Building2 className="w-4 h-4 text-blue-400 shrink-0" />
                   <span className="text-slate-200">India & Melbourne Offices</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={() => openModal()}
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer"
                 >
                   <span>Book Free Legal Assessment</span>
                   <ArrowRight className="w-4 h-4" />
@@ -105,7 +105,7 @@ export default function HomePage() {
 
                 <Link
                   href="/assessment"
-                  className="w-full sm:w-auto px-6 py-4 rounded-xl font-bold text-sm text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#E20935] transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#E20935] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#E20935]" />
                   <span>Calculate PR Points</span>
@@ -161,83 +161,83 @@ export default function HomePage() {
       <InteractiveGlobeSection />
 
       {/* 5. CORE VISA SERVICES SECTION */}
-      <section className="py-20 relative">
+      <section className="py-14 sm:py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
+            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
               Specialized Legal Practice Areas
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#16171A] tracking-tight">
               Comprehensive Visa & Immigration Pathways
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Every visa category is managed directly by registered barristers, ensuring error-free documentation, strict timeline adherence, and maximum point score claims.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {SERVICES_LIST.map((service) => (
               <div
                 key={service.id}
-                className="bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs hover:shadow-xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
               >
                 {/* Image Header with Badge */}
-                <div className="relative h-52 w-full overflow-hidden">
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden">
                   <Image
                     src={service.heroImage}
                     alt={service.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#16171A]/85 via-[#16171A]/25 to-transparent" />
                   
-                  <span className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935] text-white shadow-md">
+                  <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-[11px] font-bold bg-[#E20935] text-white shadow-md">
                     {service.badge}
                   </span>
 
-                  <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-white shadow-md flex items-center justify-center">
+                  <div className="absolute bottom-3 left-3.5 flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-white shadow-md flex items-center justify-center">
                       {serviceIcons[service.id]}
                     </div>
-                    <span className="text-xs sm:text-sm font-bold text-white">
+                    <span className="text-xs font-bold text-white">
                       Success: {service.successRate}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+                <div className="p-4 sm:p-6 space-y-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed mt-2.5">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-2">
                       {service.shortDesc}
                     </p>
 
-                    <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-600">
+                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                       <span className="flex items-center gap-1.5 font-medium">
-                        <Clock className="w-4 h-4 text-[#E20935]" />
+                        <Clock className="w-3.5 h-3.5 text-[#E20935]" />
                         Avg: {service.processingTime}
                       </span>
                       <span className="text-emerald-700 font-bold">100% Legal Filing</span>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
                     <Link
                       href={`/services/${service.slug}`}
-                      className="text-xs sm:text-sm font-bold text-[#16171A] group-hover:text-[#E20935] flex items-center gap-1 hover:underline cursor-pointer"
+                      className="text-xs font-bold text-[#16171A] group-hover:text-[#E20935] flex items-center gap-1 hover:underline cursor-pointer"
                     >
                       <span>Explore Requirements</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
 
                     <button
                       onClick={() => openModal(service.title)}
-                      className="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#E20935] text-white hover:bg-[#c5072d] transition-colors shadow-md shadow-red-600/20 cursor-pointer"
+                      className="px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold bg-[#E20935] text-white hover:bg-[#c5072d] transition-colors shadow-xs shadow-red-600/20 cursor-pointer"
                     >
                       Apply Now
                     </button>
@@ -247,26 +247,26 @@ export default function HomePage() {
             ))}
 
             {/* Assessment Callout Card */}
-            <div className="bg-[#16171A] rounded-3xl p-8 border border-[#E20935]/30 text-white flex flex-col justify-between shadow-xl">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-[#E20935]" />
+            <div className="bg-[#16171A] rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-[#E20935]/30 text-white flex flex-col justify-between shadow-xl">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-[#E20935]" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold text-[#ff476d] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#ff476d] uppercase tracking-wider block">
                   Not Sure Which Visa Fits?
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white">
                   Let Our Licensed Lawyers Evaluate Your Profile
                 </h3>
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                   Avoid costly application rejections. We analyze your age, education, language test, and work background to recommend the highest probability pathway.
                 </p>
               </div>
 
-              <div className="pt-6">
+              <div className="pt-5">
                 <button
                   onClick={() => openModal()}
-                  className="w-full py-4 rounded-xl font-extrabold text-sm bg-[#E20935] hover:bg-[#c5072d] text-white uppercase tracking-wider shadow-lg shadow-red-600/30 active:scale-95 transition-all text-center block cursor-pointer"
+                  className="w-full py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-[#E20935] hover:bg-[#c5072d] text-white uppercase tracking-wider shadow-lg shadow-red-600/30 active:scale-95 transition-all text-center block cursor-pointer"
                 >
                   Request Profile Evaluation
                 </button>
@@ -362,18 +362,18 @@ export default function HomePage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#E20935] transition-all duration-300 relative group cursor-pointer"
+                className="bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs hover:shadow-xl hover:border-[#E20935] transition-all duration-300 relative group cursor-pointer"
               >
-                <div className="text-4xl sm:text-5xl font-extrabold text-slate-200 font-mono group-hover:text-[#E20935]/40 transition-colors mb-4">
+                <div className="text-3xl sm:text-4xl font-extrabold text-slate-200 font-mono group-hover:text-[#E20935]/40 transition-colors mb-3">
                   {item.step}
                 </div>
-                <div className="w-12 h-12 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center mb-3">
                   {item.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
+                <h3 className="text-base sm:text-lg font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-600 mt-2 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -384,24 +384,24 @@ export default function HomePage() {
       </section>
 
       {/* 9. CLIENT SUCCESS STORIES & TESTIMONIALS */}
-      <section className="py-20 bg-[#16171A] text-white relative">
+      <section className="py-14 sm:py-20 bg-[#16171A] text-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E20935]/20 text-[#ff476d] border border-[#E20935]/30">
               Verified Visa Approvals
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Stories of New Beginnings Across the Globe
             </h2>
-            <p className="text-sm text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-300">
               Over 8,500 individuals and families have realized their migration dreams through our licensed advisory.
             </p>
           </div>
 
           <TestimonialSlider />
 
-          <div className="mt-12 text-center">
+          <div className="mt-10 sm:mt-12 text-center">
             <Link
               href="/success-stories"
               className="inline-flex items-center gap-2 text-xs font-bold text-[#ff476d] hover:text-white underline cursor-pointer"
@@ -417,31 +417,31 @@ export default function HomePage() {
       <HomeFaq />
 
       {/* 11. PRE-FOOTER CTA STRIP */}
-      <section className="bg-[#16171A] text-white py-16 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="w-14 h-14 rounded-2xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center mx-auto">
-            <Compass className="w-7 h-7 text-[#E20935]" />
+      <section className="bg-[#16171A] text-white py-14 sm:py-18 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
+          <div className="w-12 h-12 rounded-xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center mx-auto">
+            <Compass className="w-6 h-6 text-[#E20935]" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Begin Your Permanent Residency Journey Today
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Get your qualifications, work history, and points audited by our Senior Migration Counsel. The initial assessment is 100% free with no obligations.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <button
               onClick={() => openModal()}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider cursor-pointer"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider cursor-pointer"
             >
               Book Free Consultation
             </button>
 
             <a
               href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4 text-[#E20935]" />
               <span>Call {COMPANY_INFO.phone}</span>

@@ -28,14 +28,14 @@ export default function AssessmentPage() {
             <span>Official Government Scoring Simulator</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Calculate Your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               PR Eligibility Score
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
             Determine your exact points allocation for <strong>Canada Express Entry CRS</strong> and <strong>Australia SkillSelect (Subclass 189/190/491)</strong> in under 60 seconds.
           </p>
         </div>
@@ -56,52 +56,52 @@ export default function AssessmentPage() {
             <span className="text-xs font-bold uppercase tracking-wider text-[#E20935]">
               Statutory Guidelines
             </span>
-            <h2 className="text-3xl font-extrabold text-[#16171A]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#16171A]">
               Official Points Calculation Criteria
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
               Compare how Australia and Canada allocate immigration points across age, degrees, language testing, and professional experience.
             </p>
 
-            <div className="flex justify-center gap-3 pt-3">
+            <div className="flex flex-col sm:flex-row justify-center gap-2.5 sm:gap-3 pt-3">
               <button
                 onClick={() => setActiveGrid("australia")}
-                className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+                className={`w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all text-center ${
                   activeGrid === "australia"
                     ? "bg-[#E20935] text-white shadow-lg shadow-red-600/30"
                     : "bg-slate-100 text-[#16171A] hover:bg-slate-200"
                 }`}
               >
-                🇦🇺 Australia SkillSelect Points Matrix (Subclass 189/190)
+                🇦🇺 Australia SkillSelect Matrix (Subclass 189/190)
               </button>
 
               <button
                 onClick={() => setActiveGrid("canada")}
-                className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+                className={`w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all text-center ${
                   activeGrid === "canada"
                     ? "bg-[#E20935] text-white shadow-lg shadow-red-600/30"
                     : "bg-slate-100 text-[#16171A] hover:bg-slate-200"
                 }`}
               >
-                🇨🇦 Canada Express Entry CRS Breakdown (1200 Pts)
+                🇨🇦 Canada Express Entry CRS (1,200 Pts)
               </button>
             </div>
           </div>
 
           {/* Australia Grid */}
           {activeGrid === "australia" && (
-            <div className="bg-[#f8f6f1] rounded-3xl border border-slate-200 overflow-hidden shadow-sm animate-in fade-in duration-200">
-              <div className="p-6 bg-[#16171A] text-white flex items-center justify-between">
+            <div className="bg-[#f8f6f1] rounded-2xl sm:rounded-3xl border border-slate-200 overflow-hidden shadow-sm animate-in fade-in duration-200">
+              <div className="p-4 sm:p-6 bg-[#16171A] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
-                  <h3 className="text-lg font-bold">Australia General Skilled Migration (GSM)</h3>
+                  <h3 className="text-base sm:text-lg font-bold">Australia General Skilled Migration (GSM)</h3>
                   <p className="text-xs text-[#ff476d]">Minimum Qualifying Threshold: 65 Points</p>
                 </div>
-                <span className="text-xs bg-[#E20935] text-white px-3 py-1 rounded-full font-bold">
+                <span className="text-xs bg-[#E20935] text-white px-3 py-1 rounded-full font-bold shrink-0">
                   MARA Compliant
                 </span>
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-4 sm:p-6 space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   <div className="p-4 rounded-xl bg-white border border-slate-200">
                     <span className="font-bold text-[#16171A] block mb-1">Age Factor (Max 30 Pts)</span>
@@ -146,18 +146,18 @@ export default function AssessmentPage() {
 
           {/* Canada Grid */}
           {activeGrid === "canada" && (
-            <div className="bg-[#f8f6f1] rounded-3xl border border-slate-200 overflow-hidden shadow-sm animate-in fade-in duration-200">
-              <div className="p-6 bg-[#16171A] text-white flex items-center justify-between">
+            <div className="bg-[#f8f6f1] rounded-2xl sm:rounded-3xl border border-slate-200 overflow-hidden shadow-sm animate-in fade-in duration-200">
+              <div className="p-4 sm:p-6 bg-[#16171A] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
-                  <h3 className="text-lg font-bold">Canada Comprehensive Ranking System (CRS)</h3>
+                  <h3 className="text-base sm:text-lg font-bold">Canada Comprehensive Ranking System (CRS)</h3>
                   <p className="text-xs text-[#ff476d]">Total Available Scale: 1,200 Points</p>
                 </div>
-                <span className="text-xs bg-[#E20935] text-white px-3 py-1 rounded-full font-bold">
+                <span className="text-xs bg-[#E20935] text-white px-3 py-1 rounded-full font-bold shrink-0">
                   CICC Compliant
                 </span>
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-4 sm:p-6 space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   <div className="p-4 rounded-xl bg-white border border-slate-200">
                     <span className="font-bold text-[#16171A] block mb-1">Core Human Capital (Max 500 Pts)</span>
@@ -200,8 +200,8 @@ export default function AssessmentPage() {
           )}
 
           {/* CTA Box */}
-          <div className="p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 text-center space-y-4 shadow-xl">
-            <h3 className="text-2xl font-bold text-white">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 text-center space-y-4 shadow-xl">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
               Need a Legal Strategy to Increase Your Points?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
@@ -210,7 +210,7 @@ export default function AssessmentPage() {
             <div className="pt-2">
               <button
                 onClick={() => openModal()}
-                className="px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-lg shadow-red-600/30 uppercase tracking-wider"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-lg shadow-red-600/30 uppercase tracking-wider"
               >
                 Book One-on-One Score Optimization
               </button>

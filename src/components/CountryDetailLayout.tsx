@@ -39,41 +39,41 @@ export default function CountryDetailLayout({ country }: Props) {
               <span>Official Country Immigration Guide</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Immigrate to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
                 {country.name}
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 font-semibold">
+            <p className="text-xs sm:text-sm text-slate-200 font-medium">
               {country.tagline}
             </p>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
               {country.overview}
             </p>
 
             {/* Quick Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4">
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[11px] text-slate-400 block">Average Income</span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-4">
+              <div className="p-3 sm:p-3.5 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-[11px] text-slate-400 block mb-0.5">Average Income</span>
                 <span className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
-                  <DollarSign className="w-4 h-4 text-emerald-400" />
-                  {country.avgSalary}
+                  <DollarSign className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span className="truncate">{country.avgSalary}</span>
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[11px] text-slate-400 block">Min Points Required</span>
-                <span className="text-xs sm:text-sm font-bold text-[#ff476d] block truncate">
+              <div className="p-3 sm:p-3.5 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-[11px] text-slate-400 block mb-0.5">Min Points Required</span>
+                <span className="text-xs sm:text-sm font-bold text-[#ff476d] block leading-tight">
                   {country.minPointsNeeded}
                 </span>
               </div>
-              <div className="col-span-2 sm:col-span-1 p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[11px] text-slate-400 block">Capital City</span>
+              <div className="col-span-2 sm:col-span-1 p-3 sm:p-3.5 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-[11px] text-slate-400 block mb-0.5">Capital City</span>
                 <span className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
-                  <MapPin className="w-4 h-4 text-[#E20935]" />
-                  {country.capital}
+                  <MapPin className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span>{country.capital}</span>
                 </span>
               </div>
             </div>
@@ -107,19 +107,19 @@ export default function CountryDetailLayout({ country }: Props) {
 
               {/* Top Visa Streams */}
               <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#16171A]">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#16171A]">
                   Leading Visa Programs for {country.name}
                 </h2>
                 <div className="space-y-4">
                   {country.topVisas.map((v, idx) => (
                     <div
                       key={idx}
-                      className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-[#E20935] transition-colors space-y-3"
+                      className="p-5 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-[#E20935] transition-colors space-y-3"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <div className="flex items-center gap-2.5">
                           <CheckCircle2 className="w-5 h-5 text-[#E20935] shrink-0" />
-                          <h3 className="text-lg sm:text-xl font-bold text-[#16171A]">{v.name}</h3>
+                          <h3 className="text-base sm:text-lg font-bold text-[#16171A]">{v.name}</h3>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold px-3 py-1 rounded-md bg-red-50 text-[#E20935] border border-red-100">
@@ -130,7 +130,7 @@ export default function CountryDetailLayout({ country }: Props) {
                           </span>
                         </div>
                       </div>
-                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                         {v.description}
                       </p>
                     </div>
@@ -139,19 +139,19 @@ export default function CountryDetailLayout({ country }: Props) {
               </div>
 
               {/* Lifestyle & Benefits */}
-              <div className="p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-xl space-y-6">
+              <div className="p-6 sm:p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-xl space-y-6">
                 <div>
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ff476d]">
                     Why Choose {country.name}?
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mt-1">
                     Quality of Life, Healthcare & Citizenship
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {country.whyChoose.map((perk, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-sm text-slate-200">
+                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-[13px] text-slate-200">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{perk}</span>
                     </div>
@@ -161,14 +161,14 @@ export default function CountryDetailLayout({ country }: Props) {
 
               {/* Popular Streams Ticker */}
               <div className="space-y-3">
-                <h3 className="text-lg sm:text-xl font-bold text-[#16171A]">
+                <h3 className="text-base sm:text-lg font-bold text-[#16171A]">
                   Targeted Occupation & Stream Pathways
                 </h3>
                 <div className="flex flex-wrap gap-2.5">
                   {country.popularStreams.map((stream, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 rounded-xl bg-white text-[#16171A] text-xs sm:text-sm font-bold border border-slate-200 shadow-2xs"
+                      className="px-3.5 py-1.5 rounded-xl bg-white text-[#16171A] text-xs font-bold border border-slate-200 shadow-2xs"
                     >
                       {stream}
                     </span>
@@ -182,29 +182,29 @@ export default function CountryDetailLayout({ country }: Props) {
             <div className="lg:col-span-4">
               <div className="sticky top-24 space-y-6">
                 
-                <div className="p-7 sm:p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-2xl space-y-4">
-                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#ff476d] uppercase tracking-wider">
+                <div className="p-6 sm:p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-2xl space-y-4">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#ff476d] uppercase tracking-wider">
                     <Sparkles className="w-4 h-4 text-[#E20935]" />
                     <span>Licensed Assessment</span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-white">
                     Immigrate to {country.name}
                   </h3>
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     Calculate your points and find out if you qualify for direct PR or work permits in {country.name}.
                   </p>
 
                   <div className="pt-2 space-y-3">
                     <button
                       onClick={() => openModal(`Permanent Residency (${country.name})`, country.name)}
-                      className="w-full py-4 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-lg shadow-red-600/30 uppercase tracking-wider cursor-pointer"
+                      className="w-full py-3 sm:py-3.5 rounded-xl font-extrabold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-lg shadow-red-600/30 uppercase tracking-wider cursor-pointer"
                     >
                       Check My {country.name} Points
                     </button>
 
                     <Link
                       href="/assessment"
-                      className="w-full py-3.5 rounded-xl font-bold text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <span>Use Points Calculator</span>
                       <ChevronRight className="w-4 h-4 text-[#E20935]" />

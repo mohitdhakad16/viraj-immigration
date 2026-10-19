@@ -61,21 +61,21 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-[#f8f6f1]">
       {/* 1. HERO SECTION */}
-      <section className="relative bg-[#16171A] text-white py-16 sm:py-24 border-b border-white/10 overflow-hidden">
+      <section className="relative bg-[#16171A] text-white py-14 sm:py-20 border-b border-white/10 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#E20935]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-3.5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/15 border border-[#E20935]/40 text-[#ff476d]">
             <Scale className="w-4 h-4 text-[#E20935]" />
             <span>Regulated Immigration Legal Advisory</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Advocating For Your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               Global Future
             </span>{" "}
             With Absolute Legal Integrity
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Founded on the principle that migration is the defining milestone of a family&apos;s generation. We provide licensed representation before Australian, Canadian, UK, and European immigration authorities.
           </p>
         </div>
@@ -122,14 +122,14 @@ export default function AboutPage() {
               </div>
 
               {/* Floating Stat Card */}
-              <div className="absolute -bottom-6 -right-4 sm:right-6 bg-[#16171A] text-white p-5 rounded-2xl border border-[#E20935]/40 shadow-2xl max-w-xs">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#E20935] text-white flex items-center justify-center font-bold">
+              <div className="absolute -bottom-5 right-2 sm:right-6 bg-[#16171A] text-white p-3.5 sm:p-5 rounded-2xl border border-[#E20935]/40 shadow-2xl max-w-[260px] sm:max-w-xs">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#E20935] text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
                     14+
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white">Years of Proven Advocacy</div>
-                    <div className="text-[11px] text-[#ff476d]">8,500+ Visas Successfully Granted</div>
+                    <div className="text-xs font-bold text-white leading-tight">Years of Proven Advocacy</div>
+                    <div className="text-[10px] sm:text-[11px] text-[#ff476d] leading-tight mt-0.5">8,500+ Visas Successfully Granted</div>
                   </div>
                 </div>
               </div>
@@ -140,13 +140,13 @@ export default function AboutPage() {
               <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
                 The Viraj Legacy
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#16171A] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#16171A] tracking-tight">
                 Built on Trust, Regulated By Law, Driven By Results
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Over the past decade and a half, immigration policies across Australia, Canada, and the UK have undergone profound tectonic shifts. The era of generic paperwork and guess-work is over; modern immigration requires precision legal advocacy, occupational alignment, and strategic points maneuvering.
               </p>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 At Viraj Immigration, our cases are not handled by sales agents. Every dossier is scrutinized by accredited barristers, licensed MARA migration agents, and CICC consultants. We take full responsibility from initial skill verification to passport stamping and post-landing career setup.
               </p>
 
@@ -320,24 +320,24 @@ export default function AboutPage() {
       </section>
 
       {/* 6. CALL TO ACTION */}
-      <section className="bg-gradient-to-r from-[#16171A] to-[#0E0F12] text-white py-16 border-t border-white/10">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
-          <h2 className="text-3xl font-extrabold text-white">
+      <section className="bg-gradient-to-r from-[#16171A] to-[#0E0F12] text-white py-14 sm:py-18 border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-5">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Schedule a Confidential Case Review With Our Attorneys
           </h2>
-          <p className="text-sm text-slate-300 max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
             Book an appointment at our Noida NCR or Melbourne office, or conduct a private video consultation.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <button
               onClick={() => openModal()}
-              className="px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider"
             >
               Book Legal Consultation
             </button>
             <Link
               href="/contact"
-              className="px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-white/5 hover:bg-white/10 border border-white/15 transition-colors"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-white/5 hover:bg-white/10 border border-white/15 transition-colors text-center"
             >
               Our Office Addresses
             </Link>

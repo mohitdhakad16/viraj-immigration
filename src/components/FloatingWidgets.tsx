@@ -59,13 +59,24 @@ export default function FloatingWidgets() {
         </a>
       </div>
 
+      {/* Mobile Floating Scroll To Top (Positioned cleanly above bottom bar) */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          className="md:hidden fixed bottom-16 right-4 z-40 w-9 h-9 rounded-full bg-[#16171A]/95 text-white border border-[#E20935]/50 flex items-center justify-center shadow-xl active:scale-90 transition-all cursor-pointer"
+        >
+          <ArrowUp className="w-4 h-4 text-[#ff476d]" />
+        </button>
+      )}
+
       {/* Mobile Sticky Bottom Conversion Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#16171A]/95 backdrop-blur-lg border-t border-white/10 px-3 py-2 flex items-center justify-between gap-2 shadow-2xl">
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#16171A]/95 backdrop-blur-lg border-t border-white/10 px-3 py-2 pb-[max(0.6rem,env(safe-area-inset-bottom))] flex items-center justify-between gap-2 shadow-2xl">
         <a
           href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-          className="flex-1 py-2 px-2 rounded-lg bg-black/60 border border-white/10 text-white flex items-center justify-center gap-1.5 text-xs font-semibold"
+          className="flex-1 py-2.5 px-2 rounded-xl bg-black/60 border border-white/10 text-white flex items-center justify-center gap-1.5 text-xs font-semibold active:scale-95 transition-all cursor-pointer"
         >
-          <Phone className="w-3.5 h-3.5 text-[#E20935]" />
+          <Phone className="w-3.5 h-3.5 text-[#E20935] shrink-0" />
           <span>Call</span>
         </a>
 
@@ -73,18 +84,18 @@ export default function FloatingWidgets() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 py-2 px-2 rounded-lg bg-emerald-600 text-white flex items-center justify-center gap-1.5 text-xs font-semibold"
+          className="flex-1 py-2.5 px-2 rounded-xl bg-emerald-600 text-white flex items-center justify-center gap-1.5 text-xs font-semibold active:scale-95 transition-all cursor-pointer"
         >
-          <MessageCircle className="w-3.5 h-3.5 fill-white" />
+          <MessageCircle className="w-3.5 h-3.5 fill-white shrink-0" />
           <span>WhatsApp</span>
         </a>
 
         <button
           onClick={() => openModal()}
-          className="flex-[1.5] py-2 px-2 rounded-lg bg-[#E20935] hover:bg-[#c5072d] text-white flex items-center justify-center gap-1.5 text-xs font-extrabold shadow-md uppercase tracking-wider"
+          className="flex-[1.4] py-2.5 px-2 rounded-xl bg-[#E20935] hover:bg-[#c5072d] text-white flex items-center justify-center gap-1.5 text-xs font-bold shadow-md uppercase tracking-wide active:scale-95 transition-all cursor-pointer"
         >
-          <Calendar className="w-3.5 h-3.5" />
-          <span>Free Assessment</span>
+          <Calendar className="w-3.5 h-3.5 shrink-0" />
+          <span className="whitespace-nowrap">Free Assessment</span>
         </button>
       </div>
     </>

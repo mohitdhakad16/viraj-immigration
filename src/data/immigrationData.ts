@@ -26,6 +26,9 @@ export interface CountryItem {
   popularStreams: string[];
   minPointsNeeded: string;
   avgSalary: string;
+  salaryStat?: { amount: string; period: string };
+  pointsStat?: { score: string; detail: string };
+  pathwayStat?: { title: string; subtitle: string };
   whyChoose: string[];
   topVisas: { name: string; type: string; processing: string; description: string }[];
   overview: string;
@@ -248,6 +251,18 @@ export const COUNTRIES_LIST: CountryItem[] = [
     popularStreams: ["Express Entry (FSW/CEC)", "Provincial Nominee Programs (OINP, SINP, BCPNP)", "Start-Up Visa", "LMIA Work Permits", "Family Class"],
     minPointsNeeded: "CRS ~470 - 510 (Direct Entry) or 600+ (with PNP)",
     avgSalary: "$78,000 CAD / Year",
+    salaryStat: {
+      amount: "$78,000 CAD",
+      period: "Avg. skilled income / yr"
+    },
+    pointsStat: {
+      score: "CRS ~470–510",
+      detail: "Direct Pool (+600 via PNP)"
+    },
+    pathwayStat: {
+      title: "Express Entry",
+      subtitle: "Federal PR & Provincial PNP"
+    },
     overview: "Canada's welcoming immigration system offers clear paths to permanent residency, world-renowned free healthcare, subsidized education, and citizenship in just 3 years.",
     whyChoose: [
       "World-class universal healthcare covered by provincial health insurance",
@@ -273,6 +288,18 @@ export const COUNTRIES_LIST: CountryItem[] = [
     popularStreams: ["Subclass 189 (Skilled Independent)", "Subclass 190 (Skilled Nominated)", "Subclass 491 (Regional)", "Subclass 482 (TSS Work)", "Subclass 186"],
     minPointsNeeded: "65 Points min. (Competitive cutoff: 75 - 85+ pts)",
     avgSalary: "$92,000 AUD / Year",
+    salaryStat: {
+      amount: "$92,000 AUD",
+      period: "Avg. skilled income / yr"
+    },
+    pointsStat: {
+      score: "65 Points Min",
+      detail: "Competitive: 75–85+ pts"
+    },
+    pathwayStat: {
+      title: "Direct PR",
+      subtitle: "Subclass 189, 190 & 491"
+    },
     overview: "Australia offers some of the highest minimum wages in the world, pristine beaches, great weather, and a robust immigration program for engineers, IT professionals, healthcare staff, and trades.",
     whyChoose: [
       "Medicare: Universal access to public hospitals and subsidized medicine",
@@ -298,6 +325,18 @@ export const COUNTRIES_LIST: CountryItem[] = [
     popularStreams: ["Skilled Worker Visa", "Global Talent Visa", "Scale-up Worker", "Innovator Founder Visa", "Indefinite Leave to Remain (ILR)"],
     minPointsNeeded: "70 Points (Job offer + English + Salary threshold)",
     avgSalary: "£46,000 GBP / Year",
+    salaryStat: {
+      amount: "£46,000 GBP",
+      period: "Avg. skilled income / yr"
+    },
+    pointsStat: {
+      score: "70 Points Req.",
+      detail: "Job Offer + English + Salary"
+    },
+    pathwayStat: {
+      title: "Skilled Worker",
+      subtitle: "5-Yr ILR Settlement Route"
+    },
     overview: "With the post-Brexit points-based immigration system, the UK has opened doors wider than ever for global talent in fintech, medicine, technology, and academia.",
     whyChoose: [
       "NHS healthcare system providing comprehensive medical care",
@@ -313,16 +352,139 @@ export const COUNTRIES_LIST: CountryItem[] = [
     ]
   },
   {
+    id: "usa",
+    slug: "usa",
+    name: "United States",
+    capital: "Washington D.C.",
+    flagCode: "US",
+    tagline: "The World Leader in Enterprise, Technology & High-Yield Careers",
+    heroImage: "https://images.unsplash.com/photo-1508433957232-3107f5fd5995?auto=format&fit=crop&w=1600&q=80",
+    popularStreams: ["EB-1 Extraordinary Ability", "EB-2 National Interest Waiver (NIW)", "EB-5 Immigrant Investor", "L-1 Intracompany Transferee", "O-1 Visa"],
+    minPointsNeeded: "Direct Petition (EB-1/EB-2 NIW/EB-5)",
+    avgSalary: "$105,000 USD / Year",
+    salaryStat: {
+      amount: "$105,000 USD",
+      period: "Avg. skilled income / yr"
+    },
+    pointsStat: {
+      score: "Direct Petition",
+      detail: "EB-1 / EB-2 NIW / EB-5"
+    },
+    pathwayStat: {
+      title: "Green Card",
+      subtitle: "Permanent US Residency"
+    },
+    overview: "From the Silicon Valley innovation ecosystem to New York global finance, the United States offers exceptional earning potential and clear Green Card settlement pathways for professionals and investors.",
+    whyChoose: [
+      "World's largest economy with highest global tech and executive compensation",
+      "Permanent Green Card grants unconditional residency and pathway to US citizenship",
+      "EB-2 National Interest Waiver (NIW) allows self-petition with no employer sponsor needed",
+      "World-ranking Ivy League education and unmatched research institutions",
+      "Full flexibility to invest, incorporate, and expand commercial enterprises globally"
+    ],
+    topVisas: [
+      { name: "EB-1 & EB-2 NIW Green Card", type: "Permanent Residency", processing: "10-18 Months", description: "Direct Green Card for advanced degree holders, researchers, and tech pioneers." },
+      { name: "EB-5 Immigrant Investor Program", type: "Green Card", processing: "18-24 Months", description: "Direct permanent residency for qualified commercial enterprise investors." },
+      { name: "L-1 & O-1 Specialized Visas", type: "Executive & Talent", processing: "4-12 Weeks", description: "Work authorization for multinational executives and extraordinary ability talent." }
+    ]
+  },
+  {
+    id: "europe",
+    slug: "europe",
+    name: "Europe & Germany",
+    capital: "Berlin / Brussels",
+    flagCode: "EU",
+    tagline: "Schengen Mobility, Free Education & Germany's High-Tech Economy",
+    heroImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80",
+    popularStreams: ["Germany Opportunity Card (Chancenkarte)", "EU Blue Card", "Portugal Golden Visa", "Spain Residence", "Austria Red-White-Red Card"],
+    minPointsNeeded: "6 Points (Chancenkarte) / EU Blue Card Threshold",
+    avgSalary: "€68,000 EUR / Year",
+    salaryStat: {
+      amount: "€68,000 EUR",
+      period: "Avg. skilled income / yr"
+    },
+    pointsStat: {
+      score: "6 Points Req.",
+      detail: "Germany Chancenkarte Grid"
+    },
+    pathwayStat: {
+      title: "EU Blue Card",
+      subtitle: "Schengen Settlement & PR"
+    },
+    overview: "With Germany's progressive Opportunity Card (Chancenkarte) and the pan-European EU Blue Card, experience high living standards, tuition-free university education, and borderless travel across 29 Schengen nations.",
+    whyChoose: [
+      "Borderless travel, live, and work access across 29 Schengen member states",
+      "Tuition-free public universities across Germany and Northern Europe",
+      "Fast-track to permanent settlement (21-27 months with German language proficiency)",
+      "Comprehensive national healthcare and family social security benefits",
+      "Strong labor protections, 30 days statutory paid vacation, and high work-life balance"
+    ],
+    topVisas: [
+      { name: "Germany Opportunity Card (Chancenkarte)", type: "Jobseeker Visa", processing: "4-8 Weeks", description: "Points-based entry allowing skilled professionals to seek jobs in Germany." },
+      { name: "EU Blue Card", type: "Work & Settlement", processing: "6-12 Weeks", description: "Fast-track residency for highly qualified university graduates across the EU." },
+      { name: "European Golden & Nomad Visas", type: "Residency", processing: "8-16 Weeks", description: "Flexible residency permits for investors, entrepreneurs, and remote professionals." }
+    ]
+  },
+  {
+    id: "uae",
+    slug: "uae",
+    name: "UAE & Dubai",
+    capital: "Dubai & Abu Dhabi",
+    flagCode: "AE",
+    tagline: "0% Income Tax, 10-Year Golden Visas & Global Business Capital",
+    heroImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80",
+    popularStreams: ["10-Year Golden Visa", "Green Visa (Freelance & Self-Employment)", "Remote Work Visa", "Corporate Employment", "Real Estate Investor Visa"],
+    minPointsNeeded: "Direct 10-Yr Golden Visa (No Points System)",
+    avgSalary: "AED 320,000 / Year",
+    salaryStat: {
+      amount: "AED 320,000",
+      period: "Tax-free skilled income / yr"
+    },
+    pointsStat: {
+      score: "No Points System",
+      detail: "Salary / Degree / Investment"
+    },
+    pathwayStat: {
+      title: "10-Yr Golden Visa",
+      subtitle: "Long-Term Renewable Residency"
+    },
+    overview: "The United Arab Emirates is the world's leading tax-free business and lifestyle haven, offering 10-year Golden Visas, 100% foreign enterprise ownership, world-class safety, and supreme global connectivity.",
+    whyChoose: [
+      "0% personal income tax, capital gains tax, and corporate tax exemptions",
+      "10-Year renewable Golden Visa with 100% foreign business ownership",
+      "Consistently ranked among the top 3 safest countries in the world",
+      "Sponsor your spouse, children of any age, and domestic staff with ease",
+      "Premier global aviation hub connecting Europe, Asia, and North America"
+    ],
+    topVisas: [
+      { name: "10-Year UAE Golden Visa", type: "Long-Term Residency", processing: "2-4 Weeks", description: "Self-sponsored 10-year residency for professionals earning AED 30k+/mo, investors, and executives." },
+      { name: "UAE Green Visa (Freelancer / Skilled)", type: "5-Year Residency", processing: "2-3 Weeks", description: "5-year residency for self-employed professionals without requiring an employer sponsor." },
+      { name: "Remote Work & Digital Nomad Visa", type: "1-Year Renewable", processing: "1-2 Weeks", description: "Live tax-free in Dubai while working remotely for your overseas employer." }
+    ]
+  },
+  {
     id: "europe-usa",
     slug: "europe-usa",
-    name: "USA & Europe (Schengen)",
+    name: "USA & Europe (Combined)",
     capital: "Washington D.C. / Brussels",
-    flagCode: "EU",
+    flagCode: "US-EU",
     tagline: "The Epicenters of Innovation, Enterprise & Wealth",
     heroImage: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1600&q=80",
     popularStreams: ["USA EB-5 Immigrant Investor", "USA L-1 / H-1B", "Germany Opportunity Card (Chancenkarte)", "EU Blue Card", "Golden Visas"],
     minPointsNeeded: "Varies by Program / Investment tier",
     avgSalary: "$95,000 USD / €65,000 EUR",
+    salaryStat: {
+      amount: "$95k USD / €65k EUR",
+      period: "High-earning skilled average"
+    },
+    pointsStat: {
+      score: "Stream-Specific",
+      detail: "Chancenkarte / EB-5 / Blue Card"
+    },
+    pathwayStat: {
+      title: "Green & Blue Card",
+      subtitle: "Direct Residency Grants"
+    },
     overview: "From the Silicon Valley innovation boom in the United States to Germany's progressive Opportunity Card and EU Blue Card, experience the pinnacle of global careers and citizenship.",
     whyChoose: [
       "Unlimited access to 29 Schengen member states with no internal borders",

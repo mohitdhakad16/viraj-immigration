@@ -70,21 +70,21 @@ export default function HomeFaq() {
     : FAQS.filter((f) => f.category === activeTab || f.category === "general");
 
   return (
-    <section className="py-20 bg-white border-t border-slate-200">
+    <section className="py-14 sm:py-20 bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-red-50 text-[#E20935] border border-red-200">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-red-50 text-[#E20935] border border-red-200">
             <HelpCircle className="w-4 h-4 text-[#E20935]" />
             <span>Got Questions? We Have Answers</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#16171A] tracking-tight">
             Frequently Asked <span className="red-gradient-text">Immigration Questions</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Direct, legally accurate answers to common queries on PR eligibility, CRS cutoff engineering, processing windows, and regulatory standards.
           </p>
 
@@ -150,20 +150,20 @@ export default function HomeFaq() {
         </div>
 
         {/* Bottom CTA Card */}
-        <div className="max-w-4xl mx-auto mt-12 p-6 sm:p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="max-w-4xl mx-auto mt-10 sm:mt-12 p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xl">
           <div className="space-y-1.5 text-center sm:text-left">
-            <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center justify-center sm:justify-start gap-2">
-              <Sparkles className="w-5 h-5 text-[#E20935]" />
+            <h3 className="text-lg sm:text-xl font-bold text-white flex items-center justify-center sm:justify-start gap-2">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#E20935]" />
               <span>Have a Specific Visa Inquiry?</span>
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
+            <p className="text-xs sm:text-[13px] text-slate-300">
               Our registered migration barristers evaluate your resume and points free of charge.
             </p>
           </div>
 
           <button
             onClick={() => openModal()}
-            className="w-full sm:w-auto px-7 py-4 rounded-xl font-extrabold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-lg shadow-red-600/30 uppercase tracking-wider shrink-0 cursor-pointer"
+            className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/25 uppercase tracking-wider shrink-0 cursor-pointer"
           >
             Ask a Registered Lawyer
           </button>

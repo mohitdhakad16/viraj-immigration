@@ -38,10 +38,10 @@ export default function ServiceDetailLayout({ service }: Props) {
               <ShieldCheck className="w-4 h-4 text-[#E20935]" />
               <span>Regulated Immigration Practice</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               {service.title}
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
               {service.fullDesc}
             </p>
 
@@ -84,7 +84,7 @@ export default function ServiceDetailLayout({ service }: Props) {
 
               {/* Legal Scope & Key Features */}
               <div className="space-y-4">
-                <h2 className="text-2xl font-extrabold text-[#16171A]">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#16171A]">
                   What Our Immigration Legal Representation Includes
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -103,7 +103,7 @@ export default function ServiceDetailLayout({ service }: Props) {
               </div>
 
               {/* Official Eligibility Checklist */}
-              <div className="space-y-4 p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-xl">
+              <div className="space-y-4 p-6 sm:p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-xl">
                 <div className="flex items-center gap-2">
                   <FileText className="w-5 h-5 text-[#E20935]" />
                   <h3 className="text-xl font-bold text-white">
@@ -127,7 +127,7 @@ export default function ServiceDetailLayout({ service }: Props) {
 
               {/* Step-by-Step Lodgement Roadmap */}
               <div className="space-y-6">
-                <h2 className="text-2xl font-extrabold text-[#16171A]">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#16171A]">
                   Step-by-Step Legal Lodgement Roadmap
                 </h2>
                 <div className="space-y-4">

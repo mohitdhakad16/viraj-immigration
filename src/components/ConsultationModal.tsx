@@ -49,13 +49,16 @@ export default function ConsultationModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div 
+      onClick={closeModal}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+    >
       <div 
         className="relative w-full max-w-xl max-h-[92vh] overflow-y-auto overscroll-contain bg-[#16171A] rounded-2xl sm:rounded-3xl shadow-2xl border border-[#E20935]/30 text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Ribbon */}
-        <div className="sticky top-0 z-10 bg-[#0E0F12] px-5 sm:px-6 py-4 sm:py-5 border-b border-white/10 flex items-center justify-between">
+        <div className="sticky top-0 z-10 bg-[#0E0F12] px-4 sm:px-6 py-3.5 sm:py-5 border-b border-white/10 flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#E20935]/20 text-[#ff476d] border border-[#E20935]/40">
@@ -63,7 +66,7 @@ export default function ConsultationModal() {
                 MARA & CICC Licensed Consultation
               </span>
             </div>
-            <h3 className="text-xl font-bold tracking-tight text-white">
+            <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
               Book Your Free Immigration Assessment
             </h3>
             <p className="text-xs text-slate-300">
@@ -80,7 +83,7 @@ export default function ConsultationModal() {
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {isSuccess ? (
             <div className="text-center py-8 space-y-4">
               <div className="w-16 h-16 bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
@@ -118,7 +121,7 @@ export default function ConsultationModal() {
                     placeholder="e.g. John Doe"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -129,7 +132,7 @@ export default function ConsultationModal() {
                     placeholder="e.g. +91 9876543210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -143,7 +146,7 @@ export default function ConsultationModal() {
                     placeholder="e.g. john@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -156,7 +159,7 @@ export default function ConsultationModal() {
                     placeholder="e.g. 29"
                     value={formData.age}
                     onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -167,7 +170,7 @@ export default function ConsultationModal() {
                   <select
                     value={formData.education}
                     onChange={(e) => setFormData({ ...formData, education: e.target.value })}
-                    className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                    className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                   >
                     <option value="Masters / Post Graduate" className="bg-[#16171A]">Master's / Post Graduate</option>
                     <option value="Bachelor's Degree (4 Years)" className="bg-[#16171A]">Bachelor's Degree</option>
@@ -182,7 +185,7 @@ export default function ConsultationModal() {
                   <select
                     value={formData.visaType}
                     onChange={(e) => setFormData({ ...formData, visaType: e.target.value })}
-                    className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                    className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                   >
                     <option value="Permanent Residency (PR)" className="bg-[#16171A]">Permanent Residency (PR)</option>
                     <option value="Work Permit & Skilled" className="bg-[#16171A]">Work Permit</option>
@@ -197,7 +200,7 @@ export default function ConsultationModal() {
                   <select
                     value={formData.targetCountry}
                     onChange={(e) => setFormData({ ...formData, targetCountry: e.target.value })}
-                    className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                    className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                   >
                     <option value="Canada" className="bg-[#16171A]">Canada 🇨🇦</option>
                     <option value="Australia" className="bg-[#16171A]">Australia 🇦🇺</option>
@@ -215,7 +218,7 @@ export default function ConsultationModal() {
                   placeholder="e.g. 5 years experience as Software Developer, IELTS 7.5 bands..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-3.5 py-2 rounded-lg bg-black/50 border border-white/10 text-white placeholder-slate-400 text-sm focus:border-[#E20935] focus:outline-none transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-black/50 border border-white/10 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
                 />
               </div>
 
@@ -239,7 +242,7 @@ export default function ConsultationModal() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1 border-t border-white/5">
+              <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-white/5 gap-1.5 text-center sm:text-left">
                 <span className="flex items-center gap-1">
                   <Lock className="w-3 h-3 text-[#E20935]" />
                   100% Confidential & GDPR/MARA Compliant

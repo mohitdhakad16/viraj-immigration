@@ -58,14 +58,14 @@ export default function ContactPage() {
             <span>Global Office Network</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Connect With Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               Immigration Counsels
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
             Visit our corporate offices in Noida NCR, Melbourne, Toronto, or Mumbai, or connect via confidential private video consultation.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
               <button
                 key={idx}
                 onClick={() => setSelectedOffice(office)}
-                className={`px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 ${
+                className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 ${
                   selectedOffice.city === office.city
                     ? "bg-[#E20935] text-white shadow-xl shadow-red-600/30 scale-105"
                     : "bg-white text-[#16171A] border border-slate-200 hover:border-[#E20935]/40"
@@ -107,12 +107,12 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-6">
               
               {/* Office Details Card */}
-              <div className="p-8 rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-xl space-y-6">
+              <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-xl space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-[#ff476d]">
                     Selected Location
                   </span>
-                  <h3 className="text-2xl font-extrabold text-white mt-1">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-1">
                     {selectedOffice.city}
                   </h3>
                 </div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
               </div>
 
               {/* Trust Box */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200 space-y-3">
+              <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 space-y-3">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#16171A]">
                   <ShieldCheck className="w-4 h-4 text-[#E20935]" />
                   <span>Visiting Our Office?</span>
@@ -190,13 +190,13 @@ export default function ContactPage() {
             </div>
 
             {/* Right 7 Cols: Appointment Booking Form */}
-            <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-xl">
+            <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-5 sm:p-8 lg:p-10 shadow-xl">
               <div className="mb-6 pb-4 border-b border-slate-100">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#E20935] flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4" />
                   Consultation Booking
                 </span>
-                <h3 className="text-2xl font-extrabold text-[#16171A] mt-1">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#16171A] mt-1">
                   Schedule an In-Person or Video Consultation
                 </h3>
               </div>
@@ -228,7 +228,7 @@ export default function ContactPage() {
                         placeholder="John Doe"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                       />
                     </div>
 
@@ -240,7 +240,7 @@ export default function ContactPage() {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                       />
                     </div>
                   </div>
@@ -254,7 +254,7 @@ export default function ContactPage() {
                         placeholder="john@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                       />
                     </div>
 
@@ -263,7 +263,7 @@ export default function ContactPage() {
                       <select
                         value={formData.office}
                         onChange={(e) => setFormData({ ...formData, office: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                        className="w-full px-3 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                       >
                         {OFFICE_LOCATIONS.map((o) => (
                           <option key={o.city} value={o.city}>{o.city}</option>
@@ -278,13 +278,14 @@ export default function ContactPage() {
                       <select
                         value={formData.country}
                         onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                        className="w-full px-3 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                       >
                         <option value="Canada">Canada 🇨🇦</option>
                         <option value="Australia">Australia 🇦🇺</option>
                         <option value="United Kingdom">United Kingdom 🇬🇧</option>
-                        <option value="Europe / Germany">Europe / Germany 🇪🇺</option>
                         <option value="USA">USA 🇺🇸</option>
+                        <option value="Europe / Germany">Europe / Germany 🇪🇺</option>
+                        <option value="UAE & Dubai">UAE & Dubai 🇦🇪</option>
                       </select>
                     </div>
 
@@ -293,7 +294,7 @@ export default function ContactPage() {
                       <select
                         value={formData.visa}
                         onChange={(e) => setFormData({ ...formData, visa: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                        className="w-full px-3 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                       >
                         <option value="Permanent Residency (PR)">Permanent Residency (PR)</option>
                         <option value="Work Permit & Skilled">Work Permit</option>
@@ -310,7 +311,7 @@ export default function ContactPage() {
                       type="date"
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                     />
                   </div>
 
@@ -321,7 +322,7 @@ export default function ContactPage() {
                       placeholder="Share your current qualifications, years of experience, or specific visa query..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#f8f6f1] border border-slate-200 text-xs sm:text-sm focus:border-[#E20935] focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f8f6f1] border border-slate-200 text-base sm:text-sm focus:border-[#E20935] focus:outline-none"
                     />
                   </div>
 

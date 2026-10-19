@@ -33,14 +33,14 @@ export default function SuccessStoriesPage() {
             <span>Audited Visa Grant Proof</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Real Stories, Real{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               Permanent Residency Grants
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
             Every visa approved represents a life transformed. Explore verified case studies of engineers, healthcare professionals, entrepreneurs, and families who trusted our licensed legal team.
           </p>
 
@@ -51,7 +51,9 @@ export default function SuccessStoriesPage() {
               { id: "canada", label: "🇨🇦 Canada PR" },
               { id: "australia", label: "🇦🇺 Australia GSM" },
               { id: "united kingdom", label: "🇬🇧 UK Skilled & Business" },
-              { id: "usa", label: "🇺🇸 USA Visas" }
+              { id: "usa", label: "🇺🇸 USA Visas" },
+              { id: "europe", label: "🇪🇺 Europe & Germany" },
+              { id: "uae", label: "🇦🇪 UAE Golden Visa" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -106,7 +108,7 @@ export default function SuccessStoriesPage() {
                       <span>{story.visaType}</span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#16171A]">
+                    <h3 className="text-base sm:text-lg font-bold text-[#16171A]">
                       {story.applicantName}
                     </h3>
 
@@ -115,7 +117,7 @@ export default function SuccessStoriesPage() {
                       <span>{story.occupation}</span>
                     </div>
 
-                    <p className="text-xs text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
                       {story.highlight}
                     </p>
 
@@ -129,7 +131,7 @@ export default function SuccessStoriesPage() {
                 <div className="p-6 pt-0">
                   <button
                     onClick={() => openModal(story.visaType, story.country)}
-                    className="w-full py-2.5 rounded-xl font-bold text-xs bg-slate-100 hover:bg-[#E20935] hover:text-white text-[#16171A] transition-colors"
+                    className="w-full py-2.5 sm:py-3 rounded-xl font-bold text-xs bg-slate-100 hover:bg-[#E20935] hover:text-white text-[#16171A] transition-colors"
                   >
                     Assess Profile Like This →
                   </button>
@@ -148,10 +150,10 @@ export default function SuccessStoriesPage() {
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E20935]/20 text-[#ff476d] border border-[#E20935]/30">
               Video Testimonials
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Watch Our Clients Share Their Experiences
             </h2>
-            <p className="text-sm text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto">
               Hear directly from applicants who navigated points hurdles, skills assessments, and visa lodgement.
             </p>
           </div>
@@ -195,7 +197,7 @@ export default function SuccessStoriesPage() {
                     </div>
                     <h4 className="text-sm font-bold text-white pt-1">{t.name}</h4>
                     <p className="text-[11px] text-[#ff476d] font-semibold">{t.country}</p>
-                    <p className="text-xs text-slate-300 italic pt-2 line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-slate-300 italic pt-2 line-clamp-3 leading-relaxed">
                       &ldquo;{t.quote}&rdquo;
                     </p>
                   </div>
@@ -203,7 +205,7 @@ export default function SuccessStoriesPage() {
 
                 <button
                   onClick={() => openModal(t.country)}
-                  className="w-full py-2 rounded-xl text-xs font-bold text-white bg-white/10 hover:bg-[#E20935] transition-colors"
+                  className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-white/10 hover:bg-[#E20935] transition-colors"
                 >
                   Start Your Journey
                 </button>
@@ -218,16 +220,16 @@ export default function SuccessStoriesPage() {
       <section className="bg-gradient-to-r from-[#16171A] to-[#0E0F12] text-white py-16 border-t border-white/10 text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
           <Sparkles className="w-8 h-8 text-[#E20935] mx-auto" />
-          <h2 className="text-3xl font-extrabold text-white">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Will Your Success Story Be Next?
           </h2>
-          <p className="text-sm text-slate-300">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
             Take the first step. Get a comprehensive legal eligibility evaluation from our registered immigration counsel.
           </p>
           <div className="pt-2">
             <button
               onClick={() => openModal()}
-              className="px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider"
             >
               Book Free Profile Audit
             </button>

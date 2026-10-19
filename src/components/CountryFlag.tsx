@@ -115,16 +115,33 @@ export default function CountryFlag({ code, className = "", size = "md" }: Count
     );
   }
 
+  // Dual Flag for USA & Europe (Schengen) 🇺🇸 🇪🇺
+  if (
+    normalized === "us-eu" ||
+    normalized === "eu-us" ||
+    normalized === "europe-usa" ||
+    normalized === "usa-europe" ||
+    normalized === "us_eu" ||
+    normalized === "eu_us"
+  ) {
+    return (
+      <span className={`inline-flex items-center gap-1 shrink-0 align-middle ${className}`} aria-label="Flags of USA and Europe">
+        <CountryFlag code="us" size={size} className="rounded-xs shadow-xs" />
+        <CountryFlag code="eu" size={size} className="rounded-xs shadow-xs" />
+      </span>
+    );
+  }
+
   // European Union 🇪🇺 / Europe
-  if (normalized === "eu" || normalized === "europe" || normalized === "europe-usa" || normalized === "schengen") {
+  if (normalized === "eu" || normalized === "europe" || normalized === "schengen") {
     return (
       <svg {...commonProps} aria-label="Flag of Europe">
         <path fill="#003399" d="M0 0h640v480H0z" />
         <g fill="#ffcc00">
           {[...Array(12)].map((_, i) => {
             const angle = (i * 30 * Math.PI) / 180;
-            const cx = 320 + 130 * Math.cos(angle);
-            const cy = 240 + 130 * Math.sin(angle);
+            const cx = Math.round(320 + 130 * Math.cos(angle));
+            const cy = Math.round(240 + 130 * Math.sin(angle));
             return <circle key={i} cx={cx} cy={cy} r="12" />;
           })}
         </g>

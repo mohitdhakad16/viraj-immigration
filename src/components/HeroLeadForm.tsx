@@ -33,7 +33,7 @@ export default function HeroLeadForm() {
   };
 
   return (
-    <div className="w-full bg-[#16171A]/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-[#E20935]/30 shadow-2xl text-white relative">
+    <div className="w-full bg-[#16171A]/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#E20935]/30 shadow-2xl text-white relative">
       {/* Top accent badge */}
       <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
         <div>
@@ -76,7 +76,7 @@ export default function HeroLeadForm() {
               placeholder="Your Full Name *"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
             />
           </div>
 
@@ -87,7 +87,7 @@ export default function HeroLeadForm() {
               placeholder="Mobile (WhatsApp) *"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
             />
             <input
               type="number"
@@ -97,7 +97,7 @@ export default function HeroLeadForm() {
               placeholder="Your Age (e.g. 28) *"
               value={formData.age}
               onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
             />
           </div>
 
@@ -108,7 +108,7 @@ export default function HeroLeadForm() {
               placeholder="Email Address *"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
             />
           </div>
 
@@ -118,7 +118,7 @@ export default function HeroLeadForm() {
               <select
                 value={formData.country}
                 onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
               >
                 <option value="Canada" className="bg-[#16171A]">Canada 🇨🇦</option>
                 <option value="Australia" className="bg-[#16171A]">Australia 🇦🇺</option>
@@ -133,7 +133,7 @@ export default function HeroLeadForm() {
               <select
                 value={formData.visa}
                 onChange={(e) => setFormData({ ...formData, visa: e.target.value })}
-                className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+                className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
               >
                 <option value="Permanent Residency (PR)" className="bg-[#16171A]">Permanent Residency (PR)</option>
                 <option value="Work Permit & Skilled" className="bg-[#16171A]">Work Permit</option>
@@ -149,7 +149,7 @@ export default function HeroLeadForm() {
             <select
               value={formData.education}
               onChange={(e) => setFormData({ ...formData, education: e.target.value })}
-              className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-sm sm:text-base focus:border-[#E20935] focus:outline-none transition-colors"
+              className="w-full px-3.5 py-3 rounded-xl bg-black/50 border border-white/15 text-white text-base sm:text-sm focus:border-[#E20935] focus:outline-none transition-colors"
             >
               <option value="Masters" className="bg-[#16171A]">Master's / Post Graduate</option>
               <option value="Bachelors" className="bg-[#16171A]">Bachelor's Degree (4-Year)</option>
@@ -162,7 +162,7 @@ export default function HeroLeadForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 px-4 rounded-xl font-extrabold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-[0.99] transition-all shadow-lg shadow-red-600/30 text-sm tracking-wide uppercase flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 sm:py-4 px-4 rounded-xl font-extrabold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-[0.99] transition-all shadow-lg shadow-red-600/30 text-sm tracking-wide uppercase flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading ? (
                 <>
@@ -178,7 +178,7 @@ export default function HeroLeadForm() {
             </button>
           </div>
 
-          <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+          <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 pt-2 gap-1.5 text-center sm:text-left">
             <span className="flex items-center gap-1">
               <Shield className="w-3.5 h-3.5 text-[#E20935]" />
               MARA & CICC Verified

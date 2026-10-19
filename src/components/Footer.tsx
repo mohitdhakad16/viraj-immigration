@@ -56,7 +56,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-24 md:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand & Overview */}
           <div className="lg:col-span-2 space-y-5">
@@ -138,7 +138,7 @@ export default function Footer() {
               Destinations
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm">
-              {COUNTRIES_LIST.map((country) => (
+              {COUNTRIES_LIST.filter((c) => c.id !== "europe-usa").map((country) => (
                 <li key={country.id}>
                   <Link
                     href={`/countries/${country.slug}`}
