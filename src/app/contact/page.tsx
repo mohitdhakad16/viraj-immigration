@@ -51,34 +51,34 @@ export default function ContactPage() {
   return (
     <div className="w-full bg-[#f8f6f1]">
       {/* 1. HERO SECTION */}
-      <section className="relative bg-[#16171A] text-white py-16 sm:py-24 border-b border-white/10 overflow-hidden">
-        {/* Authentic Corporate Headquarters Background */}
+      <section className="relative bg-[#16171A] text-white pt-24 sm:pt-32 pb-16 sm:pb-20 border-b border-white/10 overflow-hidden">
+        {/* Authentic Corporate Headquarters Photography */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1800&q=80"
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80"
             alt="Corporate Immigration Advisory Office"
             fill
             priority
-            className="object-cover object-center opacity-30 scale-105"
+            className="object-cover object-center opacity-75 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#16171A]/95 via-[#16171A]/85 to-[#16171A]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.22),transparent_70%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0d0f]/85 via-[#16171A]/65 to-[#0c0d0f]/80" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.18),transparent_70%)]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md shadow-xs">
             <Building className="w-4 h-4 text-[#E20935]" />
             <span>Global Office Network</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
             Connect With Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               Immigration Counsels
             </span>
           </h1>
 
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-2xl mx-auto drop-shadow-sm font-medium">
             Visit our corporate offices in Noida NCR, Melbourne, Toronto, or Mumbai, or connect via confidential private video consultation.
           </p>
         </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
               <button
                 key={idx}
                 onClick={() => setSelectedOffice(office)}
-                className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 ${
+                className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 cursor-pointer ${
                   selectedOffice.city === office.city
                     ? "bg-[#E20935] text-white shadow-xl shadow-red-600/30 scale-105"
                     : "bg-white text-[#16171A] border border-slate-200 hover:border-[#E20935]/40"
@@ -119,13 +119,13 @@ export default function ContactPage() {
             {/* Left 5 Cols: Selected Office Details & Quick Contact */}
             <div className="lg:col-span-5 space-y-6">
               
-              {/* Office Details Card */}
-              <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#16171A] text-white border border-[#E20935]/30 shadow-xl space-y-6">
+              {/* Harmonized Office Details Card (Clean White Executive Theme matching Form) */}
+              <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white text-[#16171A] border border-slate-200 shadow-xl space-y-6">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff476d]">
+                  <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-[#E20935] bg-red-50 px-2.5 py-1 rounded-full border border-red-200">
                     Selected Location
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-1">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#16171A] mt-2">
                     {selectedOffice.city}
                   </h3>
                 </div>
@@ -134,16 +134,16 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-[#E20935] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-white text-sm">Address:</strong>
-                      <span className="text-slate-300 leading-relaxed">{selectedOffice.address}</span>
+                      <strong className="block text-[#16171A] text-sm font-bold">Address:</strong>
+                      <span className="text-slate-600 leading-relaxed">{selectedOffice.address}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <Phone className="w-5 h-5 text-[#E20935] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-white text-sm">Direct Office Phone:</strong>
-                      <a href={`tel:${selectedOffice.phone.replace(/\s+/g, "")}`} className="text-[#ff476d] hover:underline font-bold">
+                      <strong className="block text-[#16171A] text-sm font-bold">Direct Office Phone:</strong>
+                      <a href={`tel:${selectedOffice.phone.replace(/\s+/g, "")}`} className="text-[#E20935] hover:underline font-bold text-sm">
                         {selectedOffice.phone}
                       </a>
                     </div>
@@ -152,8 +152,8 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-[#E20935] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-white text-sm">Office Email:</strong>
-                      <a href={`mailto:${selectedOffice.email}`} className="text-[#ff476d] hover:underline">
+                      <strong className="block text-[#16171A] text-sm font-bold">Office Email:</strong>
+                      <a href={`mailto:${selectedOffice.email}`} className="text-slate-700 hover:text-[#E20935] hover:underline">
                         {selectedOffice.email}
                       </a>
                     </div>
@@ -162,18 +162,18 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <Clock className="w-5 h-5 text-[#E20935] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-white text-sm">Consultation Hours:</strong>
-                      <span className="text-slate-300">{selectedOffice.hours}</span>
+                      <strong className="block text-[#16171A] text-sm font-bold">Consultation Hours:</strong>
+                      <span className="text-slate-600">{selectedOffice.hours}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+                <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg"
+                    className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition-all text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 fill-white" />
                     <span>WhatsApp {selectedOffice.city} Desk</span>
@@ -181,7 +181,7 @@ export default function ContactPage() {
 
                   <a
                     href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-                    className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 font-bold text-xs flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 active:scale-95 transition-all text-[#16171A] border border-slate-200 font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Phone className="w-4 h-4 text-[#E20935]" />
                     <span>Central Hotline: {COMPANY_INFO.phone}</span>

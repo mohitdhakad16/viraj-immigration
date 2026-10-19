@@ -21,34 +21,34 @@ export default function AssessmentPage() {
   return (
     <div className="w-full bg-[#f8f6f1]">
       {/* 1. HERO SECTION */}
-      <section className="relative bg-[#16171A] text-white py-16 sm:py-24 border-b border-white/10 overflow-hidden">
-        {/* Authentic Assessment Desk Background */}
+      <section className="relative bg-[#16171A] text-white pt-24 sm:pt-32 pb-16 sm:pb-20 border-b border-white/10 overflow-hidden">
+        {/* Authentic Assessment Desk Photography */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=80"
             alt="Immigration Points Evaluation and Strategy"
             fill
             priority
-            className="object-cover object-center opacity-30 scale-105"
+            className="object-cover object-center opacity-75 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#16171A]/95 via-[#16171A]/85 to-[#16171A]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.22),transparent_70%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0d0f]/85 via-[#16171A]/65 to-[#0c0d0f]/80" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.18),transparent_70%)]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md shadow-xs">
             <Calculator className="w-4 h-4 text-[#E20935]" />
             <span>Official Government Scoring Simulator</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
             Calculate Your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               PR Eligibility Score
             </span>
           </h1>
 
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-2xl mx-auto drop-shadow-sm font-medium">
             Determine your exact points allocation for <strong>Canada Express Entry CRS</strong> and <strong>Australia SkillSelect (Subclass 189/190/491)</strong> in under 60 seconds.
           </p>
         </div>

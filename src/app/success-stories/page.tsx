@@ -25,34 +25,34 @@ export default function SuccessStoriesPage() {
   return (
     <div className="w-full bg-[#f8f6f1]">
       {/* 1. HERO SECTION */}
-      <section className="relative bg-[#16171A] text-white py-16 sm:py-24 border-b border-white/10 overflow-hidden">
-        {/* Authentic Client Success Background */}
+      <section className="relative bg-[#16171A] text-white pt-24 sm:pt-32 pb-16 sm:pb-20 border-b border-white/10 overflow-hidden">
+        {/* Authentic Client Success Photography */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80"
             alt="Clients Granted Permanent Residency"
             fill
             priority
-            className="object-cover object-center opacity-30 scale-105"
+            className="object-cover object-center opacity-75 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#16171A]/95 via-[#16171A]/85 to-[#16171A]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.22),transparent_70%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0d0f]/85 via-[#16171A]/65 to-[#0c0d0f]/80" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.18),transparent_70%)]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md shadow-xs">
             <Award className="w-4 h-4 text-[#E20935]" />
             <span>Audited Visa Grant Proof</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
             Real Stories, Real{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
               Permanent Residency Grants
             </span>
           </h1>
 
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-2xl mx-auto drop-shadow-sm font-medium">
             Every visa approved represents a life transformed. Explore verified case studies of engineers, healthcare professionals, entrepreneurs, and families who trusted our licensed legal team.
           </p>
 

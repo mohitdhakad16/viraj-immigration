@@ -52,12 +52,16 @@ export default function Navbar() {
     setCountriesDropdown(false);
   }, [pathname]);
 
-  const serviceIcons: Record<string, React.ReactNode> = {
-    "study-visa": <GraduationCap className="w-4 h-4 text-[#E20935]" />,
-    "work-permit": <Briefcase className="w-4 h-4 text-[#E20935]" />,
-    "permanent-residency": <Award className="w-4 h-4 text-[#E20935]" />,
-    "business-investor": <TrendingUp className="w-4 h-4 text-[#E20935]" />,
-    "tourist-visitor": <Plane className="w-4 h-4 text-[#E20935]" />
+  const renderServiceIcon = (id: string) => {
+    const iconClass = "w-4 h-4 text-[#E20935] group-hover:text-white transition-colors duration-200";
+    switch (id) {
+      case "study-visa": return <GraduationCap className={iconClass} />;
+      case "work-permit": return <Briefcase className={iconClass} />;
+      case "permanent-residency": return <Award className={iconClass} />;
+      case "business-investor": return <TrendingUp className={iconClass} />;
+      case "tourist-visitor": return <Plane className={iconClass} />;
+      default: return <Award className={iconClass} />;
+    }
   };
 
   return (
@@ -130,7 +134,7 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 2xl:gap-3 mx-auto">
             <Link
               href="/"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -141,7 +145,7 @@ export default function Navbar() {
 
             <Link
               href="/about"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/about"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -158,80 +162,82 @@ export default function Navbar() {
             >
               <Link
                 href="/services"
-                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                   pathname.startsWith("/services")
                     ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
                 <span>Visa Services</span>
-                <ChevronDown className="w-3.5 h-3.5 text-[#E20935]" />
+                <ChevronDown className="w-3.5 h-3.5 text-[#E20935] transition-transform duration-200 group-hover:rotate-180" />
               </Link>
 
               {servicesDropdown && (
-                <div className="absolute top-full -left-28 xl:-left-20 w-[660px] xl:w-[720px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
-                    <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
-                      <Award className="w-3.5 h-3.5" />
-                      Regulated Immigration Practices & Pathways
-                    </span>
-                    <Link
-                      href="/services"
-                      className="text-xs font-bold text-slate-500 hover:text-[#E20935] transition-colors"
-                    >
-                      View All 5 Visa Practices →
-                    </Link>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {SERVICES_LIST.map((service) => (
+                <div className="absolute top-full -left-28 xl:-left-20 pt-4.5 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
+                  <div className="w-[700px] xl:w-[760px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 transition-all duration-200">
+                    <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
+                      <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
+                        <Award className="w-3.5 h-3.5" />
+                        Regulated Immigration Practices & Pathways
+                      </span>
                       <Link
-                        key={service.id}
-                        href={`/services/${service.slug}`}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all group cursor-pointer"
+                        href="/services"
+                        className="text-xs font-bold text-slate-500 hover:text-[#E20935] transition-colors"
                       >
-                        <div className="p-2.5 rounded-xl bg-red-50 border border-red-100 group-hover:bg-[#E20935] group-hover:text-white transition-colors shrink-0 mt-0.5">
-                          {serviceIcons[service.id]}
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-1">
-                            <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors truncate">
-                              {service.title}
-                            </span>
-                            <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
-                              {service.successRate}
-                            </span>
-                          </div>
-                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">
-                            {service.shortDesc}
-                          </p>
-                          <div className="flex items-center gap-2 mt-1.5 text-[10px] text-slate-400 font-medium">
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-3 h-3 text-[#E20935]" />
-                              {service.processingTime}
-                            </span>
-                            <span>•</span>
-                            <span className="text-[#E20935] font-semibold">{service.badge}</span>
-                          </div>
-                        </div>
+                        View All 5 Visa Practices →
                       </Link>
-                    ))}
-                  </div>
+                    </div>
 
-                  {/* Bottom Consultation Quick Strip */}
-                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between px-2 text-xs bg-slate-50 rounded-xl p-2.5">
-                    <span className="text-slate-600 font-medium">
-                      Not sure which visa stream fits your background?
-                    </span>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        openModal();
-                      }}
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-[#E20935] hover:bg-[#c5072d] transition-colors shadow-xs cursor-pointer"
-                    >
-                      Free Profile Audit →
-                    </button>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {SERVICES_LIST.map((service) => (
+                        <Link
+                          key={service.id}
+                          href={`/services/${service.slug}`}
+                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all duration-200 group cursor-pointer"
+                        >
+                          <div className="p-2.5 rounded-xl bg-red-50 border border-red-100 group-hover:bg-[#E20935] transition-all duration-200 shrink-0 mt-0.5">
+                            {renderServiceIcon(service.id)}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors duration-200 leading-snug">
+                                {service.title}
+                              </span>
+                              <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
+                                {service.successRate}
+                              </span>
+                            </div>
+                            <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">
+                              {service.shortDesc}
+                            </p>
+                            <div className="flex items-center gap-2 mt-1.5 text-[10px] text-slate-400 font-medium">
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-3 h-3 text-[#E20935]" />
+                                {service.processingTime}
+                              </span>
+                              <span>•</span>
+                              <span className="text-[#E20935] font-semibold">{service.badge}</span>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Bottom Consultation Quick Strip */}
+                    <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between px-2 text-xs bg-slate-50 rounded-xl p-2.5">
+                      <span className="text-slate-600 font-medium">
+                        Not sure which visa stream fits your background?
+                      </span>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          openModal();
+                        }}
+                        className="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all duration-200 shadow-xs cursor-pointer"
+                      >
+                        Free Profile Audit →
+                      </button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -245,70 +251,72 @@ export default function Navbar() {
             >
               <Link
                 href="/countries"
-                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg cursor-pointer transition-all duration-200 ease-out active:scale-95 ${
                   pathname.startsWith("/countries")
                     ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
                 <span>Countries</span>
-                <ChevronDown className="w-3.5 h-3.5 text-[#E20935]" />
+                <ChevronDown className="w-3.5 h-3.5 text-[#E20935] transition-transform duration-200 group-hover:rotate-180" />
               </Link>
 
               {countriesDropdown && (
-                <div className="absolute top-full -left-36 xl:-left-24 w-[640px] xl:w-[700px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
-                    <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
-                      <Compass className="w-3.5 h-3.5" />
-                      Global Migration Corridors & PR Directories
-                    </span>
-                    <Link
-                      href="/countries"
-                      className="text-xs font-bold text-slate-500 hover:text-[#E20935] transition-colors"
-                    >
-                      View All Countries →
-                    </Link>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {COUNTRIES_LIST.filter((c) => c.id !== "europe-usa").map((country) => (
+                <div className="absolute top-full -left-36 xl:-left-24 pt-4.5 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
+                  <div className="w-[680px] xl:w-[740px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 transition-all duration-200">
+                    <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
+                      <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
+                        <Compass className="w-3.5 h-3.5" />
+                        Global Migration Corridors & PR Directories
+                      </span>
                       <Link
-                        key={country.id}
-                        href={`/countries/${country.slug}`}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all group cursor-pointer"
+                        href="/countries"
+                        className="text-xs font-bold text-slate-500 hover:text-[#E20935] transition-colors"
                       >
-                        <div className="mt-0.5 shrink-0">
-                          <CountryFlag code={country.flagCode} size="md" className="rounded shadow-xs" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors truncate">
-                              {country.name}
-                            </span>
-                            <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
-                              {country.salaryStat?.amount || country.avgSalary.split("/")[0]}
-                            </span>
-                          </div>
-                          <div className="text-[11px] text-slate-500 truncate mt-0.5">
-                            {country.pathwayStat?.title ? `${country.pathwayStat.title} • ${country.pointsStat?.score || country.minPointsNeeded}` : country.minPointsNeeded}
-                          </div>
-                        </div>
+                        View All Countries →
                       </Link>
-                    ))}
-                  </div>
-
-                  {/* Mega Menu Footer Banner */}
-                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between px-2 bg-slate-50/80 rounded-xl p-2.5">
-                    <div className="text-xs text-slate-600">
-                      <span className="font-bold text-[#16171A]">Not sure which country you qualify for?</span> Find out in 60 seconds.
                     </div>
-                    <Link
-                      href="/assessment"
-                      className="text-xs font-bold text-[#E20935] hover:underline flex items-center gap-1 shrink-0"
-                    >
-                      <span>Take Points Audit</span>
-                      <span>→</span>
-                    </Link>
+
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {COUNTRIES_LIST.filter((c) => c.id !== "europe-usa").map((country) => (
+                        <Link
+                          key={country.id}
+                          href={`/countries/${country.slug}`}
+                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all duration-200 group cursor-pointer"
+                        >
+                          <div className="mt-0.5 shrink-0">
+                            <CountryFlag code={country.flagCode} size="md" className="rounded shadow-xs" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors duration-200 leading-snug">
+                                {country.name}
+                              </span>
+                              <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
+                                {country.salaryStat?.amount || country.avgSalary.split("/")[0]}
+                              </span>
+                            </div>
+                            <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                              {country.pathwayStat?.title ? `${country.pathwayStat.title} • ${country.pointsStat?.score || country.minPointsNeeded}` : country.minPointsNeeded}
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Mega Menu Footer Banner */}
+                    <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between px-2 bg-slate-50/80 rounded-xl p-2.5">
+                      <div className="text-xs text-slate-600">
+                        <span className="font-bold text-[#16171A]">Not sure which country you qualify for?</span> Find out in 60 seconds.
+                      </div>
+                      <Link
+                        href="/assessment"
+                        className="text-xs font-bold text-[#E20935] hover:underline flex items-center gap-1 shrink-0"
+                      >
+                        <span>Take Points Audit</span>
+                        <span>→</span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
@@ -316,7 +324,7 @@ export default function Navbar() {
 
             <Link
               href="/assessment"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/assessment"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -327,7 +335,7 @@ export default function Navbar() {
 
             <Link
               href="/success-stories"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/success-stories"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -338,7 +346,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/contact"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"

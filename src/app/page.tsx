@@ -74,22 +74,31 @@ export default function HomePage() {
               </h1>
 
               <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
-                Legally accredited immigration counsel providing statutory pre-assessment, CRS points fortification, and flawless visa lodgement for Canada, Australia, the UK, Europe, USA, and the UAE.
+                Over <strong className="font-extrabold text-[#16171A]">8,500+ successful visa grants</strong> with an audited <strong className="font-extrabold text-[#E20935]">98.7% approval rate</strong>. Legally accredited immigration counsel providing statutory pre-assessment, CRS points fortification, and flawless visa lodgement for Canada, Australia, the UK, Europe, USA, and the UAE.
               </p>
 
-              {/* Legal Advantage Badges (Unique value points, not repeating numbers) */}
+              {/* Critical Authority & Attention-to-Detail Stat Badges */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="text-slate-800">Direct Lawyer Filing</span>
+                <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-[#E20935]/40 transition-colors">
+                  <Award className="w-5 h-5 text-[#E20935] shrink-0" />
+                  <div>
+                    <div className="font-extrabold text-[#16171A] text-sm">8,500+ Grants</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Direct Lawyer Filing</div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold">
-                  <Award className="w-4 h-4 text-[#E20935] shrink-0" />
-                  <span className="text-slate-800">Points Optimization</span>
+                <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-emerald-500/40 transition-colors">
+                  <TrendingUp className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <div>
+                    <div className="font-extrabold text-[#16171A] text-sm">98.7% Success</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Audited Approvals</div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold">
-                  <Building2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span className="text-slate-800">4 Global Corporate Hubs</span>
+                <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-blue-500/40 transition-colors">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+                  <div>
+                    <div className="font-extrabold text-[#16171A] text-sm">Zero Rejection</div>
+                    <div className="text-[11px] text-slate-500 font-medium">Statutory Pre-Screen</div>
+                  </div>
                 </div>
               </div>
 
