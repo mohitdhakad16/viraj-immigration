@@ -17,7 +17,6 @@ import {
   ShieldCheck
 } from "lucide-react";
 import { useConsultationModal } from "@/context/ModalContext";
-import InteractiveGlobalMap from "@/components/InteractiveGlobalMap";
 
 export default function ServicesOverviewPage() {
   const [filter, setFilter] = useState("all");
@@ -189,23 +188,6 @@ export default function ServicesOverviewPage() {
         </div>
       </section>
 
-      {/* 3. INTERACTIVE GLOBAL MOBILITY MAP */}
-      <section className="py-20 bg-[#16171A] border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-950/70 text-[#ff476d] border border-[#E20935]/40">
-              Interactive Migration Corridors
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-              Test Visa Routes & Starting Salaries Across Destination Hubs
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-400">
-              Select any destination hub on the radar to inspect PR streams, processing windows, and in-demand occupations.
-            </p>
-          </div>
-          <InteractiveGlobalMap />
-        </div>
-      </section>
 
       {/* 4. CTA */}
       <section className="bg-[#0E0F12] text-white py-16 border-t border-white/10">
