@@ -38,9 +38,9 @@ export default function ServiceDetailLayout({ service }: Props) {
             alt={service.title}
             fill
             priority
-            className="object-cover object-center opacity-75 scale-105"
+            className="object-cover object-center opacity-65 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0d0f]/85 via-[#16171A]/65 to-[#0c0d0f]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d0f] via-[#0c0d0f]/80 to-[#0c0d0f]/50" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.18),transparent_70%)]" />
         </div>
 
@@ -53,18 +53,18 @@ export default function ServiceDetailLayout({ service }: Props) {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
               {service.title}
             </h1>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-2xl font-medium drop-shadow-sm">
               {service.fullDesc}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs">
+            <div className="flex flex-wrap items-center gap-3 pt-4">
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 text-xs shadow-lg">
                 <Clock className="w-4 h-4 text-[#E20935]" />
-                <span>Processing Time: <strong className="text-white">{service.processingTime}</strong></span>
+                <span className="text-slate-200">Processing Time: <strong className="text-white font-extrabold">{service.processingTime}</strong></span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs">
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 text-xs shadow-lg">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Audited Approval Rate: <strong className="text-white">{service.successRate}</strong></span>
+                <span className="text-slate-200">Audited Approval Rate: <strong className="text-white font-extrabold">{service.successRate}</strong></span>
               </div>
             </div>
           </div>

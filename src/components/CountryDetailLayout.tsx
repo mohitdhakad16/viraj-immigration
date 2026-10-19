@@ -38,9 +38,9 @@ export default function CountryDetailLayout({ country }: Props) {
             alt={country.name}
             fill
             priority
-            className="object-cover object-center opacity-75 scale-105"
+            className="object-cover object-center opacity-65 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0d0f]/85 via-[#16171A]/65 to-[#0c0d0f]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d0f] via-[#0c0d0f]/80 to-[#0c0d0f]/50" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,9,53,0.18),transparent_70%)]" />
         </div>
 
@@ -58,32 +58,38 @@ export default function CountryDetailLayout({ country }: Props) {
               </span>
             </h1>
 
-            <p className="text-xs sm:text-sm text-slate-200 font-medium">
+            <p className="text-xs sm:text-sm text-white/90 font-bold drop-shadow-sm">
               {country.tagline}
             </p>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-2xl font-medium drop-shadow-sm">
               {country.overview}
             </p>
 
-            {/* Quick Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-4">
-              <div className="p-3 sm:p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[11px] text-slate-400 block mb-0.5">Average Income</span>
-                <span className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
+            {/* High-Contrast Quick Metrics */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 shadow-xl space-y-1">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 block">
+                  Average Income
+                </span>
+                <span className="text-sm sm:text-base font-extrabold text-white flex items-center gap-1.5">
                   <DollarSign className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="truncate">{country.avgSalary}</span>
+                  <span>{country.avgSalary}</span>
                 </span>
               </div>
-              <div className="p-3 sm:p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[11px] text-slate-400 block mb-0.5">Min Points Required</span>
-                <span className="text-xs sm:text-sm font-bold text-[#ff476d] block leading-tight">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 shadow-xl space-y-1">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 block">
+                  Min Points Required
+                </span>
+                <span className="text-xs sm:text-sm font-extrabold text-[#ff476d] block leading-snug">
                   {country.minPointsNeeded}
                 </span>
               </div>
-              <div className="col-span-2 sm:col-span-1 p-3 sm:p-3.5 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-[11px] text-slate-400 block mb-0.5">Capital City</span>
-                <span className="text-sm sm:text-base font-bold text-white flex items-center gap-1">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 shadow-xl space-y-1">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 block">
+                  Capital City
+                </span>
+                <span className="text-sm sm:text-base font-extrabold text-white flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-[#E20935] shrink-0" />
                   <span>{country.capital}</span>
                 </span>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import {
   Compass,
   Plane,
@@ -17,22 +17,13 @@ import {
 } from "lucide-react";
 import { useConsultationModal } from "@/context/ModalContext";
 
-const RealLeafletMap = dynamic(() => import("./RealLeafletMap"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full aspect-[16/10] sm:aspect-[16/9] min-h-[360px] sm:min-h-[420px] rounded-xl bg-[#0E0F12] border border-white/10 flex flex-col items-center justify-center gap-3 text-slate-400">
-      <div className="w-8 h-8 border-2 border-[#E20935] border-t-transparent rounded-full animate-spin" />
-      <span className="text-xs font-semibold">Loading CartoDB Global Geographic Radar...</span>
-    </div>
-  )
-});
-
 export interface DestinationHub {
   id: string;
   name: string;
   country: string;
   code: string;
   city: string;
+  flag: string;
   coords: { x: number; y: number };
   prStreams: string;
   minPoints: string;
@@ -49,7 +40,8 @@ const HUBS: DestinationHub[] = [
     country: "Canada",
     code: "CA",
     city: "Toronto & Vancouver",
-    coords: { x: 23, y: 32 },
+    flag: "🇨🇦",
+    coords: { x: 242, y: 170 },
     prStreams: "Express Entry (FSW/CEC) & Provincial Nominee (OINP, SINP)",
     minPoints: "CRS ~485 - 510 or 600+ (with PNP)",
     avgSalary: "$82,000 CAD / Year",
@@ -63,7 +55,8 @@ const HUBS: DestinationHub[] = [
     country: "Australia",
     code: "AU",
     city: "Melbourne & Sydney",
-    coords: { x: 84, y: 78 },
+    flag: "🇦🇺",
+    coords: { x: 884, y: 494 },
     prStreams: "Subclass 189 (Independent) & Subclass 190 (State Nominated)",
     minPoints: "65 Pts Benchmark (Competitive: 75 - 85 Pts)",
     avgSalary: "$94,000 AUD / Year",
@@ -77,7 +70,8 @@ const HUBS: DestinationHub[] = [
     country: "United Kingdom",
     code: "GB",
     city: "London & Manchester",
-    coords: { x: 47, y: 28 },
+    flag: "🇬🇧",
+    coords: { x: 475, y: 160 },
     prStreams: "Skilled Worker Visa (CoS) & Global Talent Pathway",
     minPoints: "70 Points (Job Offer + English Threshold)",
     avgSalary: "£48,000 GBP / Year",
@@ -91,7 +85,8 @@ const HUBS: DestinationHub[] = [
     country: "Europe / Germany",
     code: "EU",
     city: "Berlin & Frankfurt",
-    coords: { x: 53, y: 30 },
+    flag: "🇩🇪",
+    coords: { x: 516, y: 156 },
     prStreams: "Opportunity Card (Chancenkarte) & EU Blue Card",
     minPoints: "6 Points (Degree + Experience + A1 German)",
     avgSalary: "€68,000 EUR / Year",
@@ -105,7 +100,8 @@ const HUBS: DestinationHub[] = [
     country: "USA",
     code: "US",
     city: "New York & Silicon Valley",
-    coords: { x: 25, y: 38 },
+    flag: "🇺🇸",
+    coords: { x: 255, y: 214 },
     prStreams: "EB-5 Immigrant Investor Green Card & EB-1/EB-2 NIW",
     minPoints: "Qualifying Commercial Investment / Extraordinary Ability",
     avgSalary: "$105,000 USD / Year",
@@ -119,7 +115,8 @@ const HUBS: DestinationHub[] = [
     country: "UAE",
     code: "AE",
     city: "Dubai & Abu Dhabi",
-    coords: { x: 60, y: 42 },
+    flag: "🇦🇪",
+    coords: { x: 623, y: 257 },
     prStreams: "10-Year Golden Visa (Investors & Specialized Talents)",
     minPoints: "Direct Eligibility (Property AED 2M+ / Executive Salary)",
     avgSalary: "AED 320,000 / Year",
@@ -134,8 +131,24 @@ export default function InteractiveGlobalMap() {
   const [filterMode, setFilterMode] = useState<"skilled" | "investor" | "student">("skilled");
   const { openModal } = useConsultationModal();
 
-  // Origin point: New Delhi Hub
-  const origin = { x: 67, y: 45 };
+  const getFlightPath = (hubId: string) => {
+    switch (hubId) {
+      case "canada":
+        return "M 714 249 Q 478 70 242 170";
+      case "australia":
+        return "M 714 249 Q 799 310 884 494";
+      case "uk":
+        return "M 714 249 Q 594 130 475 160";
+      case "germany":
+        return "M 714 249 Q 615 135 516 156";
+      case "usa":
+        return "M 714 249 Q 484 85 255 214";
+      case "uae":
+        return "M 714 249 Q 668 210 623 257";
+      default:
+        return "M 714 249 Q 478 70 242 170";
+    }
+  };
 
   return (
     <div className="w-full bg-[#16171A] rounded-3xl border border-[#E20935]/30 p-5 sm:p-8 lg:p-10 shadow-2xl text-white relative overflow-hidden">
@@ -153,7 +166,7 @@ export default function InteractiveGlobalMap() {
             Live Global Visa Pathways & Flight Corridors
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 mt-1">
-            Click any destination on the globe to inspect real-time PR quotas, salaries, and visa approval routes.
+            Click any destination on the map to inspect real-time PR quotas, salaries, and visa approval routes.
           </p>
         </div>
 
@@ -182,13 +195,97 @@ export default function InteractiveGlobalMap() {
       {/* Interactive Map & Route Dossier Grid */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        {/* Left Column: Real Interactive Geographic World Map with CartoDB & Real Flights (7 Cols) */}
+        {/* Left Column: Physical World Relief Map (7 Cols) */}
         <div className="lg:col-span-7 bg-[#0E0F12] rounded-2xl border border-white/10 p-3 sm:p-5 relative overflow-hidden shadow-inner flex flex-col gap-3">
-          <RealLeafletMap
-            selectedHub={selectedHub}
-            onSelectHub={setSelectedHub}
-            hubs={HUBS}
-          />
+          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] min-h-[340px] sm:min-h-[400px] rounded-xl overflow-hidden border border-white/15 shadow-2xl bg-[#0a1829]">
+            {/* Background Physical World Relief Map Graphic */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/images/world-relief-map.png"
+                alt="Physical World Relief Map"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+              {/* Subtle edge vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+            </div>
+
+            {/* SVG Flight Arcs Overlay */}
+            <svg
+              viewBox="0 0 1000 642"
+              className="absolute inset-0 w-full h-full z-10 pointer-events-none select-none"
+            >
+              {/* Flight Arcs to all destinations, active one highlighted */}
+              {HUBS.map((hub) => {
+                const isSelected = hub.id === selectedHub.id;
+                const pathD = getFlightPath(hub.id);
+
+                return (
+                  <path
+                    key={hub.id}
+                    d={pathD}
+                    fill="none"
+                    stroke={isSelected ? "#E20935" : "#ffffff"}
+                    strokeWidth={isSelected ? "3" : "1.2"}
+                    opacity={isSelected ? 1 : 0.25}
+                    strokeDasharray={isSelected ? "6 4" : "4 4"}
+                    className={isSelected ? "animate-pulse" : ""}
+                  />
+                );
+              })}
+
+              {/* Origin Marker: New Delhi HQ */}
+              <g transform="translate(714, 249)">
+                <circle r="14" fill="#10b981" opacity="0.3" className="animate-ping" />
+                <circle r="5" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
+              </g>
+            </svg>
+
+            {/* Interactive HTML Badges Floating Above the Map */}
+            <div className="absolute inset-0 z-20 pointer-events-auto">
+              {/* Origin Badge */}
+              <div
+                style={{ left: "71.4%", top: "38.8%" }}
+                className="absolute -translate-x-1/2 -translate-y-full mb-1.5 pointer-events-none"
+              >
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0E0F12]/95 border border-emerald-500 shadow-xl text-white text-[10px] font-extrabold whitespace-nowrap">
+                  <span>🇮🇳</span>
+                  <span className="text-emerald-400">NEW DELHI HQ</span>
+                </div>
+              </div>
+
+              {/* Destination Hub Badges */}
+              {HUBS.map((hub) => {
+                const isSelected = hub.id === selectedHub.id;
+                const leftPct = `${(hub.coords.x / 1000) * 100}%`;
+                const topPct = `${(hub.coords.y / 642) * 100}%`;
+
+                return (
+                  <div
+                    key={hub.id}
+                    style={{ left: leftPct, top: topPct }}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-95"
+                    onClick={() => setSelectedHub(hub)}
+                  >
+                    <div
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full shadow-2xl border text-xs font-extrabold whitespace-nowrap transition-all duration-200 ${
+                        isSelected
+                          ? "bg-[#E20935] text-white border-white ring-4 ring-[#E20935]/40 shadow-red-600/70 scale-105"
+                          : "bg-[#16171A]/95 text-white border-white/30 hover:border-[#E20935] hover:bg-[#22242a]"
+                      }`}
+                    >
+                      <span className="text-sm shrink-0">{hub.flag}</span>
+                      <span className="tracking-wide text-white">{hub.name}</span>
+                      {isSelected && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping shrink-0" />
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
           {/* Quick Country Pill Buttons on Map Base */}
           <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
@@ -202,6 +299,7 @@ export default function InteractiveGlobalMap() {
                     : "bg-[#16171A] text-slate-300 border border-white/10 hover:border-[#E20935] hover:text-white"
                 }`}
               >
+                <span>{hub.flag}</span>
                 <span>{hub.name}</span>
               </button>
             ))}

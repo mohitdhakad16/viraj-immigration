@@ -247,7 +247,7 @@ export const COUNTRIES_LIST: CountryItem[] = [
     capital: "Ottawa",
     flagCode: "CA",
     tagline: "The World's #1 Destination for Skilled Professionals & Families",
-    heroImage: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?auto=format&fit=crop&w=1800&q=80",
     popularStreams: ["Express Entry (FSW/CEC)", "Provincial Nominee Programs (OINP, SINP, BCPNP)", "Start-Up Visa", "LMIA Work Permits", "Family Class"],
     minPointsNeeded: "CRS ~470 - 510 (Direct Entry) or 600+ (with PNP)",
     avgSalary: "$78,000 CAD / Year",

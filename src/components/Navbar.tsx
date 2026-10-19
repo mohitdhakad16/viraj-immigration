@@ -174,7 +174,7 @@ export default function Navbar() {
 
               {servicesDropdown && (
                 <div className="absolute top-full -left-28 xl:-left-20 pt-4.5 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
-                  <div className="w-[700px] xl:w-[760px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 transition-all duration-200">
+                  <div className="w-[720px] xl:w-[780px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 transition-all duration-200">
                     <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
                       <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
                         <Award className="w-3.5 h-3.5" />
@@ -188,7 +188,7 @@ export default function Navbar() {
                       </Link>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2.5">
+                    <div className="grid grid-cols-2 gap-3">
                       {SERVICES_LIST.map((service) => (
                         <Link
                           key={service.id}
@@ -207,8 +207,12 @@ export default function Navbar() {
                                 {service.successRate}
                               </span>
                             </div>
-                            <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">
-                              {service.shortDesc}
+                            <p className="text-[11px] text-slate-600 mt-1 leading-snug">
+                              {service.id === "study-visa" && "Strategic education visa filing, genuine student compliance, post-study work permits & residency pathways."}
+                              {service.id === "work-permit" && "Employer sponsorship, LMIA clearance, Global Talent Stream, and Subclass 482 / 186 work visas."}
+                              {service.id === "permanent-residency" && "Canada Express Entry & PNP provincial quotas, Australia Subclass 189/190 points-tested migration."}
+                              {service.id === "business-investor" && "High net-worth immigration, Canada Start-Up Visa, Australia Subclass 188/888 & Golden Visas."}
+                              {service.id === "tourist-visitor" && "Fast-track Schengen, USA B1/B2, Canada visitor visas, and past refusal rectification."}
                             </p>
                             <div className="flex items-center gap-2 mt-1.5 text-[10px] text-slate-400 font-medium">
                               <span className="flex items-center gap-1">
@@ -296,7 +300,7 @@ export default function Navbar() {
                                 {country.salaryStat?.amount || country.avgSalary.split("/")[0]}
                               </span>
                             </div>
-                            <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                            <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">
                               {country.pathwayStat?.title ? `${country.pathwayStat.title} • ${country.pointsStat?.score || country.minPointsNeeded}` : country.minPointsNeeded}
                             </div>
                           </div>
