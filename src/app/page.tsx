@@ -47,49 +47,49 @@ export default function HomePage() {
 
   return (
     <div className="w-full bg-[#f8f6f1]">
-      {/* 1. HERO SECTION (Visaz Red + Charcoal Theme) */}
-      <section className="relative bg-[#16171A] text-white overflow-hidden pt-8 pb-16 lg:py-20 border-b border-white/10">
+      {/* 1. HERO SECTION (Light Theme + Red Accents) */}
+      <section className="relative bg-gradient-to-b from-[#ffffff] via-[#fcfbfa] to-[#f5f2ea] text-[#16171A] overflow-hidden pt-8 pb-14 lg:py-20 border-b border-slate-200">
         {/* Ambient atmospheric red flares */}
-        <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#E20935]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#E20935]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#E20935]/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#E20935]/5 rounded-full blur-3xl pointer-events-none" />
         
         {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Column: Value Proposition & Authority */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#E20935]/15 border border-[#E20935]/40 text-[#ff476d] shadow-md">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-red-50 border border-red-200 text-[#E20935] shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-[#E20935] shrink-0" />
                 <span>MARA Registered: 1802914 & CICC Licensed: R531892</span>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-[#16171A] leading-[1.12]">
                 Your Direct Pathway to{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#c5072d]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E20935] via-[#c5072d] to-[#990022]">
                   Global Residency & PR
                 </span>
               </h1>
 
-              <p className="text-xs sm:text-sm lg:text-base text-slate-200 max-w-xl leading-relaxed">
-                Legally accredited immigration counsel for <strong>Canada Express Entry & PNP</strong>, <strong>Australia Subclass 189/190/491</strong>, Work Permits & Global Migration with an audited <strong>98.7% success rate</strong>.
+              <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
+                Legally accredited immigration counsel providing statutory pre-assessment, CRS points fortification, and flawless visa lodgement for Canada, Australia, the UK, Europe, USA, and the UAE.
               </p>
 
-              {/* Trust Value Badges */}
+              {/* Legal Advantage Badges (Unique value points, not repeating numbers) */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span className="text-slate-200">Zero Rejection Protocol</span>
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-slate-800">Direct Lawyer Filing</span>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold">
                   <Award className="w-4 h-4 text-[#E20935] shrink-0" />
-                  <span className="text-slate-200">8,500+ Visa Grants</span>
+                  <span className="text-slate-800">Points Optimization</span>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-semibold">
-                  <Building2 className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span className="text-slate-200">India & Melbourne Offices</span>
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold">
+                  <Building2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span className="text-slate-800">4 Global Corporate Hubs</span>
                 </div>
               </div>
 
@@ -97,7 +97,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={() => openModal()}
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer"
                 >
                   <span>Book Free Legal Assessment</span>
                   <ArrowRight className="w-4 h-4" />
@@ -105,7 +105,7 @@ export default function HomePage() {
 
                 <Link
                   href="/assessment"
-                  className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#E20935] transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm text-[#16171A] bg-white hover:bg-slate-50 border border-slate-300 hover:border-[#E20935] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
                   <Sparkles className="w-4 h-4 text-[#E20935]" />
                   <span>Calculate PR Points</span>
@@ -113,12 +113,12 @@ export default function HomePage() {
               </div>
 
               {/* Direct Hotline Pill */}
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 pt-1">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 pt-1">
                 <PhoneCall className="w-4 h-4 text-[#E20935] animate-pulse" />
-                <span>Immediate Consultant Hotline:</span>
+                <span>Immediate Legal Advisory Desk:</span>
                 <a
                   href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-                  className="text-white font-bold hover:text-[#E20935] hover:underline cursor-pointer"
+                  className="text-[#16171A] font-bold hover:text-[#E20935] hover:underline cursor-pointer"
                 >
                   {COMPANY_INFO.phone}
                 </a>

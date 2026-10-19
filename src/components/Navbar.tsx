@@ -18,7 +18,8 @@ import {
   TrendingUp,
   Plane,
   ShieldCheck,
-  Calendar
+  Calendar,
+  Clock
 } from "lucide-react";
 import { COMPANY_INFO, SERVICES_LIST, COUNTRIES_LIST } from "@/data/immigrationData";
 import CountryFlag from "@/components/CountryFlag";
@@ -149,7 +150,7 @@ export default function Navbar() {
               About Us
             </Link>
 
-            {/* Visa Services Dropdown */}
+            {/* Visa Services Mega Menu */}
             <div
               className="relative"
               onMouseEnter={() => setServicesDropdown(true)}
@@ -168,36 +169,69 @@ export default function Navbar() {
               </Link>
 
               {servicesDropdown && (
-                <div className="absolute top-full left-0 w-80 bg-white border border-slate-200 rounded-2xl shadow-2xl p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold px-3 py-1 mb-1 border-b border-slate-100">
-                    Immigration & Visa Categories
-                  </div>
-                  {SERVICES_LIST.map((service) => (
-                    <Link
-                      key={service.id}
-                      href={`/services/${service.slug}`}
-                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
-                    >
-                      <div className="p-2 rounded-lg bg-red-50 border border-red-100 group-hover:border-[#E20935] transition-colors">
-                        {serviceIcons[service.id]}
-                      </div>
-                      <div>
-                        <div className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors">
-                          {service.title}
-                        </div>
-                        <div className="text-xs text-slate-500 line-clamp-1">
-                          {service.shortDesc}
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                  <div className="mt-2 pt-2 border-t border-slate-100 text-center">
+                <div className="absolute top-full -left-28 xl:-left-20 w-[660px] xl:w-[720px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
+                    <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
+                      <Award className="w-3.5 h-3.5" />
+                      Regulated Immigration Practices & Pathways
+                    </span>
                     <Link
                       href="/services"
-                      className="text-xs font-bold text-[#E20935] hover:underline cursor-pointer"
+                      className="text-xs font-bold text-slate-500 hover:text-[#E20935] transition-colors"
                     >
                       View All 5 Visa Practices →
                     </Link>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {SERVICES_LIST.map((service) => (
+                      <Link
+                        key={service.id}
+                        href={`/services/${service.slug}`}
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all group cursor-pointer"
+                      >
+                        <div className="p-2.5 rounded-xl bg-red-50 border border-red-100 group-hover:bg-[#E20935] group-hover:text-white transition-colors shrink-0 mt-0.5">
+                          {serviceIcons[service.id]}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors truncate">
+                              {service.title}
+                            </span>
+                            <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
+                              {service.successRate}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">
+                            {service.shortDesc}
+                          </p>
+                          <div className="flex items-center gap-2 mt-1.5 text-[10px] text-slate-400 font-medium">
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-3 h-3 text-[#E20935]" />
+                              {service.processingTime}
+                            </span>
+                            <span>•</span>
+                            <span className="text-[#E20935] font-semibold">{service.badge}</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Bottom Consultation Quick Strip */}
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between px-2 text-xs bg-slate-50 rounded-xl p-2.5">
+                    <span className="text-slate-600 font-medium">
+                      Not sure which visa stream fits your background?
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        openModal();
+                      }}
+                      className="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-[#E20935] hover:bg-[#c5072d] transition-colors shadow-xs cursor-pointer"
+                    >
+                      Free Profile Audit →
+                    </button>
                   </div>
                 </div>
               )}
