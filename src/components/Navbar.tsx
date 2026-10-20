@@ -84,7 +84,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-6">
-            <div className="flex items-center gap-2 text-[11px] bg-black/40 px-3.5 py-1 rounded-full border border-white/10">
+            <div className="flex items-center gap-2 text-xs bg-black/40 px-3.5 py-1 rounded-full border border-white/10">
               <ShieldCheck className="w-3.5 h-3.5 text-[#E20935]" />
               <span className="font-semibold text-white">Accredited:</span>
               <span className="text-slate-300 font-mono">MARA: 1802914 | CICC: R531892</span>
@@ -123,7 +123,7 @@ export default function Navbar() {
                 <span className="text-[15px] sm:text-base xl:text-[17px] font-extrabold tracking-tight text-[#16171A] block leading-none">
                   VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
                 </span>
-                <span className="hidden sm:block text-[8px] xl:text-[8.5px] uppercase tracking-wider text-slate-500 font-semibold mt-1">
+                <span className="hidden sm:block text-[10px] xl:text-[11px] uppercase tracking-wider text-slate-500 font-bold mt-1">
                   Visa & Immigration Advisory
                 </span>
               </div>
@@ -176,7 +176,7 @@ export default function Navbar() {
                 <div className="absolute top-full -left-28 xl:-left-20 pt-4.5 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
                   <div className="w-[720px] xl:w-[780px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 transition-all duration-200">
                     <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
-                      <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
+                      <span className="text-xs uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
                         <Award className="w-3.5 h-3.5" />
                         Regulated Immigration Practices & Pathways
                       </span>
@@ -203,18 +203,18 @@ export default function Navbar() {
                               <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors duration-200 leading-snug">
                                 {service.title}
                               </span>
-                              <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
+                              <span className="text-xs text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded shrink-0">
                                 {service.successRate}
                               </span>
                             </div>
-                            <p className="text-[11px] text-slate-600 mt-1 leading-snug">
+                            <p className="text-xs text-slate-600 mt-1 leading-snug">
                               {service.id === "study-visa" && "Strategic education visa filing, genuine student compliance, post-study work permits & residency pathways."}
                               {service.id === "work-permit" && "Employer sponsorship, LMIA clearance, Global Talent Stream, and Subclass 482 / 186 work visas."}
                               {service.id === "permanent-residency" && "Canada Express Entry & PNP provincial quotas, Australia Subclass 189/190 points-tested migration."}
                               {service.id === "business-investor" && "High net-worth immigration, Canada Start-Up Visa, Australia Subclass 188/888 & Golden Visas."}
                               {service.id === "tourist-visitor" && "Fast-track Schengen, USA B1/B2, Canada visitor visas, and past refusal rectification."}
                             </p>
-                            <div className="flex items-center gap-2 mt-1.5 text-[10px] text-slate-400 font-medium">
+                            <div className="flex items-center gap-2 mt-1.5 text-xs text-slate-500 font-medium">
                               <span className="flex items-center gap-1">
                                 <Clock className="w-3 h-3 text-[#E20935]" />
                                 {service.processingTime}
@@ -269,7 +269,7 @@ export default function Navbar() {
                 <div className="absolute top-full -left-36 xl:-left-24 pt-4.5 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
                   <div className="w-[680px] xl:w-[740px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 transition-all duration-200">
                     <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 px-2">
-                      <span className="text-[11px] uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
+                      <span className="text-xs uppercase tracking-wider text-[#E20935] font-extrabold flex items-center gap-1.5">
                         <Compass className="w-3.5 h-3.5" />
                         Global Migration Corridors & PR Directories
                       </span>
@@ -296,11 +296,11 @@ export default function Navbar() {
                               <span className="text-sm font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors duration-200 leading-snug">
                                 {country.name}
                               </span>
-                              <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
+                              <span className="text-xs text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded shrink-0">
                                 {country.salaryStat?.amount || country.avgSalary.split("/")[0]}
                               </span>
                             </div>
-                            <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                            <div className="text-xs text-slate-600 mt-0.5 leading-snug">
                               {country.pathwayStat?.title ? `${country.pathwayStat.title} • ${country.pointsStat?.score || country.minPointsNeeded}` : country.minPointsNeeded}
                             </div>
                           </div>

@@ -69,7 +69,7 @@ export default function CountryDetailLayout({ country }: Props) {
             {/* High-Contrast Quick Metrics */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
               <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 shadow-xl space-y-1">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 block">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-200 block">
                   Average Income
                 </span>
                 <span className="text-sm sm:text-base font-extrabold text-white flex items-center gap-1.5">
@@ -78,7 +78,7 @@ export default function CountryDetailLayout({ country }: Props) {
                 </span>
               </div>
               <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 shadow-xl space-y-1">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 block">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-200 block">
                   Min Points Required
                 </span>
                 <span className="text-xs sm:text-sm font-extrabold text-[#ff476d] block leading-snug">
@@ -86,7 +86,7 @@ export default function CountryDetailLayout({ country }: Props) {
                 </span>
               </div>
               <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0E0F12]/90 backdrop-blur-md border border-white/20 shadow-xl space-y-1">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-200 block">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-200 block">
                   Capital City
                 </span>
                 <span className="text-sm sm:text-base font-extrabold text-white flex items-center gap-1.5">

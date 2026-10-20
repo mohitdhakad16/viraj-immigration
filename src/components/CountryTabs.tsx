@@ -73,7 +73,7 @@ export default function CountryTabs() {
                 <span className="p-1 rounded-md bg-emerald-100/70 text-emerald-700 shrink-0">
                   <DollarSign className="w-3.5 h-3.5" />
                 </span>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                   Avg Salary
                 </span>
               </div>
@@ -81,7 +81,7 @@ export default function CountryTabs() {
                 <div className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                   {currentCountry.salaryStat?.amount || currentCountry.avgSalary}
                 </div>
-                <div className="text-xs text-slate-500 mt-1 leading-snug">
+                <div className="text-xs text-slate-600 mt-1 leading-snug">
                   {currentCountry.salaryStat?.period || "Average Annual Earnings"}
                 </div>
               </div>
@@ -93,7 +93,7 @@ export default function CountryTabs() {
                 <span className="p-1 rounded-md bg-red-100/70 text-[#E20935] shrink-0">
                   <Award className="w-3.5 h-3.5" />
                 </span>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                   Min Points
                 </span>
               </div>
@@ -113,7 +113,7 @@ export default function CountryTabs() {
                 <span className="p-1 rounded-md bg-blue-100/70 text-blue-700 shrink-0">
                   <Shield className="w-3.5 h-3.5" />
                 </span>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                   PR Pathway
                 </span>
               </div>
@@ -121,7 +121,7 @@ export default function CountryTabs() {
                 <div className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                   {currentCountry.pathwayStat?.title || "Direct Settlement"}
                 </div>
-                <div className="text-xs text-slate-500 mt-1 leading-snug">
+                <div className="text-xs text-slate-600 mt-1 leading-snug">
                   {currentCountry.pathwayStat?.subtitle || "Permanent Residency Streams"}
                 </div>
               </div>

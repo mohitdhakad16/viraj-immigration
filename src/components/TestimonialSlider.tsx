@@ -77,11 +77,11 @@ export default function TestimonialSlider() {
               </button>
 
               <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 right-2.5 sm:right-3 bg-black/80 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10 flex items-center justify-between text-xs">
-                <span className="flex items-center gap-1.5 text-emerald-400 font-bold text-[11px] sm:text-xs">
+                <span className="flex items-center gap-1.5 text-emerald-400 font-bold text-xs">
                   <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                   <span className="truncate">Visa: {current.grantYear}</span>
                 </span>
-                <span className="text-[10px] sm:text-[11px] text-slate-300 shrink-0">Verified</span>
+                <span className="text-xs text-slate-200 font-semibold shrink-0">Verified</span>
               </div>
             </div>
           </div>

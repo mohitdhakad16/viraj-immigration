@@ -19,6 +19,7 @@ export default function ConsultationModal() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [refToken, setRefToken] = useState("");
 
   useEffect(() => {
     if (isOpen) {
@@ -36,6 +37,8 @@ export default function ConsultationModal() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const token = `VI-CONSULT-${Math.floor(1000 + Math.random() * 9000)}`;
+    setRefToken(token);
 
     setTimeout(() => {
       setIsSubmitting(false);
@@ -90,6 +93,9 @@ export default function ConsultationModal() {
                 <CheckCircle className="w-9 h-9" />
               </div>
               <h4 className="text-2xl font-bold text-white">Assessment Request Received!</h4>
+              <div className="inline-block px-4 py-1.5 rounded-xl bg-black/60 border border-white/15 text-xs font-mono font-bold text-white">
+                Case File ID: <span className="text-[#ff476d]">{refToken}</span>
+              </div>
               <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                 Thank you, <span className="text-[#ff476d] font-semibold">{formData.name}</span>. A Senior Licensed Immigration Consultant has been assigned to your profile. We will call you at <span className="text-[#ff476d] font-semibold">{formData.phone}</span> shortly.
               </p>
@@ -103,12 +109,22 @@ export default function ConsultationModal() {
                   <span>Licensed Counsel Evaluation</span>
                 </div>
               </div>
-              <button
-                onClick={closeModal}
-                className="mt-4 px-6 py-2.5 rounded-lg bg-[#E20935] hover:bg-[#c5072d] text-white font-bold transition-all shadow-lg shadow-red-600/30"
-              >
-                Close Window
-              </button>
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={`https://wa.me/919876543210?text=Hello%20Viraj%20Immigration,%20my%20case%20file%20is%20${refToken}.%20I%20booked%20an%20assessment%20for%20${encodeURIComponent(formData.targetCountry || "Canada")}%20${encodeURIComponent(formData.visaType || "PR")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg"
+                >
+                  <span>Connect via WhatsApp</span>
+                </a>
+                <button
+                  onClick={closeModal}
+                  className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all"
+                >
+                  Close Window
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -242,13 +258,13 @@ export default function ConsultationModal() {
                 </button>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-white/5 gap-1.5 text-center sm:text-left">
-                <span className="flex items-center gap-1">
-                  <Lock className="w-3 h-3 text-[#E20935]" />
+              <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-300 pt-2 border-t border-white/10 gap-1.5 text-center sm:text-left">
+                <span className="flex items-center gap-1 font-medium">
+                  <Lock className="w-3.5 h-3.5 text-[#E20935]" />
                   100% Confidential & GDPR/MARA Compliant
                 </span>
-                <span className="flex items-center gap-1 text-slate-300">
-                  <Phone className="w-3 h-3 text-emerald-400" />
+                <span className="flex items-center gap-1 text-slate-200 font-semibold">
+                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
                   Instant Hotline: +91 98765 43210
                 </span>
               </div>

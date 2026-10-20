@@ -83,7 +83,7 @@ export default function RunningMarquee() {
               <span className="text-white/95 font-medium">
                 {item.highlight}
               </span>
-              <span className="text-[10px] font-black uppercase tracking-wider bg-black/30 text-white px-2 py-0.5 rounded-full border border-white/20">
+              <span className="text-xs font-extrabold uppercase tracking-wider bg-black/30 text-white px-2.5 py-0.5 rounded-full border border-white/20">
                 {item.badge}
               </span>
             </div>
@@ -108,7 +108,7 @@ export default function RunningMarquee() {
               <span className="text-white/95 font-medium">
                 {item.highlight}
               </span>
-              <span className="text-[10px] font-black uppercase tracking-wider bg-black/30 text-white px-2 py-0.5 rounded-full border border-white/20">
+              <span className="text-xs font-extrabold uppercase tracking-wider bg-black/30 text-white px-2.5 py-0.5 rounded-full border border-white/20">
                 {item.badge}
               </span>
             </div>

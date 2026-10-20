@@ -78,7 +78,7 @@ export default function CountriesPage() {
                         {country.name}
                       </h3>
                     </div>
-                    <span className="text-[11px] font-semibold text-slate-200 bg-black/50 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/10">
+                    <span className="text-xs font-semibold text-slate-200 bg-black/50 backdrop-blur-xs px-2.5 py-1 rounded-full border border-white/10">
                       {country.capital}
                     </span>
                   </div>
@@ -94,7 +94,7 @@ export default function CountriesPage() {
                     {/* Metric mini pills */}
                     <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
                       <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                        <span className="text-[10px] text-slate-400 block font-semibold uppercase">Avg Income</span>
+                        <span className="text-xs text-slate-500 block font-semibold uppercase tracking-wider">Avg Income</span>
                         <span className="text-xs font-bold text-slate-900 flex items-center gap-1 mt-0.5">
                           <DollarSign className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           <span className="truncate">{country.salaryStat?.amount || country.avgSalary}</span>
@@ -102,7 +102,7 @@ export default function CountriesPage() {
                       </div>
 
                       <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                        <span className="text-[10px] text-slate-400 block font-semibold uppercase">Eligibility</span>
+                        <span className="text-xs text-slate-500 block font-semibold uppercase tracking-wider">Eligibility</span>
                         <span className="text-xs font-bold text-[#E20935] block truncate mt-0.5">
                           {country.pointsStat?.score || country.minPointsNeeded}
                         </span>
@@ -111,14 +111,14 @@ export default function CountriesPage() {
 
                     {/* Popular Streams Tags */}
                     <div className="pt-2">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">
                         Leading Streams
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {country.popularStreams.slice(0, 3).map((stream, idx) => (
                           <span
                             key={idx}
-                            className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-red-50 text-[#E20935] border border-red-100"
+                            className="px-2.5 py-1 rounded-md text-xs font-medium bg-red-50 text-[#E20935] border border-red-100"
                           >
                             {stream}
                           </span>

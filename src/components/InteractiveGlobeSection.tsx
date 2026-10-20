@@ -142,6 +142,18 @@ export default function InteractiveGlobeSection() {
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const { openModal } = useConsultationModal();
 
+  const getDestinationGuideUrl = (destId: string) => {
+    switch (destId) {
+      case "canada": return "/countries/canada";
+      case "australia": return "/countries/australia";
+      case "uk": return "/countries/uk";
+      case "germany": return "/countries/europe";
+      case "usa": return "/countries/usa";
+      case "uae": return "/countries/uae";
+      default: return "/countries";
+    }
+  };
+
   // Auto-cycle through destinations when autoRotate is on
   useEffect(() => {
     if (!autoRotate) return;
@@ -187,7 +199,7 @@ export default function InteractiveGlobeSection() {
                   onClick={() => {
                     setSelectedDest(dest);
                   }}
-                  className={`w-full flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2.5 rounded-xl text-xs lg:text-[11px] xl:text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                  className={`w-full flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                     isSelected
                       ? "bg-[#E20935] text-white shadow-lg shadow-red-600/40 ring-2 ring-[#E20935]/50 scale-[1.02]"
                       : "bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white hover:border-[#E20935]/40"
@@ -272,7 +284,7 @@ export default function InteractiveGlobeSection() {
                           top: `${dest.cy}%`,
                           transform: "translate(-50%, -50%)"
                         }}
-                        className={`group z-20 flex flex-col items-center cursor-pointer transition-all ${
+                        className={`group z-20 flex flex-col items-center cursor-pointer transition-all p-1 touch-manipulation ${
                           isSelected ? "scale-110 sm:scale-115 z-30" : "scale-90 sm:scale-95 hover:scale-105 opacity-85 hover:opacity-100"
                         }`}
                         aria-label={`Select ${dest.name}`}
@@ -290,7 +302,7 @@ export default function InteractiveGlobeSection() {
 
                         {/* Enlarged Country Name Tag (Clean & Mobile-Safe) */}
                         <span
-                          className={`text-[11px] sm:text-xs font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg mt-1 whitespace-nowrap shadow-lg transition-all ${
+                          className={`text-xs font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg mt-1 whitespace-nowrap shadow-lg transition-all ${
                             isSelected
                               ? "bg-[#E20935] text-white shadow-red-600/40 border border-white/20"
                               : "bg-black/85 backdrop-blur-md text-slate-200 border border-white/10 group-hover:text-white group-hover:border-[#E20935]/40"
@@ -316,16 +328,16 @@ export default function InteractiveGlobeSection() {
             </div>
 
             {/* Bottom Globe Telemetry Bar */}
-            <div className="w-full flex flex-col sm:flex-row items-center justify-between border-t border-white/10 pt-4 mt-4 gap-2 text-xs text-slate-400">
+            <div className="w-full flex flex-col sm:flex-row items-center justify-between border-t border-white/10 pt-4 mt-4 gap-2 text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Radar Lock: <strong className="text-white">{selectedDest.name}</strong></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Radar Lock: <strong className="text-white font-bold">{selectedDest.name}</strong></span>
               </div>
-              <div className="flex items-center gap-2 font-mono text-[11px] text-[#ff4d6d]">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#ff4d6d]">
                 <span>Est: ~{selectedDest.processingWeeks} Wks</span>
-                <span className="text-white/20">•</span>
+                <span className="text-white/30">•</span>
                 <span>{selectedDest.acceptanceRate}% Success</span>
-                <span className="text-white/20">•</span>
+                <span className="text-white/30">•</span>
                 <span className="text-emerald-400 font-bold">{selectedDest.quotaStatus}</span>
               </div>
             </div>
@@ -343,20 +355,20 @@ export default function InteractiveGlobeSection() {
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white">
                     {selectedDest.name}
                   </h3>
-                  <span className="text-[11px] uppercase font-mono px-1.5 py-0.5 rounded bg-white/10 text-slate-300">
+                  <span className="text-xs uppercase font-mono px-2 py-0.5 rounded bg-white/10 text-slate-200 font-semibold">
                     {selectedDest.countryCode}
                   </span>
                 </div>
-                <p className="text-xs text-slate-400">
-                  Target Metros: <strong className="text-slate-200">{selectedDest.city}</strong>
+                <p className="text-xs sm:text-sm text-slate-300">
+                  Target Metros: <strong className="text-white font-semibold">{selectedDest.city}</strong>
                 </p>
               </div>
 
               <div className="flex items-center sm:flex-col sm:items-end gap-2 sm:gap-0.5 shrink-0">
-                <span className="inline-block text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span className="inline-block text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                   {selectedDest.quotaStatus}
                 </span>
-                <span className="text-[10px] text-slate-400 font-mono">
+                <span className="text-xs text-slate-400 font-mono mt-0.5">
                   Quota Active
                 </span>
               </div>
@@ -366,14 +378,14 @@ export default function InteractiveGlobeSection() {
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 mb-5 sm:mb-6">
               <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/40 border border-white/5 flex flex-col justify-between min-h-[96px] sm:min-h-[110px]">
                 <div className="flex items-center gap-1.5 text-slate-300 mb-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#E20935] shrink-0" />
-                  <span className="font-semibold text-[11px] sm:text-xs">Success Rate</span>
+                  <ShieldCheck className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold text-xs">Success Rate</span>
                 </div>
                 <div>
                   <div className="text-lg sm:text-2xl font-extrabold text-white">
                     {selectedDest.acceptanceRate}%
                   </div>
-                  <span className="text-[11px] text-emerald-400 font-semibold block mt-0.5">
+                  <span className="text-xs text-emerald-400 font-semibold block mt-0.5">
                     High Visa Grant Ratio
                   </span>
                 </div>
@@ -381,14 +393,14 @@ export default function InteractiveGlobeSection() {
 
               <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/40 border border-white/5 flex flex-col justify-between min-h-[96px] sm:min-h-[110px]">
                 <div className="flex items-center gap-1.5 text-slate-300 mb-1">
-                  <Clock className="w-3.5 h-3.5 text-[#E20935] shrink-0" />
-                  <span className="font-semibold text-[11px] sm:text-xs">Est. Processing</span>
+                  <Clock className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold text-xs">Est. Processing</span>
                 </div>
                 <div>
                   <div className="text-lg sm:text-2xl font-extrabold text-white">
                     ~{selectedDest.processingWeeks} Wks
                   </div>
-                  <span className="text-[11px] text-emerald-400 font-bold block mt-0.5">
+                  <span className="text-xs text-emerald-400 font-bold block mt-0.5">
                     Verified Bar Filing
                   </span>
                 </div>
@@ -396,14 +408,14 @@ export default function InteractiveGlobeSection() {
 
               <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/40 border border-white/5 flex flex-col justify-between min-h-[96px] sm:min-h-[110px]">
                 <div className="flex items-center gap-1.5 text-slate-300 mb-1">
-                  <DollarSign className="w-3.5 h-3.5 text-[#E20935] shrink-0" />
-                  <span className="font-semibold text-[11px] sm:text-xs">Avg Salary</span>
+                  <DollarSign className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold text-xs">Avg Salary</span>
                 </div>
                 <div>
                   <div className="text-base sm:text-xl font-bold text-white whitespace-nowrap">
                     {selectedDest.avgIncome}
                   </div>
-                  <span className="text-[11px] text-slate-400 block mt-0.5">
+                  <span className="text-xs text-slate-300 block mt-0.5">
                     Yearly median package
                   </span>
                 </div>
@@ -411,14 +423,14 @@ export default function InteractiveGlobeSection() {
 
               <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/40 border border-white/5 flex flex-col justify-between min-h-[96px] sm:min-h-[110px]">
                 <div className="flex items-center gap-1.5 text-slate-300 mb-1">
-                  <Award className="w-3.5 h-3.5 text-[#E20935] shrink-0" />
-                  <span className="font-semibold text-[11px] sm:text-xs">Primary Pathway</span>
+                  <Award className="w-4 h-4 text-[#E20935] shrink-0" />
+                  <span className="font-semibold text-xs">Primary Pathway</span>
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-snug">
                     {selectedDest.visaType}
                   </div>
-                  <span className="text-[11px] text-slate-400 block mt-0.5">
+                  <span className="text-xs text-slate-300 block mt-0.5">
                     Direct Settlement Path
                   </span>
                 </div>
@@ -437,7 +449,7 @@ export default function InteractiveGlobeSection() {
               </div>
 
               <div className="pt-2.5 border-t border-white/10">
-                <span className="text-xs uppercase tracking-wider text-slate-300 font-bold block mb-2">
+                <span className="text-xs uppercase tracking-wider text-slate-200 font-bold block mb-2">
                   High-Priority In-Demand Occupations:
                 </span>
                 <div className="flex flex-wrap gap-2">
@@ -463,25 +475,17 @@ export default function InteractiveGlobeSection() {
                 <ArrowRight className="w-4 h-4 shrink-0" />
               </button>
 
-              <div className="flex items-center justify-between text-xs text-slate-400 px-1">
-                <span className="flex items-center gap-1">
+              <div className="flex items-center justify-between text-xs text-slate-300 px-1">
+                <span className="flex items-center gap-1.5 font-medium">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   MARA & CICC Verified Path
                 </span>
                 <Link
-                  href={
-                    selectedDest.id === "canada"
-                      ? "/countries/canada"
-                      : selectedDest.id === "australia"
-                      ? "/countries/australia"
-                      : selectedDest.id === "uk"
-                      ? "/countries/uk"
-                      : "/countries/europe-usa"
-                  }
-                  className="text-[#ff4d6d] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
+                  href={getDestinationGuideUrl(selectedDest.id)}
+                  className="text-[#ff4d6d] hover:underline flex items-center gap-1 font-bold cursor-pointer transition-colors"
                 >
                   <span>Full Guide</span>
-                  <ExternalLink className="w-3 h-3" />
+                  <ExternalLink className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

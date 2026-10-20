@@ -83,21 +83,21 @@ export default function HomePage() {
                   <Award className="w-5 h-5 text-[#E20935] shrink-0" />
                   <div>
                     <div className="font-extrabold text-[#16171A] text-sm">8,500+ Grants</div>
-                    <div className="text-[11px] text-slate-500 font-medium">Direct Lawyer Filing</div>
+                    <div className="text-xs text-slate-600 font-medium">Direct Lawyer Filing</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-emerald-500/40 transition-colors">
                   <TrendingUp className="w-5 h-5 text-emerald-600 shrink-0" />
                   <div>
                     <div className="font-extrabold text-[#16171A] text-sm">98.7% Success</div>
-                    <div className="text-[11px] text-slate-500 font-medium">Audited Approvals</div>
+                    <div className="text-xs text-slate-600 font-medium">Audited Approvals</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-blue-500/40 transition-colors">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
                   <div>
                     <div className="font-extrabold text-[#16171A] text-sm">Zero Rejection</div>
-                    <div className="text-[11px] text-slate-500 font-medium">Statutory Pre-Screen</div>
+                    <div className="text-xs text-slate-600 font-medium">Statutory Pre-Screen</div>
                   </div>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
 
 
       {/* 3. STATS & ACCREDITATION STRIP */}
-      <section className="bg-[#0E0F12] py-10 sm:py-14 border-b border-white/10">
+      <section className="bg-gradient-to-b from-[#121316] to-[#16171A] py-10 sm:py-14 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
             {COMPANY_INFO.stats.map((stat, idx) => (
@@ -170,7 +170,7 @@ export default function HomePage() {
       <InteractiveGlobeSection />
 
       {/* 5. CORE VISA SERVICES SECTION */}
-      <section className="py-14 sm:py-20 relative">
+      <section className="py-14 sm:py-20 relative bg-[#fcfbfa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
@@ -202,7 +202,7 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#16171A]/85 via-[#16171A]/25 to-transparent" />
                   
-                  <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-[11px] font-bold bg-[#E20935] text-white shadow-md">
+                  <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-[#E20935] text-white shadow-md">
                     {service.badge}
                   </span>
 
@@ -308,7 +308,7 @@ export default function HomePage() {
       </section>
 
       {/* 7. INTERACTIVE ELIGIBILITY & POINTS CALCULATOR SECTION */}
-      <section className="py-20 bg-[#0E0F12] text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-[#141518] via-[#16171A] to-[#141518] text-white relative overflow-hidden border-y border-white/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#ff476d]">
@@ -327,7 +327,7 @@ export default function HomePage() {
       </section>
 
       {/* 8. OUR 4-STEP LEGAL MIGRATION PROCESS */}
-      <section className="py-20 bg-[#f8f6f1]">
+      <section className="py-20 bg-[#fcfbfa] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
@@ -426,7 +426,7 @@ export default function HomePage() {
       <HomeFaq />
 
       {/* 11. PRE-FOOTER CTA STRIP */}
-      <section className="bg-[#16171A] text-white py-14 sm:py-18 border-t border-white/10">
+      <section className="bg-gradient-to-b from-[#141518] to-[#16171A] text-white py-14 sm:py-18 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
           <div className="w-12 h-12 rounded-xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center mx-auto">
             <Compass className="w-6 h-6 text-[#E20935]" />

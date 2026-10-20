@@ -31,10 +31,13 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [bookingId, setBookingId] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const token = `VI-BOOK-${Math.floor(1000 + Math.random() * 9000)}`;
+    setBookingId(token);
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -103,7 +106,7 @@ export default function ContactPage() {
                 <MapPin className="w-4 h-4 text-[#E20935]" />
                 <span>{office.city}</span>
                 {office.isHeadquarters && (
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded font-extrabold ${
+                  <span className={`text-xs px-2 py-0.5 rounded-md font-bold ${
                     selectedOffice.city === office.city ? "bg-black text-white" : "bg-red-100 text-[#E20935]"
                   }`}>
                     HQ
@@ -122,7 +125,7 @@ export default function ContactPage() {
               {/* Harmonized Office Details Card (Clean White Executive Theme matching Form) */}
               <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white text-[#16171A] border border-slate-200 shadow-xl space-y-6">
                 <div>
-                  <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-[#E20935] bg-red-50 px-2.5 py-1 rounded-full border border-red-200">
+                  <span className="inline-block text-xs font-extrabold uppercase tracking-wider text-[#E20935] bg-red-50 px-3 py-1 rounded-full border border-red-200">
                     Selected Location
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-[#16171A] mt-2">
@@ -220,15 +223,29 @@ export default function ContactPage() {
                     <CheckCircle className="w-9 h-9" />
                   </div>
                   <h4 className="text-2xl font-bold text-[#16171A]">Appointment Request Confirmed!</h4>
+                  <div className="inline-block px-4 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-xs font-mono font-bold text-[#16171A]">
+                    Booking Token: <span className="text-[#E20935]">{bookingId}</span>
+                  </div>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                     Thank you, <strong className="text-[#16171A]">{formData.name}</strong>. Our legal coordinator for the <strong className="text-[#E20935]">{formData.office}</strong> office has received your request and will call you at <strong className="text-[#16171A]">{formData.phone}</strong> to confirm your slot.
                   </p>
-                  <button
-                    onClick={() => setIsSuccess(false)}
-                    className="mt-4 px-6 py-2.5 rounded-xl bg-[#E20935] text-white font-bold text-xs"
-                  >
-                    Submit Another Inquiry
-                  </button>
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`https://wa.me/${COMPANY_INFO.whatsapp.replace(/[^0-9]/g, "")}?text=Hello%20Viraj%20Immigration,%20my%20appointment%20token%20is%20${bookingId}%20at%20${encodeURIComponent(formData.office)}%20office.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white" />
+                      <span>Confirm via WhatsApp</span>
+                    </a>
+                    <button
+                      onClick={() => setIsSuccess(false)}
+                      className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#16171A] font-bold text-xs transition-all"
+                    >
+                      Submit Another Inquiry
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

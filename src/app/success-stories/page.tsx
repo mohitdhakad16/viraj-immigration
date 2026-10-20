@@ -104,11 +104,11 @@ export default function SuccessStoriesPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#16171A]/80 via-transparent to-transparent" />
                     
-                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-[#E20935] text-white shadow-md">
+                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-[#E20935] text-white shadow-md">
                       {story.country}
                     </span>
 
-                    <span className="absolute bottom-3 right-3 text-[10px] font-semibold px-2.5 py-1 rounded-md bg-emerald-500 text-white font-mono">
+                    <span className="absolute bottom-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500 text-white font-mono">
                       Grant: {story.grantDate}
                     </span>
                   </div>
@@ -133,8 +133,8 @@ export default function SuccessStoriesPage() {
                       {story.highlight}
                     </p>
 
-                    <div className="text-[11px] text-slate-400 font-mono flex items-center gap-1 pt-1">
-                      <Calendar className="w-3 h-3 text-[#E20935]" />
+                    <div className="text-xs text-slate-500 font-mono flex items-center gap-1 pt-1">
+                      <Calendar className="w-3.5 h-3.5 text-[#E20935]" />
                       <span>Timeline: {story.timeline}</span>
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function SuccessStoriesPage() {
                       <Play className="w-5 h-5 fill-white ml-0.5" />
                     </button>
 
-                    <div className="absolute bottom-2 left-2 right-2 px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-[10px] text-emerald-400 font-bold flex items-center justify-between">
+                    <div className="absolute bottom-2 left-2 right-2 px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-xs text-emerald-400 font-bold flex items-center justify-between">
                       <span>Visa Stamped: {t.grantYear}</span>
                       <span>Verified Client</span>
                     </div>
@@ -208,7 +208,7 @@ export default function SuccessStoriesPage() {
                       ))}
                     </div>
                     <h4 className="text-sm font-bold text-white pt-1">{t.name}</h4>
-                    <p className="text-[11px] text-[#ff476d] font-semibold">{t.country}</p>
+                    <p className="text-xs text-[#ff476d] font-semibold">{t.country}</p>
                     <p className="text-xs sm:text-[13px] text-slate-300 italic pt-2 line-clamp-3 leading-relaxed">
                       &ldquo;{t.quote}&rdquo;
                     </p>

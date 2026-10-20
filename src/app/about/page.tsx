@@ -108,7 +108,7 @@ export default function AboutPage() {
                 <div>
                   <div className="text-sm font-bold text-white">{item.title}</div>
                   <div className="text-xs text-[#ff476d] font-mono mt-1">{item.code}</div>
-                  <div className="text-[11px] text-slate-400 mt-1">Jurisdiction: {item.country}</div>
+                  <div className="text-xs text-slate-400 mt-1">Jurisdiction: {item.country}</div>
                 </div>
               </div>
             ))}
@@ -141,7 +141,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-white leading-tight">Years of Proven Advocacy</div>
-                    <div className="text-[10px] sm:text-[11px] text-[#ff476d] leading-tight mt-0.5">8,500+ Visas Successfully Granted</div>
+                    <div className="text-xs text-[#ff476d] font-semibold leading-tight mt-0.5">8,500+ Visas Successfully Granted</div>
                   </div>
                 </div>
               </div>
@@ -221,7 +221,7 @@ export default function AboutPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#16171A] via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-3 text-[11px] font-bold px-2.5 py-1 rounded-md bg-[#E20935] text-white shadow-xs">
+                    <span className="absolute bottom-3 left-3 text-xs font-bold px-2.5 py-1 rounded-md bg-[#E20935] text-white shadow-xs">
                       {member.exp}
                     </span>
                   </div>
@@ -233,7 +233,7 @@ export default function AboutPage() {
                     <div className="text-xs font-bold text-[#E20935]">
                       {member.role}
                     </div>
-                    <div className="text-[11px] font-mono text-slate-500 bg-slate-50 p-1.5 rounded border border-slate-100">
+                    <div className="text-xs font-mono text-slate-500 bg-slate-50 p-1.5 rounded border border-slate-100">
                       {member.credentials}
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed pt-2">

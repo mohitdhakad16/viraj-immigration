@@ -128,7 +128,7 @@ export default function ServiceDetailLayout({ service }: Props) {
                 <div className="space-y-3 pt-2">
                   {service.eligibilityRequirements.map((req, idx) => (
                     <div key={idx} className="flex items-start gap-3 text-xs text-slate-200">
-                      <span className="w-5 h-5 rounded-full bg-[#E20935]/20 text-[#ff476d] border border-[#E20935]/50 flex items-center justify-center shrink-0 text-[11px] font-bold">
+                      <span className="w-5 h-5 rounded-full bg-[#E20935]/20 text-[#ff476d] border border-[#E20935]/50 flex items-center justify-center shrink-0 text-xs font-bold">
                         {idx + 1}
                       </span>
                       <span>{req}</span>
@@ -236,7 +236,7 @@ export default function ServiceDetailLayout({ service }: Props) {
                     </a>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 space-y-2 text-[11px] text-slate-300">
+                  <div className="pt-4 border-t border-white/10 space-y-2 text-xs text-slate-300">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                       <span>MARA & CICC Regulated Filing</span>

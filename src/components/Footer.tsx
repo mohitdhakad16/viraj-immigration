@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white tracking-wide">{item.title}</div>
-                  <div className="text-[11px] sm:text-xs text-[#ff476d] font-mono">{item.code}</div>
+                  <div className="text-xs text-[#ff476d] font-mono font-semibold">{item.code}</div>
                 </div>
               </div>
             );
@@ -70,7 +70,7 @@ export default function Footer() {
                 <span className="text-2xl font-extrabold tracking-tight text-white block leading-none">
                   VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
                 </span>
-                <span className="text-[10px] uppercase tracking-widest text-slate-400 block font-semibold mt-1">
+                <span className="text-xs uppercase tracking-widest text-slate-300 block font-bold mt-1">
                   Global Visas & Legal Advisory
                 </span>
               </div>
@@ -203,7 +203,7 @@ export default function Footer() {
                 <Award className="w-4 h-4 text-[#E20935]" />
                 <span>Need Urgent Legal Advice?</span>
               </div>
-              <p className="text-[11px] text-slate-300">
+              <p className="text-xs text-slate-300">
                 Direct phone hotline with our certified case lodgement attorneys.
               </p>
               <a
@@ -218,11 +218,11 @@ export default function Footer() {
 
         {/* Regulatory Disclaimer & Copyright */}
         <div className="mt-12 pt-8 border-t border-white/10 text-xs text-slate-400 space-y-4">
-          <p className="text-[11px] leading-relaxed text-slate-300">
+          <p className="text-xs leading-relaxed text-slate-300">
             <strong className="text-white">Statutory Disclaimer:</strong> Viraj Immigration Consultancy Services is an independent legal and corporate immigration advisory firm. We are not an official arm of the Department of Home Affairs Australia, Immigration, Refugees and Citizenship Canada (IRCC), UK Visas and Immigration (UKVI), or US USCIS. Migration advice for Australian immigration is rendered in direct partnership with Registered Migration Agents (MARA). Advice for Canadian immigration is provided under the oversight of College of Immigration and Citizenship Consultants (CICC / RCIC) licensed representatives.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-white/5 gap-2">
+          <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/5 gap-2">
             <div>
               © 2026 {COMPANY_INFO.name}. All Rights Reserved.
             </div>
