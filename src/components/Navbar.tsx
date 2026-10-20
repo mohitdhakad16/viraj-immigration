@@ -112,7 +112,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 flex items-center justify-between">
           
           {/* 1. Left Column: Brand Logo (Sleek, well-proportioned, flush left) */}
-          <div className="flex items-center justify-start shrink-0">
+          <div className="flex items-center justify-start shrink-0 lg:mr-6 xl:mr-8">
             <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer">
               <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 xl:w-9 xl:h-9 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform shrink-0">
                 <div className="w-full h-full bg-[#16171A] rounded-[10px] flex items-center justify-center">
@@ -131,10 +131,10 @@ export default function Navbar() {
           </div>
 
           {/* 2. Center Column: Navigation Links (Strictly centered with equal space on left and right via mx-auto) */}
-          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 2xl:gap-3 mx-auto">
+          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1 2xl:gap-1.5 mx-auto">
             <Link
               href="/"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -145,7 +145,7 @@ export default function Navbar() {
 
             <Link
               href="/about"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/about"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -162,7 +162,7 @@ export default function Navbar() {
             >
               <Link
                 href="/services"
-                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                   pathname.startsWith("/services")
                     ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -255,7 +255,7 @@ export default function Navbar() {
             >
               <Link
                 href="/countries"
-                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg cursor-pointer transition-all duration-200 ease-out active:scale-95 ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg cursor-pointer transition-all duration-200 ease-out active:scale-95 ${
                   pathname.startsWith("/countries")
                     ? "text-[#E20935] bg-red-50"
                     : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -328,7 +328,7 @@ export default function Navbar() {
 
             <Link
               href="/assessment"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/assessment"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -339,7 +339,7 @@ export default function Navbar() {
 
             <Link
               href="/success-stories"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/success-stories"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -350,7 +350,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/contact"
                   ? "text-[#E20935] bg-red-50"
                   : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
@@ -361,7 +361,7 @@ export default function Navbar() {
           </nav>
 
           {/* 3. Right Column: CTA Action Button & Mobile Trigger (Aligned to far right) */}
-          <div className="flex items-center justify-end shrink-0 gap-2 sm:gap-3">
+          <div className="flex items-center justify-end shrink-0 gap-2 sm:gap-3 lg:ml-6 xl:ml-8">
             <button
               onClick={() => openModal()}
               className="hidden sm:inline-flex items-center gap-2 px-3.5 xl:px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer shrink-0"
@@ -372,12 +372,6 @@ export default function Navbar() {
 
             {/* Mobile / Tablet Toggle Button */}
             <div className="flex lg:hidden items-center gap-2">
-              <button
-                onClick={() => openModal()}
-                className="sm:hidden px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#E20935] text-white flex items-center justify-center min-h-[36px] active:scale-95 shadow-xs cursor-pointer"
-              >
-                Assess
-              </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-xl bg-slate-100 text-[#16171A] hover:text-[#E20935] focus:outline-none cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
