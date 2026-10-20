@@ -109,35 +109,35 @@ export default function Navbar() {
             : "bg-white shadow-xs py-4 sm:py-5 lg:py-5.5 border-slate-200"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 flex items-center justify-between">
           
-          {/* 1. Left Column: Brand Logo (Flush left, balanced via flex-1) */}
-          <div className="flex-1 flex items-center justify-start shrink-0">
-            <Link href="/" className="flex items-center gap-2 sm:gap-2.5 xl:gap-3 group cursor-pointer">
+          {/* 1. Left Column: Brand Logo (Sleek, well-proportioned, flush left) */}
+          <div className="flex items-center justify-start shrink-0">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer">
               <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 xl:w-9 xl:h-9 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20 group-hover:scale-105 transition-transform shrink-0">
                 <div className="w-full h-full bg-[#16171A] rounded-[10px] flex items-center justify-center">
                   <Compass className="w-4 h-4 xl:w-4.5 xl:h-4.5 text-[#E20935]" />
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[14px] sm:text-[15px] xl:text-[17px] font-extrabold tracking-tight text-[#16171A] block leading-none">
+                <span className="text-[15px] sm:text-base xl:text-[17px] font-extrabold tracking-tight text-[#16171A] block leading-none">
                   VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
                 </span>
-                <span className="hidden sm:block text-[9.5px] xl:text-[11px] uppercase tracking-wider text-slate-500 font-bold mt-1">
+                <span className="hidden sm:block text-[10px] xl:text-[11px] uppercase tracking-wider text-slate-500 font-bold mt-1">
                   Visa & Immigration Advisory
                 </span>
               </div>
             </Link>
           </div>
 
-          {/* 2. Center Column: Navigation Links (Strictly centered via balanced flex-1 margins) */}
-          <nav className="hidden lg:flex items-center justify-center shrink-0 gap-0.5 xl:gap-1.5 2xl:gap-2">
+          {/* 2. Center Column: Navigation Links (Strictly centered with equal space on left and right via mx-auto) */}
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 2xl:gap-3 mx-auto">
             <Link
               href="/"
-              className={`text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/"
-                  ? "text-[#E20935] bg-red-50/80 font-bold"
-                  : "text-slate-700 hover:text-[#E20935] hover:bg-slate-50 font-semibold"
+                  ? "text-[#E20935] bg-red-50"
+                  : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
               Home
@@ -145,10 +145,10 @@ export default function Navbar() {
 
             <Link
               href="/about"
-              className={`text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/about"
-                  ? "text-[#E20935] bg-red-50/80 font-bold"
-                  : "text-slate-700 hover:text-[#E20935] hover:bg-slate-50 font-semibold"
+                  ? "text-[#E20935] bg-red-50"
+                  : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
               About Us
@@ -156,24 +156,20 @@ export default function Navbar() {
 
             {/* Visa Services Mega Menu */}
             <div
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setServicesDropdown(true)}
               onMouseLeave={() => setServicesDropdown(false)}
             >
               <Link
                 href="/services"
-                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                   pathname.startsWith("/services")
-                    ? "text-[#E20935] bg-red-50/80 font-bold"
-                    : "text-slate-700 hover:text-[#E20935] hover:bg-slate-50 font-semibold"
+                    ? "text-[#E20935] bg-red-50"
+                    : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
                 <span>Visa Services</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 ${
-                    pathname.startsWith("/services") ? "text-[#E20935]" : "text-slate-400 group-hover:text-[#E20935]"
-                  }`}
-                />
+                <ChevronDown className="w-3.5 h-3.5 text-[#E20935] transition-transform duration-200 group-hover:rotate-180" />
               </Link>
 
               {servicesDropdown && (
@@ -253,24 +249,20 @@ export default function Navbar() {
 
             {/* Country Guides Mega Menu */}
             <div
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setCountriesDropdown(true)}
               onMouseLeave={() => setCountriesDropdown(false)}
             >
               <Link
                 href="/countries"
-                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg cursor-pointer transition-all duration-200 ease-out active:scale-95 ${
+                className={`flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg cursor-pointer transition-all duration-200 ease-out active:scale-95 ${
                   pathname.startsWith("/countries")
-                    ? "text-[#E20935] bg-red-50/80 font-bold"
-                    : "text-slate-700 hover:text-[#E20935] hover:bg-slate-50 font-semibold"
+                    ? "text-[#E20935] bg-red-50"
+                    : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
                 }`}
               >
                 <span>Countries</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 ${
-                    pathname.startsWith("/countries") ? "text-[#E20935]" : "text-slate-400 group-hover:text-[#E20935]"
-                  }`}
-                />
+                <ChevronDown className="w-3.5 h-3.5 text-[#E20935] transition-transform duration-200 group-hover:rotate-180" />
               </Link>
 
               {countriesDropdown && (
@@ -336,10 +328,10 @@ export default function Navbar() {
 
             <Link
               href="/assessment"
-              className={`text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/assessment"
-                  ? "text-[#E20935] bg-red-50/80 font-bold"
-                  : "text-slate-700 hover:text-[#E20935] hover:bg-slate-50 font-semibold"
+                  ? "text-[#E20935] bg-red-50"
+                  : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
               Points Calculator
@@ -347,10 +339,10 @@ export default function Navbar() {
 
             <Link
               href="/success-stories"
-              className={`text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/success-stories"
-                  ? "text-[#E20935] bg-red-50/80 font-bold"
-                  : "text-slate-700 hover:text-[#E20935] hover:bg-slate-50 font-semibold"
+                  ? "text-[#E20935] bg-red-50"
+                  : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
               Success Stories
@@ -358,21 +350,21 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className={`text-xs xl:text-[13px] 2xl:text-sm whitespace-nowrap px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
+              className={`text-xs xl:text-[13px] 2xl:text-sm font-bold whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 ease-out active:scale-95 cursor-pointer ${
                 pathname === "/contact"
-                  ? "text-[#E20935] bg-red-50/80 font-bold"
-                  : "text-slate-700 hover:text-[#E20935] hover:bg-slate-50 font-semibold"
+                  ? "text-[#E20935] bg-red-50"
+                  : "text-[#16171A] hover:text-[#E20935] hover:bg-slate-50"
               }`}
             >
               Contact
             </Link>
           </nav>
 
-          {/* 3. Right Column: CTA Action Button & Mobile Trigger (Flush right, balanced via flex-1) */}
-          <div className="flex-1 flex items-center justify-end shrink-0 gap-2 sm:gap-3">
+          {/* 3. Right Column: CTA Action Button & Mobile Trigger (Aligned to far right) */}
+          <div className="flex items-center justify-end shrink-0 gap-2 sm:gap-3">
             <button
               onClick={() => openModal()}
-              className="hidden sm:inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4.5 py-2 xl:py-2.5 rounded-xl font-bold text-[11px] xl:text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer shrink-0"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 xl:px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer shrink-0"
             >
               <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
               <span>Book Consultation</span>
