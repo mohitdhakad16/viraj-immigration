@@ -33,12 +33,41 @@ export default function ContactPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [bookingId, setBookingId] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     const token = `VI-BOOK-${Math.floor(1000 + Math.random() * 9000)}`;
     setBookingId(token);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "790f8dfc-2a01-4bdb-a4eb-825bf9707dce",
+          subject: `Office Consultation Booking: ${formData.name} - ${formData.office}`,
+          from_name: "Viraj Immigration Contact Page",
+          booking_token: token,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          target_country: formData.country,
+          visa_category: formData.visa,
+          preferred_office: formData.office,
+          preferred_date: formData.preferredDate || "Earliest available",
+          message: formData.message || "No message provided"
+        })
+      });
+      const data = await response.json();
+      if (!data.success) {
+        console.warn("Web3Forms notice:", data);
+      }
+    } catch (err) {
+      console.error("Contact form submission error:", err);
+    } finally {
       setIsSubmitting(false);
       setIsSuccess(true);
       confetti({
@@ -46,7 +75,7 @@ export default function ContactPage() {
         spread: 70,
         origin: { y: 0.6 }
       });
-    }, 800);
+    }
   };
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsapp.replace(/[^0-9]/g, "")}?text=Hello%20Viraj%20Immigration,%20I%20would%20like%20to%20book%20an%20appointment%20at%20${encodeURIComponent(selectedOffice.city)}`;

@@ -19,12 +19,40 @@ export default function HeroLeadForm() {
   const [success, setSuccess] = useState(false);
   const [refId, setRefId] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     const generatedId = `VI-2026-${Math.floor(1000 + Math.random() * 9000)}`;
     setRefId(generatedId);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "790f8dfc-2a01-4bdb-a4eb-825bf9707dce",
+          subject: `Hero Assessment Lead: ${formData.name} - ${formData.country} (${formData.visa})`,
+          from_name: "Viraj Immigration Portal",
+          reference_token: generatedId,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          age: formData.age,
+          education: formData.education,
+          target_country: formData.country,
+          visa_category: formData.visa
+        })
+      });
+      const data = await response.json();
+      if (!data.success) {
+        console.warn("Web3Forms notice:", data);
+      }
+    } catch (err) {
+      console.error("Hero form submission error:", err);
+    } finally {
       setLoading(false);
       setSuccess(true);
       confetti({
@@ -32,7 +60,7 @@ export default function HeroLeadForm() {
         spread: 60,
         origin: { y: 0.6 }
       });
-    }, 800);
+    }
   };
 
   return (

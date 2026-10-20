@@ -34,13 +34,41 @@ export default function ConsultationModal() {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     const token = `VI-CONSULT-${Math.floor(1000 + Math.random() * 9000)}`;
     setRefToken(token);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "790f8dfc-2a01-4bdb-a4eb-825bf9707dce",
+          subject: `Consultation Booking: ${formData.name} - ${formData.targetCountry} (${formData.visaType})`,
+          from_name: "Viraj Immigration Modal",
+          consultation_token: token,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          age: formData.age || "Not specified",
+          education: formData.education || "Not specified",
+          target_country: formData.targetCountry,
+          visa_category: formData.visaType,
+          notes: formData.notes || "None"
+        })
+      });
+      const data = await response.json();
+      if (!data.success) {
+        console.warn("Web3Forms notice:", data);
+      }
+    } catch (err) {
+      console.error("Consultation form submission error:", err);
+    } finally {
       setIsSubmitting(false);
       setIsSuccess(true);
       confetti({
@@ -48,7 +76,7 @@ export default function ConsultationModal() {
         spread: 70,
         origin: { y: 0.6 }
       });
-    }, 900);
+    }
   };
 
   return (

@@ -40,8 +40,8 @@ export const COMPANY_INFO = {
   tagline: "Your Gateway to Global Residency, Careers & Citizenship",
   phone: "+91 98765 43210",
   whatsapp: "+919876543210",
-  email: "admissions@virajimmigration.com",
-  secondaryEmail: "info@virajimmigration.com",
+  email: "info@virajvisasexpert.com",
+  secondaryEmail: "info@virajvisasexpert.com",
   officeIndia: "Level 4, Sovereign Corporate Tower, Sector 62, Noida, NCR, India",
   officeOverseas: "Suite 502, 120 Spencer Street, Melbourne VIC 3000, Australia",
   accreditations: [
@@ -612,7 +612,7 @@ export const OFFICE_LOCATIONS = [
     city: "Noida / Delhi NCR (Head Office)",
     address: "Level 4, Sovereign Corporate Tower, Sector 62, Noida, NCR, 201309",
     phone: "+91 98765 43210",
-    email: "delhi@virajimmigration.com",
+    email: "info@virajvisasexpert.com",
     hours: "Mon - Sat: 9:30 AM - 6:30 PM",
     isHeadquarters: true,
     mapCoordinates: { lat: 28.628, lng: 77.364 }
@@ -621,7 +621,7 @@ export const OFFICE_LOCATIONS = [
     city: "Melbourne, Australia",
     address: "Suite 502, 120 Spencer Street, Melbourne VIC 3000, Australia",
     phone: "+61 3 9999 8888",
-    email: "melbourne@virajimmigration.com",
+    email: "info@virajvisasexpert.com",
     hours: "Mon - Fri: 9:00 AM - 5:30 PM AEST",
     isHeadquarters: false,
     mapCoordinates: { lat: -37.818, lng: 144.953 }
@@ -630,7 +630,7 @@ export const OFFICE_LOCATIONS = [
     city: "Toronto, Canada",
     address: "Suite 1800, 100 University Avenue, Toronto, ON M5J 1V6, Canada",
     phone: "+1 416 888 7766",
-    email: "toronto@virajimmigration.com",
+    email: "info@virajvisasexpert.com",
     hours: "Mon - Fri: 9:00 AM - 5:00 PM EST",
     isHeadquarters: false,
     mapCoordinates: { lat: 43.647, lng: -79.385 }
@@ -639,7 +639,7 @@ export const OFFICE_LOCATIONS = [
     city: "Mumbai, India",
     address: "Floor 8, Platina Tower, Bandra Kurla Complex (BKC), Mumbai, 400051",
     phone: "+91 98765 43211",
-    email: "mumbai@virajimmigration.com",
+    email: "info@virajvisasexpert.com",
     hours: "Mon - Sat: 9:30 AM - 6:30 PM",
     isHeadquarters: false,
     mapCoordinates: { lat: 19.066, lng: 72.868 }
