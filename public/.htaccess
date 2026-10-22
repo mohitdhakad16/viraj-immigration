@@ -1,5 +1,30 @@
 DirectoryIndex index.html index.php
 
+# Proper MIME Types
+<IfModule mod_mime.c>
+  AddType text/css .css
+  AddType application/javascript .js .mjs
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+# Cache Controls
+<IfModule mod_headers.c>
+  # Never cache HTML files or dynamic routes
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Cache immutable static hashed assets
+  <FilesMatch "\.(css|js|woff2|woff|ttf|svg|png|jpg|jpeg|gif|webp|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -12,11 +37,21 @@ DirectoryIndex index.html index.php
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
+  # If a requested CSS file in _next/static/css does not exist, fallback to any available CSS
+  RewriteCond %{REQUEST_URI} ^/_next/static/css/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^_next/static/css/.*\.css$ /_next/static/css/61399910734fae8b.css [L]
+
+  # For any other missing static files in _next/, return 404 directly, do NOT serve 404.html
+  RewriteCond %{REQUEST_URI} ^/_next/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ - [R=404,L]
+
   # If <path>.html exists, serve it
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L]
 
-  # Fallback to 404
+  # Fallback to 404.html for non-existent routes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^.*$ /404.html [L]

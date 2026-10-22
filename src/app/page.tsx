@@ -192,7 +192,10 @@ export default function HomePage() {
                 className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs hover:shadow-xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
               >
                 {/* Image Header with Badge */}
-                <div className="relative h-48 sm:h-52 w-full overflow-hidden">
+                <div 
+                  className="relative h-48 sm:h-52 w-full overflow-hidden"
+                  style={{ position: "relative", minHeight: 192, overflow: "hidden" }}
+                >
                   <Image
                     src={service.heroImage}
                     alt={service.title}

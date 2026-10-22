@@ -57,7 +57,10 @@ export default function TestimonialSlider() {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
           {/* Visual Column / Video Card preview */}
           <div className="lg:col-span-5 relative group">
-            <div className="relative h-64 sm:h-80 w-full rounded-xl sm:rounded-2xl overflow-hidden border-2 border-[#E20935]/30 shadow-xl">
+            <div 
+              className="relative h-64 sm:h-80 w-full rounded-xl sm:rounded-2xl overflow-hidden border-2 border-[#E20935]/30 shadow-xl"
+              style={{ position: "relative", minHeight: 260, overflow: "hidden" }}
+            >
               <Image
                 src={current.videoThumbnail}
                 alt={current.name}
@@ -104,13 +107,17 @@ export default function TestimonialSlider() {
 
             <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[#E20935] shrink-0">
+                <div 
+                  className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[#E20935] shrink-0"
+                  style={{ position: "relative", width: 48, height: 48, minWidth: 48, minHeight: 48, borderRadius: 9999, overflow: "hidden" }}
+                >
                   <Image
                     src={current.avatar}
                     alt={current.name}
-                    fill
-                    sizes="48px"
-                    className="object-cover"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 </div>
                 <div>
