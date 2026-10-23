@@ -6,25 +6,21 @@ import Image from "next/image";
 import HeroLeadForm from "@/components/HeroLeadForm";
 import VisazFeatures from "@/components/VisazFeatures";
 import VisazAbout from "@/components/VisazAbout";
-import OccupationDemandSection from "@/components/OccupationDemandSection";
-import VisaGrantsGallery from "@/components/VisaGrantsGallery";
+import VisazServices from "@/components/VisazServices";
+import VisazCountry from "@/components/VisazCountry";
+import VisazWhyChoose from "@/components/VisazWhyChoose";
 import ComparisonSection from "@/components/ComparisonSection";
-import BestConsultantsBanner from "@/components/BestConsultantsBanner";
+import OccupationDemandSection from "@/components/OccupationDemandSection";
 import AverageSalariesSection from "@/components/AverageSalariesSection";
 import VisazAuthorityNarrative from "@/components/VisazAuthorityNarrative";
 import VisazProcess from "@/components/VisazProcess";
 import VisazStats from "@/components/VisazStats";
-import CountryTabs from "@/components/CountryTabs";
 import TestimonialSlider from "@/components/TestimonialSlider";
-import InteractiveGlobeSection from "@/components/InteractiveGlobeSection";
 import MediaMentions from "@/components/MediaMentions";
 import HomeFaq from "@/components/HomeFaq";
 import RunningMarquee from "@/components/RunningMarquee";
 import { useConsultationModal } from "@/context/ModalContext";
-import {
-  SERVICES_LIST,
-  COMPANY_INFO
-} from "@/data/immigrationData";
+import { COMPANY_INFO } from "@/data/immigrationData";
 import {
   ShieldCheck,
   Award,
@@ -32,30 +28,18 @@ import {
   ArrowRight,
   CheckCircle2,
   PhoneCall,
-  Clock,
   Sparkles,
   TrendingUp,
-  GraduationCap,
-  Briefcase,
-  Plane,
   Star
 } from "lucide-react";
 
 export default function HomePage() {
   const { openModal } = useConsultationModal();
 
-  const serviceIcons: Record<string, React.ReactNode> = {
-    "study-visa": <GraduationCap className="w-6 h-6 text-[#E20935]" />,
-    "work-permit": <Briefcase className="w-6 h-6 text-[#E20935]" />,
-    "permanent-residency": <Award className="w-6 h-6 text-[#E20935]" />,
-    "business-investor": <TrendingUp className="w-6 h-6 text-[#E20935]" />,
-    "tourist-visitor": <Plane className="w-6 h-6 text-[#E20935]" />
-  };
-
   return (
     <div className="w-full bg-[#FAF8F7] text-[#16171A]">
       
-      {/* 1. HERO SECTION (Visaz Master Theme + SmartGeek Copy) */}
+      {/* 1. HERO SECTION (Matches Visaz theme_slider.png layout + SmartGeek Copy) */}
       <section className="relative bg-[#16171A] text-white overflow-hidden pt-12 pb-16 lg:py-24 border-b border-white/10">
         {/* Authentic Visaz Background Slider Photography */}
         <div className="absolute inset-0 z-0">
@@ -80,10 +64,9 @@ export default function HomePage() {
             {/* Left Column: Value Proposition & Authority */}
             <div className="lg:col-span-7 space-y-6 text-left">
               
-              {/* Kicker badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#E20935] shrink-0" />
-                <span>MARA: 1802914 &amp; CICC: R531892 Registered Lawyers</span>
+              {/* Visaz Red Ribbon Subtitle Tag (Matches theme_slider.png) */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md text-xs sm:text-sm font-extrabold uppercase tracking-wider bg-[#E20935] text-white shadow-md">
+                <span>15+ Years Mastery • Australia &amp; Canada PR</span>
               </div>
 
               {/* Headline */}
@@ -96,7 +79,7 @@ export default function HomePage() {
 
               {/* Sub-copy from SmartGeek */}
               <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
-                <strong className="font-extrabold text-white">15+ Years of Mastery.</strong> Led by senior migration counsel, we simplify your Australia and Canada permanent residency journey and optimize your points test with an audited <strong className="font-extrabold text-[#ff476d]">99.9% success rate</strong>. Statutory pre-assessment, ANZSCO skills drafting, and zero-defect filing.
+                <strong className="font-extrabold text-white">15+ Years of Mastery.</strong> Led by senior migration counsel, we simplify the immigration journey and optimize your points test with an audited <strong className="font-extrabold text-[#ff476d]">99.9% success rate</strong>. Legally accredited counsel providing statutory pre-assessment, skills assessment drafting, and zero-defect visa filing for Australia, Canada, the UK, Europe, and the UAE.
               </p>
 
               {/* Authority & Stat Badges */}
@@ -161,16 +144,16 @@ export default function HomePage() {
               <div className="pt-2 flex items-center gap-3">
                 <div className="flex -space-x-2 overflow-hidden">
                   <div className="inline-block h-8 w-8 rounded-full ring-2 ring-white overflow-hidden relative">
-                    <Image src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Client 1" width={32} height={32} className="object-cover w-full h-full" />
+                    <Image src="/visaz-assets/images/resource/avatar-1.png" alt="Client 1" width={32} height={32} className="object-cover w-full h-full" />
                   </div>
                   <div className="inline-block h-8 w-8 rounded-full ring-2 ring-white overflow-hidden relative">
-                    <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Client 2" width={32} height={32} className="object-cover w-full h-full" />
+                    <Image src="/visaz-assets/images/resource/avatar-2.png" alt="Client 2" width={32} height={32} className="object-cover w-full h-full" />
                   </div>
                   <div className="inline-block h-8 w-8 rounded-full ring-2 ring-white overflow-hidden relative">
-                    <Image src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Client 3" width={32} height={32} className="object-cover w-full h-full" />
+                    <Image src="/visaz-assets/images/resource/avatar-3.png" alt="Client 3" width={32} height={32} className="object-cover w-full h-full" />
                   </div>
                   <div className="inline-block h-8 w-8 rounded-full ring-2 ring-white overflow-hidden relative">
-                    <Image src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Client 4" width={32} height={32} className="object-cover w-full h-full" />
+                    <Image src="/visaz-assets/images/resource/avatar-4.png" alt="Client 4" width={32} height={32} className="object-cover w-full h-full" />
                   </div>
                 </div>
                 <div className="text-xs">
@@ -198,187 +181,44 @@ export default function HomePage() {
       {/* 2. RUNNING RED MARQUEE TICKER (High-Impact Immigration Announcements) */}
       <RunningMarquee />
 
-      {/* 3. VISAZ SIGNATURE 3-CARD "WHAT WE OFFER" SECTION */}
+      {/* 3. VISAZ SIGNATURE "WHAT WE OFFER" SECTION (Matches theme_features.png) */}
       <VisazFeatures />
 
-      {/* 4. VISAZ "ABOUT COMPANY" SECTION */}
+      {/* 4. VISAZ "ABOUT COMPANY" SECTION (Matches theme_about.png) */}
       <VisazAbout />
 
-      {/* 5. OCCUPATION DEMAND & AVERAGE SALARIES (SMARTGEEK SECTION) */}
-      <OccupationDemandSection />
+      {/* 5. VISAZ "SERVICE WE PROVIDE" SECTION (Matches theme_services.png) */}
+      <VisazServices />
 
-      {/* 6. VERIFIED VISA APPROVAL GRANTS GALLERY (SMARTGEEK 8 PROOF IMAGES) */}
-      <VisaGrantsGallery />
+      {/* 6. VISAZ "CHOOSE COUNTRY" SECTION (Matches theme_country.png) */}
+      <VisazCountry />
 
-      {/* 7. WHAT MAKES US DIFFERENT FROM OTHERS? (SMARTGEEK COMPARISON MATRIX) */}
+      {/* 7. VISAZ "WHY CHOOSE US" SECTION (Matches theme_why_choose.png) */}
+      <VisazWhyChoose />
+
+      {/* 8. WHAT MAKES US DIFFERENT FROM OTHERS? (SMARTGEEK COMPARISON MATRIX) */}
       <ComparisonSection />
 
-      {/* 8. BEST IMMIGRATION CONSULTANTS IN INDIA (SMARTGEEK AUTHORITY BANNER) */}
-      <BestConsultantsBanner />
+      {/* 9. OCCUPATION DEMAND IN AUSTRALIA (SMARTGEEK SECTION) */}
+      <OccupationDemandSection />
 
-      {/* 9. AVERAGE SALARIES IN AUSTRALIA (SMARTGEEK BENCHMARK TABLE) */}
+      {/* 10. AVERAGE SALARIES IN AUSTRALIA (SMARTGEEK BENCHMARK TABLE) */}
       <AverageSalariesSection />
 
-      {/* 10. YOUR TRUSTED PARTNER FOR AUSTRALIA PR (FULL NARRATIVE) */}
+      {/* 11. YOUR TRUSTED PARTNER FOR AUSTRALIA PR (FULL NARRATIVE) */}
       <VisazAuthorityNarrative />
 
-      {/* 11. CORE VISA SERVICES SECTION (Visaz Card Grid) */}
-      <section className="py-16 sm:py-24 relative bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-            <div className="sec-sub-title">
-              <span>Services We Provide</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
-              Explore Our Visa, Citizenship &amp; Immigration Services
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Every visa category is managed directly by registered migration attorneys, ensuring error-free documentation, strict timeline adherence, and maximum point score claims.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {SERVICES_LIST.map((service) => (
-              <div
-                key={service.id}
-                className="bg-[#FAF8F7] rounded-3xl border border-slate-200 shadow-xs hover:shadow-2xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
-              >
-                {/* Image Header with Badge */}
-                <div 
-                  className="relative h-52 sm:h-56 w-full overflow-hidden"
-                  style={{ position: "relative", minHeight: 208, overflow: "hidden" }}
-                >
-                  <Image
-                    src={service.heroImage}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#16171A]/85 via-[#16171A]/25 to-transparent" />
-                  
-                  <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-[#E20935] text-white shadow-md">
-                    {service.badge}
-                  </span>
-
-                  <div className="absolute bottom-3 left-3.5 flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-white shadow-md flex items-center justify-center">
-                      {serviceIcons[service.id]}
-                    </div>
-                    <span className="text-xs font-bold text-white">
-                      Success: {service.successRate}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-5 sm:p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-extrabold text-[#16171A] group-hover:text-[#E20935] transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2">
-                      {service.shortDesc}
-                    </p>
-
-                    <div className="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                      <span className="flex items-center gap-1.5 font-semibold">
-                        <Clock className="w-3.5 h-3.5 text-[#E20935]" />
-                        Avg: {service.processingTime}
-                      </span>
-                      <span className="text-emerald-700 font-bold">100% Legal Filing</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-200 flex items-center justify-between gap-3">
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="text-xs font-bold text-[#16171A] group-hover:text-[#E20935] flex items-center gap-1 hover:underline cursor-pointer"
-                    >
-                      <span>Explore Requirements</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-
-                    <button
-                      onClick={() => openModal(service.title)}
-                      className="px-4 py-2 rounded-xl text-xs font-bold bg-[#E20935] text-white hover:bg-[#c5072d] transition-colors shadow-xs shadow-red-600/20 cursor-pointer"
-                    >
-                      Apply Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Assessment Callout Card */}
-            <div className="bg-[#16171A] rounded-3xl p-6 sm:p-8 border border-[#E20935]/40 text-white flex flex-col justify-between shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[#E20935]/15 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="space-y-3 relative z-10">
-                <div className="w-12 h-12 rounded-2xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-[#E20935]" />
-                </div>
-                <span className="text-xs font-bold text-[#ff476d] uppercase tracking-wider block">
-                  Not Sure Which Visa Fits?
-                </span>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                  Let Our Licensed Lawyers Evaluate Your Profile
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Avoid costly application rejections. We analyze your age, education, language test, and work background to recommend the highest probability pathway.
-                </p>
-              </div>
-
-              <div className="pt-6 relative z-10">
-                <button
-                  onClick={() => openModal()}
-                  className="btn-style-one w-full text-center"
-                >
-                  Request Profile Evaluation
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 12. DESTINATION COUNTRIES ("IMMIGRATION CHOOSE YOUR COUNTRY") */}
-      <section className="py-16 sm:py-24 bg-[#FAF8F7] border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-            <div className="sec-sub-title">
-              <span>Choose Country</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
-              Immigration: Choose Your Destination Country
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Explore points benchmarks, annual incomes, lifestyle standards, and direct PR streams for the world&apos;s top immigration corridors.
-            </p>
-          </div>
-
-          <CountryTabs />
-
-        </div>
-      </section>
-
-      {/* 13. WORKING PROCESS ("4 EASY STEPS" - VISAZ PROCESS SECTION) */}
+      {/* 12. WORKING PROCESS (Matches theme_process.png) */}
       <VisazProcess />
 
-      {/* 14. STATS & PROVEN NUMBERS BANNER */}
+      {/* 13. STATS & PROVEN NUMBERS BANNER */}
       <VisazStats />
 
-      {/* 15. INTERACTIVE 3D GLOBAL MIGRATION RADAR */}
-      <InteractiveGlobeSection />
-
-      {/* 16. CLIENT SUCCESS STORIES & TESTIMONIALS */}
-      <section className="py-16 sm:py-24 bg-[#16171A] text-white relative border-b border-white/10">
+      {/* 14. CLIENT SUCCESS STORIES & TESTIMONIALS */}
+      <section className="py-20 lg:py-28 bg-[#16171A] text-white relative border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
             <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E20935]/20 text-[#ff476d] border border-[#E20935]/30">
               Our Testimonials
             </span>
@@ -397,20 +237,20 @@ export default function HomePage() {
               href="/success-stories"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#ff476d] hover:text-white underline cursor-pointer"
             >
-              <span>View All Verified Client Approval Grants &amp; Video Interviews →</span>
+              <span>View All Verified Client Approval Grants &amp; Video Interviews &gt;</span>
             </Link>
           </div>
 
         </div>
       </section>
 
-      {/* 17. MEDIA MENTIONS (SMARTGEEK 12 PUBLICATION LOGOS) */}
+      {/* 15. MEDIA MENTIONS (SMARTGEEK 12 PUBLICATION LOGOS) */}
       <MediaMentions />
 
-      {/* 18. FREQUENTLY ASKED QUESTIONS (SMARTGEEK 8 PR FAQS) */}
+      {/* 16. FREQUENTLY ASKED QUESTIONS (SMARTGEEK 8 PR FAQS) */}
       <HomeFaq />
 
-      {/* 19. PRE-FOOTER CTA STRIP */}
+      {/* 17. PRE-FOOTER CTA STRIP */}
       <section className="bg-gradient-to-b from-[#141518] to-[#16171A] text-white py-16 sm:py-20 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
           <div className="w-14 h-14 rounded-2xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center mx-auto">

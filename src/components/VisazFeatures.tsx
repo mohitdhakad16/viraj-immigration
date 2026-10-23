@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Award, ShieldCheck, Compass, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Award, ShieldCheck, Compass, ArrowRight, TrendingUp } from "lucide-react";
 import { useConsultationModal } from "@/context/ModalContext";
 
 export default function VisazFeatures() {
@@ -12,117 +12,94 @@ export default function VisazFeatures() {
       num: "01",
       title: "15+ Years of Mastery",
       subtitle: "Strategic PR Pathways",
-      desc: "Backed by over 15 years of legal experience, we simplify your permanent residency journey and optimize your points test for Australia (Subclasses 189, 190, 491) and Canada (Express Entry & PNP).",
-      icon: <Award className="w-7 h-7 text-[#E20935]" />,
-      highlights: [
-        "Points optimization for maximum draw rank",
-        "Direct legal lodging by accredited counsel",
-        "State and provincial nomination targeting"
-      ]
+      desc: "Led by senior migration counsel, we simplify the Australia and Canada immigration journey and optimize your points test.",
+      icon: <Award className="w-8 h-8 text-white" />
     },
     {
       num: "02",
       title: "99.9% Success Rate",
-      subtitle: "Audit-Ready Legal Precision",
-      desc: "We turn complex visa cases into approved grants. Our multi-tier document compliance protocol ensures zero filing errors, accurate ANZSCO/NOC job descriptions, and flawless submission.",
-      icon: <ShieldCheck className="w-7 h-7 text-[#E20935]" />,
-      highlights: [
-        "Skills assessment & CDR / RPL drafting",
-        "Zero-defect statutory documentation",
-        "Refusal reversal & review application mastery"
-      ]
+      subtitle: "Audit-Ready Precision",
+      desc: "We turn tough visa cases into approved grants with a seamless, statutory multi-tier compliance audit.",
+      icon: <TrendingUp className="w-8 h-8 text-white" />
     },
     {
       num: "03",
+      title: "Strategic Australia Pathways",
+      subtitle: "Subclasses 189, 190 & 491",
+      desc: "End-to-end guidance for direct PR and state nominations with fast-tracked statutory application lodging.",
+      icon: <ShieldCheck className="w-8 h-8 text-white" />
+    },
+    {
+      num: "04",
       title: "100% Ethical Transparency",
-      subtitle: "Mission Zero Defect Process",
-      desc: "Complete transparency with clear, milestone-based fees and zero hidden costs. You receive realistic pre-assessments, real-time tracking, and dedicated guidance from start to visa grant.",
-      icon: <Compass className="w-7 h-7 text-[#E20935]" />,
-      highlights: [
-        "No false promises; statutory pre-evaluation",
-        "Milestone payment schedule with no surprises",
-        "Comprehensive post-landing & relocation care"
-      ]
+      subtitle: "Mission Zero Defect",
+      desc: "Mission Zero Defect process with complete clarity, realistic pre-assessments, and no hidden costs.",
+      icon: <Compass className="w-8 h-8 text-white" />
     }
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#f8f6f1] relative overflow-hidden border-b border-slate-200">
-      {/* Background Watermark Pattern */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[radial-gradient(#E20935_1px,transparent_1px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
+    <section className="py-20 lg:py-28 bg-[#16171A] text-white relative overflow-hidden border-b border-white/10">
+      {/* Decorative dot matrix pattern & subtle glow */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(#E20935_1px,transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#E20935]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Heading - Visaz Theme Style */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
-              <span className="w-2 h-2 rounded-full bg-[#E20935] animate-ping" />
-              What We Offer
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight leading-tight">
-              Professional Legal Guidance For Your Global Move
-            </h2>
+        {/* Section Heading - Matches theme_features.png */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div className="sec-sub-title">
+            <span className="text-[#ff476d]">What We Offer</span>
           </div>
-          <p className="text-sm sm:text-base text-slate-600 max-w-md leading-relaxed">
-            Accredited by MARA and CICC, we transform ambitious career aspirations into permanent residency grants with verified zero-defect compliance.
-          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Professional Offer For Immigrate
+          </h2>
         </div>
 
-        {/* 3-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        {/* 4 Feature Blocks Grid - Matches theme_features.png */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-6">
           {features.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="relative mt-8 group"
             >
-              {/* Top Accent Strip on Hover */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#E20935] to-[#ff476d] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Feature Inner Box */}
+              <div className="relative bg-[#1F2228] rounded-3xl p-6 sm:p-7 pt-12 border border-white/10 group-hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden shadow-xl">
+                {/* Red Fill Transition on Hover */}
+                <div className="absolute inset-0 bg-[#E20935] transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-bottom z-0" />
 
-              <div>
-                {/* Header row with Number & Icon */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center group-hover:bg-[#E20935] transition-colors duration-300">
-                    <span className="group-hover:text-white transition-colors duration-300">
-                      {item.icon}
-                    </span>
-                  </div>
-                  <span className="text-4xl sm:text-5xl font-extrabold text-slate-200 font-mono group-hover:text-[#E20935]/30 transition-colors duration-300">
-                    {item.num}
+                {/* Floating Circular Red Icon at top */}
+                <div className="absolute -top-7 left-6 z-10 w-16 h-16 rounded-full bg-[#E20935] group-hover:bg-white text-white group-hover:text-[#E20935] flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300">
+                  <span className="group-hover:scale-x-[-1] transition-transform duration-300 group-hover:text-[#E20935]">
+                    {React.cloneElement(item.icon, {
+                      className: "w-8 h-8 text-white group-hover:text-[#E20935] transition-colors"
+                    })}
                   </span>
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-[#E20935] mb-1">
-                  {item.subtitle}
+                <div className="relative z-10 space-y-3">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#ff6b8b] group-hover:text-white/90 block">
+                    {item.subtitle}
+                  </span>
+
+                  <h3 className="text-lg sm:text-xl font-extrabold text-white leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-300 group-hover:text-white/90 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#16171A] group-hover:text-[#E20935] transition-colors duration-200 mb-3">
-                  {item.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                  {item.desc}
-                </p>
-
-                {/* Checklist */}
-                <div className="space-y-2.5 pt-4 border-t border-slate-100">
-                  {item.highlights.map((h, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs sm:text-[13px] font-semibold text-slate-700">
-                      <CheckCircle2 className="w-4 h-4 text-[#E20935] shrink-0 mt-0.5" />
-                      <span>{h}</span>
-                    </div>
-                  ))}
+                <div className="relative z-10 pt-5 mt-4 border-t border-white/10 group-hover:border-white/20">
+                  <button
+                    onClick={() => openModal()}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:underline cursor-pointer"
+                  >
+                    <span>Read More</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-slate-100">
-                <button
-                  onClick={() => openModal()}
-                  className="btn-style-two w-full text-center"
-                >
-                  <span>Book Free Consultation</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
               </div>
             </div>
           ))}

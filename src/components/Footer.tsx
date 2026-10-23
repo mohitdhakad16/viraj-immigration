@@ -1,241 +1,326 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Compass,
-  MapPin,
   Phone,
   Mail,
-  ShieldCheck,
-  Award,
-  Clock,
-  ArrowRight
+  ArrowRight,
+  ChevronUp,
+  MapPin,
+  Send,
+  CheckCircle2
 } from "lucide-react";
-import { COMPANY_INFO, SERVICES_LIST, COUNTRIES_LIST } from "@/data/immigrationData";
-import CountryFlag from "@/components/CountryFlag";
+import { COMPANY_INFO, SERVICES_LIST } from "@/data/immigrationData";
+import { useConsultationModal } from "@/context/ModalContext";
 
 export default function Footer() {
-  const getAccreditationFlag = (country: string) => {
-    switch (country) {
-      case "Australia": return "AU";
-      case "Canada": return "CA";
-      case "New Zealand": return "NZ";
-      default: return null;
-    }
+  const { openModal } = useConsultationModal();
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setSubscribed(true);
+    setTimeout(() => setSubscribed(false), 5000);
+  };
+
+  const galleryImages = [
+    "/visaz-assets/images/resource/gallery-thumb-1.jpg",
+    "/visaz-assets/images/resource/gallery-thumb-2.jpg",
+    "/visaz-assets/images/resource/gallery-thumb-3.jpg",
+    "/visaz-assets/images/resource/gallery-thumb-4.jpg",
+    "/visaz-assets/images/resource/gallery-thumb-5.jpg",
+    "/visaz-assets/images/resource/gallery-thumb-6.jpg"
+  ];
+
   return (
-    <footer className="bg-[#16171A] text-slate-300 border-t border-white/10 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#E20935]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#E20935]/5 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Trust & Accreditations Strip */}
-      <div className="bg-[#0E0F12] border-b border-white/10 py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {COMPANY_INFO.accreditations.map((item, idx) => {
-            const flagCode = getAccreditationFlag(item.country);
-            return (
-              <div key={idx} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#E20935]/40 flex items-center justify-center shrink-0">
-                  {flagCode ? (
-                    <CountryFlag code={flagCode} size="sm" />
-                  ) : (
-                    <ShieldCheck className="w-5 h-5 text-[#E20935]" />
-                  )}
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-white tracking-wide">{item.title}</div>
-                  <div className="text-xs text-[#ff476d] font-mono font-semibold">{item.code}</div>
-                </div>
+    <footer className="bg-[#16171A] text-slate-300 relative border-t border-white/10 font-sans">
+      
+      {/* 1. Visaz Footer Top: Newsletter Row */}
+      <div className="border-b border-white/10 py-10 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-[#E20935] flex items-center justify-center text-white shadow-lg">
+                <Compass className="w-6 h-6 text-white" />
               </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-24 md:pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* Brand & Overview */}
-          <div className="lg:col-span-2 space-y-5">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#a50625] via-[#E20935] to-[#ff476d] p-0.5 shadow-md shadow-red-500/20">
-                <div className="w-full h-full bg-[#16171A] rounded-[10px] flex items-center justify-center">
-                  <Compass className="w-6 h-6 text-[#E20935]" />
-                </div>
-              </div>
-              <div>
-                <span className="text-2xl font-extrabold tracking-tight text-white block leading-none">
+              <div className="flex flex-col">
+                <span className="text-2xl font-extrabold text-white tracking-tight leading-none">
                   VIRAJ<span className="text-[#E20935] ml-1">IMMIGRATION</span>
                 </span>
-                <span className="text-xs uppercase tracking-widest text-slate-300 block font-bold mt-1">
-                  Global Visas & Legal Advisory
+                <span className="text-[11px] text-slate-400 font-bold tracking-wider uppercase mt-1">
+                  Visa &amp; Immigration Advisory
                 </span>
               </div>
-            </Link>
-
-            <p className="text-sm text-slate-300 leading-relaxed max-w-md">
-              Viraj Immigration is an internationally accredited migration and citizenship consulting firm. We specialize in skilled migration, employer sponsorships, study-to-PR pathways, and investor programs for Australia, Canada, the UK, Europe, and the USA.
-            </p>
-
-            <div className="pt-2 flex flex-col space-y-2 text-xs">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#E20935] shrink-0 mt-0.5" />
-                <span>{COMPANY_INFO.officeIndia}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#E20935] shrink-0" />
-                <a href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`} className="hover:text-[#E20935] transition-colors">
-                  {COMPANY_INFO.phone}
-                </a>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#E20935] shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-[#E20935] transition-colors">
-                  {COMPANY_INFO.email}
-                </a>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-[#E20935] shrink-0" />
-                <span>Monday – Saturday: 9:30 AM to 6:30 PM IST</span>
-              </div>
             </div>
-          </div>
 
-          {/* Visa Programs */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-[#E20935] pl-2.5">
-              Visa Categories
-            </h4>
-            <ul className="space-y-3 text-xs sm:text-sm">
-              {SERVICES_LIST.map((service) => (
-                <li key={service.id}>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer"
+            {/* Newsletter Subscription Box */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight whitespace-nowrap">
+                Subscribe Newsletter
+              </h3>
+
+              <form onSubmit={handleSubscribe} className="relative flex items-center w-full sm:w-[420px]">
+                <div className="relative w-full">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#E20935]">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <input
+                    type="email"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    placeholder="Email Address"
+                    required
+                    className="w-full bg-white text-[#16171A] placeholder-slate-400 pl-11 pr-32 py-3.5 rounded-xl font-medium text-sm focus:outline-none focus:ring-2 focus:ring-[#E20935]"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-1 top-1 bottom-1 px-5 rounded-lg bg-[#E20935] hover:bg-[#c5072d] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
-                    <ArrowRight className="w-3.5 h-3.5 text-[#E20935] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                    <span>{service.title}</span>
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/services"
-                  className="text-[#ff476d] font-semibold hover:underline block pt-1 cursor-pointer"
-                >
-                  View All Services →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Countries */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-[#E20935] pl-2.5">
-              Destinations
-            </h4>
-            <ul className="space-y-3 text-xs sm:text-sm">
-              {COUNTRIES_LIST.filter((c) => c.id !== "europe-usa").map((country) => (
-                <li key={country.id}>
-                  <Link
-                    href={`/countries/${country.slug}`}
-                    className="hover:text-[#E20935] transition-colors flex items-center gap-2.5 group cursor-pointer"
-                  >
-                    <CountryFlag code={country.flagCode} size="sm" />
-                    <span>{country.name} Immigration</span>
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/assessment"
-                  className="text-[#ff476d] font-semibold hover:underline block pt-1 cursor-pointer"
-                >
-                  Calculate PR Points →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Tools & Legal */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-[#E20935] pl-2.5">
-              Company & Tools
-            </h4>
-            <ul className="space-y-3 text-xs sm:text-sm">
-              <li>
-                <Link href="/about" className="hover:text-[#E20935] transition-colors cursor-pointer">
-                  About Our Counsel & MARA Team
-                </Link>
-              </li>
-              <li>
-                <Link href="/assessment" className="hover:text-[#E20935] transition-colors cursor-pointer">
-                  Free PR Points Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/success-stories" className="hover:text-[#E20935] transition-colors cursor-pointer">
-                  Client Success Stories & Grants
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[#E20935] transition-colors cursor-pointer">
-                  Global Office Locations
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy-policy" className="hover:text-[#E20935] transition-colors cursor-pointer">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-of-service" className="hover:text-[#E20935] transition-colors cursor-pointer">
-                  Terms & Conditions
-                </Link>
-              </li>
-            </ul>
-
-            <div className="mt-6 p-4 rounded-xl bg-black/40 border border-[#E20935]/30">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#ff476d] mb-1">
-                <Award className="w-4 h-4 text-[#E20935]" />
-                <span>Need Urgent Legal Advice?</span>
-              </div>
-              <p className="text-xs text-slate-300">
-                Direct phone hotline with our certified case lodgement attorneys.
-              </p>
-              <a
-                href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-                className="mt-2 inline-block text-xs font-bold text-white hover:text-[#E20935] underline"
-              >
-                Call {COMPANY_INFO.phone}
-              </a>
+                    <span>{subscribed ? "Joined" : "Subscribe"}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </form>
             </div>
+
           </div>
         </div>
+      </div>
 
-        {/* Regulatory Disclaimer & Copyright */}
-        <div className="mt-12 pt-8 border-t border-white/10 text-xs text-slate-400 space-y-4">
-          <p className="text-xs leading-relaxed text-slate-300">
-            <strong className="text-white">Statutory Disclaimer:</strong> Viraj Immigration Consultancy Services is an independent legal and corporate immigration advisory firm. We are not an official arm of the Department of Home Affairs Australia, Immigration, Refugees and Citizenship Canada (IRCC), UK Visas and Immigration (UKVI), or US USCIS. Migration advice for Australian immigration is rendered in direct partnership with Registered Migration Agents (MARA). Advice for Canadian immigration is provided under the oversight of College of Immigration and Citizenship Consultants (CICC / RCIC) licensed representatives.
-          </p>
+      {/* 2. Visaz Main Widgets Section */}
+      <div className="py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+            
+            {/* Column 1: About Company */}
+            <div className="lg:col-span-4 space-y-6">
+              <h4 className="text-lg font-extrabold text-white tracking-tight">
+                About Company
+              </h4>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/5 gap-2">
-            <div>
-              © 2026 {COMPANY_INFO.name}. All Rights Reserved.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Viraj Immigration &amp; Smart Geek Visas is India&apos;s premier certified immigration consultancy. Backed by 15+ years of legal mastery in Australia PR (subclasses 189, 190, 491) and Canada Express Entry, we deliver audit-ready applications with an audited 99.9% grant rate.
+              </p>
+
+              <div className="space-y-4 pt-1">
+                {/* Phone Callout */}
+                <a
+                  href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
+                  className="flex items-center gap-3.5 group cursor-pointer"
+                >
+                  <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 group-hover:bg-[#E20935] flex items-center justify-center text-[#E20935] group-hover:text-white transition-colors">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-slate-400 block font-bold">
+                      Make A Call
+                    </span>
+                    <strong className="text-sm sm:text-base font-extrabold text-white group-hover:text-[#E20935] transition-colors">
+                      {COMPANY_INFO.phone}
+                    </strong>
+                  </div>
+                </a>
+
+                {/* Email Callout */}
+                <a
+                  href={`mailto:${COMPANY_INFO.email}`}
+                  className="flex items-center gap-3.5 group cursor-pointer"
+                >
+                  <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 group-hover:bg-[#E20935] flex items-center justify-center text-[#E20935] group-hover:text-white transition-colors">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-slate-400 block font-bold">
+                      Email Us
+                    </span>
+                    <strong className="text-xs sm:text-sm font-extrabold text-white group-hover:text-[#E20935] transition-colors">
+                      {COMPANY_INFO.email}
+                    </strong>
+                  </div>
+                </a>
+
+                {/* Location Callout */}
+                <div className="flex items-start gap-3.5 pt-1">
+                  <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#E20935] shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div className="text-xs text-slate-400">
+                    <span className="text-[11px] uppercase tracking-wider text-slate-400 block font-bold">
+                      Delhi Head Office
+                    </span>
+                    <span className="text-slate-300 font-medium">
+                      10th Floor, Devika Tower, 1001-A, Nehru Place, New Delhi, Delhi 110019
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <Link href="/privacy-policy" className="hover:text-[#E20935]">Privacy Policy</Link>
-              <span>•</span>
-              <Link href="/terms-of-service" className="hover:text-[#E20935]">Terms of Service</Link>
-              <span>•</span>
-              <Link href="/contact" className="hover:text-[#E20935]">Legal Disclaimer</Link>
+
+            {/* Column 2: Quick Links (2 Sub-Columns in Visaz Style) */}
+            <div className="lg:col-span-5 space-y-6">
+              <h4 className="text-lg font-extrabold text-white tracking-tight">
+                Quick Link
+              </h4>
+
+              <div className="grid grid-cols-2 gap-6">
+                <ul className="space-y-3 text-xs sm:text-sm">
+                  <li>
+                    <Link href="/services/permanent-residency" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Australia Subclass 189</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/permanent-residency" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Australia Subclass 190</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/permanent-residency" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Australia Subclass 491</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/permanent-residency" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Canada Express Entry</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/study-visa" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Student &amp; Post-Study Visa</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/work-permit" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Work Permit Sponsorship</span>
+                    </Link>
+                  </li>
+                </ul>
+
+                <ul className="space-y-3 text-xs sm:text-sm">
+                  <li>
+                    <Link href="/about" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>About Us</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/assessment" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Points Calculator</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/success-stories" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Success Stories</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Contact Us</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/privacy-policy" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Privacy Policy</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/terms-of-service" className="text-slate-300 hover:text-[#E20935] transition-colors flex items-center gap-2 group cursor-pointer">
+                      <span className="text-[#E20935] font-bold">›</span>
+                      <span>Terms &amp; Conditions</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Column 3: Visaz Destination Photo Gallery */}
+            <div className="lg:col-span-3 space-y-6">
+              <h4 className="text-lg font-extrabold text-white tracking-tight">
+                Gallery
+              </h4>
+
+              <div className="grid grid-cols-3 gap-2.5">
+                {galleryImages.map((src, idx) => (
+                  <div
+                    key={idx}
+                    className="relative h-20 w-full rounded-xl overflow-hidden group shadow-md cursor-pointer border border-white/10"
+                    onClick={() => openModal()}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Visaz Global Destination ${idx + 1}`}
+                      fill
+                      sizes="100px"
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-[#E20935]/0 group-hover:bg-[#E20935]/40 transition-colors" />
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2">
+                <button
+                  onClick={() => openModal()}
+                  className="btn-style-one w-full text-center text-xs py-2.5"
+                >
+                  Book Free Consultation
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Centered Red Scroll-To-Top Button on Border Line */}
+      <div className="relative border-t border-white/10">
+        <div className="absolute left-1/2 -top-5 -translate-x-1/2 z-20">
+          <button
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+            className="w-10 h-10 rounded-full bg-[#E20935] text-white flex items-center justify-center shadow-xl hover:bg-[#c5072d] hover:scale-110 transition-all cursor-pointer"
+          >
+            <ChevronUp className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* 4. Visaz Footer Bottom Strip */}
+        <div className="py-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div>
+              Copyright &copy; {new Date().getFullYear()} <strong className="text-white">Viraj Immigration</strong>. All Rights Reserved.
+            </div>
+
+            <div className="flex items-center gap-6 text-slate-400">
+              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+              <Link href="/assessment" className="hover:text-white transition-colors">FAQs</Link>
+              <Link href="/contact" className="hover:text-white transition-colors">Career</Link>
             </div>
           </div>
         </div>
       </div>
+
     </footer>
   );
 }
