@@ -95,10 +95,10 @@ export default function VisazProcess() {
         <div className="mt-12 text-center">
           <button
             onClick={() => openModal()}
-            className="px-8 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 inline-flex items-center gap-2 cursor-pointer"
+            className="btn-style-one"
           >
             <span>Begin Step 01: Free Profile Assessment</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 ml-1" />
           </button>
         </div>
 

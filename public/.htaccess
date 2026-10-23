@@ -12,11 +12,12 @@ DirectoryIndex index.html index.php
 
 # Cache Controls
 <IfModule mod_headers.c>
-  # Never cache HTML files or dynamic routes
+  # Force LiteSpeed and Hostinger CDN to never cache HTML
   <FilesMatch "\.(html|htm)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
-    Header set Pragma "no-cache"
-    Header set Expires "0"
+    Header always set X-LiteSpeed-Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0"
+    Header always set Pragma "no-cache"
+    Header always set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
   </FilesMatch>
 
   # Cache immutable static hashed assets
@@ -40,7 +41,7 @@ DirectoryIndex index.html index.php
   # If a requested CSS file in _next/static/css does not exist, fallback to any available CSS
   RewriteCond %{REQUEST_URI} ^/_next/static/css/
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^_next/static/css/.*\.css$ /_next/static/css/6058e4785fc523de.css [L]
+  RewriteRule ^_next/static/css/.*\.css$ /_next/static/css/46f2d04e5a13b9db.css [L]
 
   # If a requested JS script in _next/ does not exist, serve empty.js to avoid SyntaxError '<'
   RewriteCond %{REQUEST_URI} ^/_next/.*\.js$

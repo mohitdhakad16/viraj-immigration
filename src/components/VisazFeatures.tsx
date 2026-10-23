@@ -118,10 +118,10 @@ export default function VisazFeatures() {
               <div className="pt-6 mt-6 border-t border-slate-100">
                 <button
                   onClick={() => openModal()}
-                  className="w-full py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-[#16171A] group-hover:text-white bg-slate-50 group-hover:bg-[#E20935] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                  className="btn-style-two w-full text-center"
                 >
                   <span>Book Free Consultation</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
               </div>
             </div>

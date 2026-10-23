@@ -13,9 +13,15 @@
   --color-visaz-darker: #0E0F12;
   --color-visaz-charcoal: #1f2126;
   --color-visaz-muted: #727272;
-  --color-visaz-cream: #f8f6f1;
+  --color-visaz-cream: #FAF8F7;
   --color-visaz-star: #fdc009;
-  --font-sans: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-manrope), "Manrope", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
 }
 
 :root {
@@ -64,7 +70,225 @@ a *,
   cursor: pointer !important;
 }
 
-/* Visaz Custom Scrollbar */
+/* ==========================================================================
+   Visaz Official Theme Classes & Animations
+   ========================================================================== */
+
+/* Signature Visaz Primary Button with Sliding Background */
+.btn-style-one {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1em;
+  padding: 16px 36px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #ffffff !important;
+  background-color: #E20935;
+  z-index: 1;
+  transition: all 400ms cubic-bezier(0.86, 0, 0.07, 1);
+  box-shadow: 0 10px 25px -5px rgba(226, 9, 53, 0.38);
+  cursor: pointer;
+}
+
+.btn-style-one::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background-color: #16171A;
+  transform: scale(0, 1);
+  transform-origin: top right;
+  transition: transform 450ms cubic-bezier(0.86, 0, 0.07, 1);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn-style-one:hover::before {
+  transform: scale(1, 1);
+  transform-origin: bottom left;
+}
+
+.btn-style-one:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -5px rgba(22, 23, 26, 0.4);
+}
+
+.btn-style-one:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Visaz Secondary Button with Inverted Slide */
+.btn-style-two {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1em;
+  padding: 16px 36px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #16171A;
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  z-index: 1;
+  transition: all 400ms cubic-bezier(0.86, 0, 0.07, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.btn-style-two::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background-color: #E20935;
+  transform: scale(0, 1);
+  transform-origin: top right;
+  transition: transform 450ms cubic-bezier(0.86, 0, 0.07, 1);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn-style-two:hover::before {
+  transform: scale(1, 1);
+  transform-origin: bottom left;
+}
+
+.btn-style-two:hover {
+  color: #ffffff !important;
+  border-color: #E20935;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(226, 9, 53, 0.35);
+}
+
+.btn-style-two:hover * {
+  color: #ffffff !important;
+}
+
+/* Visaz Keyframe Animations */
+@keyframes bounce-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes zoom-one {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(226, 9, 53, 0.6), 0 0 0 10px rgba(226, 9, 53, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(226, 9, 53, 0), 0 0 0 40px rgba(226, 9, 53, 0);
+  }
+}
+
+.animate-bounce-y {
+  animation: bounce-y 5s ease-in-out infinite;
+}
+
+.animate-bounce-x {
+  animation: bounce-x 6s ease-in-out infinite;
+}
+
+.animate-zoom-one {
+  animation: zoom-one 4s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripple 2.5s infinite;
+}
+
+/* Visaz Section Title Subtitle */
+.sec-sub-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #E20935;
+  margin-bottom: 8px;
+}
+
+.sec-sub-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #E20935;
+}
+
+/* Visaz Card Hover Underline Fill */
+.visaz-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.visaz-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #E20935, #ff476d);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.visaz-card:hover::before {
+  width: 100%;
+}
+
+.visaz-card:hover {
+  border-color: rgba(226, 9, 53, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
 ::-webkit-scrollbar {
   width: 9px;
 }

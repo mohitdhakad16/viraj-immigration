@@ -7,12 +7,17 @@ import HeroLeadForm from "@/components/HeroLeadForm";
 import VisazFeatures from "@/components/VisazFeatures";
 import VisazAbout from "@/components/VisazAbout";
 import OccupationDemandSection from "@/components/OccupationDemandSection";
+import VisaGrantsGallery from "@/components/VisaGrantsGallery";
 import ComparisonSection from "@/components/ComparisonSection";
+import BestConsultantsBanner from "@/components/BestConsultantsBanner";
+import AverageSalariesSection from "@/components/AverageSalariesSection";
+import VisazAuthorityNarrative from "@/components/VisazAuthorityNarrative";
 import VisazProcess from "@/components/VisazProcess";
 import VisazStats from "@/components/VisazStats";
 import CountryTabs from "@/components/CountryTabs";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import InteractiveGlobeSection from "@/components/InteractiveGlobeSection";
+import MediaMentions from "@/components/MediaMentions";
 import HomeFaq from "@/components/HomeFaq";
 import RunningMarquee from "@/components/RunningMarquee";
 import { useConsultationModal } from "@/context/ModalContext";
@@ -48,16 +53,26 @@ export default function HomePage() {
   };
 
   return (
-    <div className="w-full bg-[#f8f6f1] text-[#16171A]">
+    <div className="w-full bg-[#FAF8F7] text-[#16171A]">
       
-      {/* 1. HERO SECTION (True Visaz Theme Replica + SmartGeek Copy) */}
-      <section className="relative bg-gradient-to-b from-[#ffffff] via-[#fcfbfa] to-[#f8f6f1] text-[#16171A] overflow-hidden pt-8 pb-14 lg:py-20 border-b border-slate-200">
-        {/* Ambient atmospheric red flares */}
-        <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#E20935]/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#E20935]/5 rounded-full blur-3xl pointer-events-none" />
-        
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+      {/* 1. HERO SECTION (Visaz Master Theme + SmartGeek Copy) */}
+      <section className="relative bg-[#16171A] text-white overflow-hidden pt-12 pb-16 lg:py-24 border-b border-white/10">
+        {/* Authentic Visaz Background Slider Photography */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/visaz-assets/images/main-slider/1.jpg"
+            alt="Visaz Immigration Advisory Banner"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0F12]/95 via-[#16171A]/88 to-[#0E0F12]/85" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(226,9,53,0.25),transparent_70%)]" />
+        </div>
+
+        {/* Ambient floating red flares */}
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#E20935]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#E20935]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -66,77 +81,77 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-6 text-left">
               
               {/* Kicker badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-red-50 border border-red-200 text-[#E20935] shadow-xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-[#E20935]/20 border border-[#E20935]/40 text-[#ff476d] backdrop-blur-md shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-[#E20935] shrink-0" />
-                <span>MARA Registered: 1802914 &amp; CICC Licensed: R531892</span>
+                <span>MARA: 1802914 &amp; CICC: R531892 Registered Lawyers</span>
               </div>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-[#16171A] leading-[1.12]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
                 Dream, Apply, Achieve:{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E20935] via-[#c5072d] to-[#990022]">
-                  Begin Your Global PR Journey
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff476d] via-[#E20935] to-[#ff6b8b]">
+                  Begin Your PR Journey Now
                 </span>
               </h1>
 
               {/* Sub-copy from SmartGeek */}
-              <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
-                <strong className="font-extrabold text-[#16171A]">15+ Years of Mastery.</strong> We simplify the immigration journey and optimize your points test with an audited <strong className="font-extrabold text-[#E20935]">99.9% success rate</strong>. Legally accredited counsel providing statutory pre-assessment, skills assessment drafting, and zero-defect visa filing for Australia, Canada, the UK, Europe, and the UAE.
+              <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
+                <strong className="font-extrabold text-white">15+ Years of Mastery.</strong> Led by senior migration counsel, we simplify your Australia and Canada permanent residency journey and optimize your points test with an audited <strong className="font-extrabold text-[#ff476d]">99.9% success rate</strong>. Statutory pre-assessment, ANZSCO skills drafting, and zero-defect filing.
               </p>
 
-              {/* Critical Authority & Attention-to-Detail Stat Badges */}
+              {/* Authority & Stat Badges */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
-                <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-[#E20935]/40 transition-colors">
+                <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xs text-xs sm:text-sm font-semibold hover:border-[#E20935]/40 transition-colors">
                   <Award className="w-5 h-5 text-[#E20935] shrink-0" />
                   <div>
-                    <div className="font-extrabold text-[#16171A] text-sm">30,000+ Grants</div>
-                    <div className="text-[11px] text-slate-500 font-medium">Direct Lawyer Filing</div>
+                    <div className="font-extrabold text-white text-sm">30,000+ Grants</div>
+                    <div className="text-[11px] text-slate-300 font-medium">Direct Lawyer Filing</div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-emerald-500/40 transition-colors">
-                  <TrendingUp className="w-5 h-5 text-emerald-600 shrink-0" />
+                <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xs text-xs sm:text-sm font-semibold hover:border-emerald-500/40 transition-colors">
+                  <TrendingUp className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <div className="font-extrabold text-[#16171A] text-sm">99.9% Success</div>
-                    <div className="text-[11px] text-slate-500 font-medium">Audited Approvals</div>
+                    <div className="font-extrabold text-white text-sm">99.9% Success</div>
+                    <div className="text-[11px] text-slate-300 font-medium">Audited Approvals</div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-200 shadow-xs text-xs sm:text-sm font-semibold hover:border-blue-500/40 transition-colors">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
+                <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xs text-xs sm:text-sm font-semibold hover:border-blue-500/40 transition-colors">
+                  <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0" />
                   <div>
-                    <div className="font-extrabold text-[#16171A] text-sm">Zero Defect</div>
-                    <div className="text-[11px] text-slate-500 font-medium">Statutory Pre-Screen</div>
+                    <div className="font-extrabold text-white text-sm">Zero Defect</div>
+                    <div className="text-[11px] text-slate-300 font-medium">Statutory Pre-Screen</div>
                   </div>
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons with Visaz Slide Animations */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={() => openModal()}
-                  className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl font-extrabold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer"
+                  className="btn-style-one w-full sm:w-auto"
                 >
                   <span>Book Free Consultation</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
 
                 <Link
                   href="/assessment"
-                  className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm text-[#16171A] bg-white hover:bg-slate-50 border border-slate-300 hover:border-[#E20935] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                  className="btn-style-two w-full sm:w-auto bg-white/10 text-white border-white/20 hover:border-[#E20935]"
                 >
-                  <Sparkles className="w-4 h-4 text-[#E20935]" />
+                  <Sparkles className="w-4 h-4 text-[#E20935] mr-1" />
                   <span>Check Your PR Points</span>
                 </Link>
               </div>
 
               {/* Direct Hotline Pill */}
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 pt-1">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 pt-1">
                 <PhoneCall className="w-4 h-4 text-[#E20935] animate-pulse" />
                 <span>Immediate Legal Advisory Desk:</span>
                 <a
                   href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-                  className="text-[#16171A] font-bold hover:text-[#E20935] hover:underline cursor-pointer"
+                  className="text-white font-bold hover:text-[#ff476d] hover:underline cursor-pointer"
                 >
                   {COMPANY_INFO.phone}
                 </a>
@@ -163,9 +178,9 @@ export default function HomePage() {
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-[#fdc009]" />
                     ))}
-                    <span className="text-slate-800 font-bold ml-1">4.9 / 5</span>
+                    <span className="text-white font-bold ml-1">4.9 / 5</span>
                   </div>
-                  <span className="text-slate-500 text-[11px] font-semibold">Over 30,000+ Verified Visa Grants</span>
+                  <span className="text-slate-300 text-[11px] font-semibold">Over 30,000+ Verified Visa Grants</span>
                 </div>
               </div>
 
@@ -192,17 +207,29 @@ export default function HomePage() {
       {/* 5. OCCUPATION DEMAND & AVERAGE SALARIES (SMARTGEEK SECTION) */}
       <OccupationDemandSection />
 
-      {/* 6. WHAT MAKES US DIFFERENT FROM OTHERS? (SMARTGEEK COMPARISON MATRIX) */}
+      {/* 6. VERIFIED VISA APPROVAL GRANTS GALLERY (SMARTGEEK 8 PROOF IMAGES) */}
+      <VisaGrantsGallery />
+
+      {/* 7. WHAT MAKES US DIFFERENT FROM OTHERS? (SMARTGEEK COMPARISON MATRIX) */}
       <ComparisonSection />
 
-      {/* 7. CORE VISA SERVICES SECTION (Visaz Card Grid) */}
+      {/* 8. BEST IMMIGRATION CONSULTANTS IN INDIA (SMARTGEEK AUTHORITY BANNER) */}
+      <BestConsultantsBanner />
+
+      {/* 9. AVERAGE SALARIES IN AUSTRALIA (SMARTGEEK BENCHMARK TABLE) */}
+      <AverageSalariesSection />
+
+      {/* 10. YOUR TRUSTED PARTNER FOR AUSTRALIA PR (FULL NARRATIVE) */}
+      <VisazAuthorityNarrative />
+
+      {/* 11. CORE VISA SERVICES SECTION (Visaz Card Grid) */}
       <section className="py-16 sm:py-24 relative bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
-              Service We Provide
-            </span>
+            <div className="sec-sub-title">
+              <span>Services We Provide</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
               Explore Our Visa, Citizenship &amp; Immigration Services
             </h2>
@@ -215,7 +242,7 @@ export default function HomePage() {
             {SERVICES_LIST.map((service) => (
               <div
                 key={service.id}
-                className="bg-[#f8f6f1] rounded-3xl border border-slate-200 shadow-xs hover:shadow-2xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                className="bg-[#FAF8F7] rounded-3xl border border-slate-200 shadow-xs hover:shadow-2xl hover:border-[#E20935] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
               >
                 {/* Image Header with Badge */}
                 <div 
@@ -306,7 +333,7 @@ export default function HomePage() {
               <div className="pt-6 relative z-10">
                 <button
                   onClick={() => openModal()}
-                  className="w-full py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-[#E20935] hover:bg-[#c5072d] text-white uppercase tracking-wider shadow-lg shadow-red-600/30 active:scale-95 transition-all text-center block cursor-pointer"
+                  className="btn-style-one w-full text-center"
                 >
                   Request Profile Evaluation
                 </button>
@@ -317,14 +344,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. DESTINATION COUNTRIES ("IMMIGRATION CHOOSE YOUR COUNTRY") */}
-      <section className="py-16 sm:py-24 bg-[#f8f6f1] border-b border-slate-200">
+      {/* 12. DESTINATION COUNTRIES ("IMMIGRATION CHOOSE YOUR COUNTRY") */}
+      <section className="py-16 sm:py-24 bg-[#FAF8F7] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
-              Choose Country
-            </span>
+            <div className="sec-sub-title">
+              <span>Choose Country</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
               Immigration: Choose Your Destination Country
             </h2>
@@ -338,16 +365,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. WORKING PROCESS ("4 EASY STEPS" - VISAZ PROCESS SECTION) */}
+      {/* 13. WORKING PROCESS ("4 EASY STEPS" - VISAZ PROCESS SECTION) */}
       <VisazProcess />
 
-      {/* 10. STATS & PROVEN NUMBERS BANNER */}
+      {/* 14. STATS & PROVEN NUMBERS BANNER */}
       <VisazStats />
 
-      {/* 11. INTERACTIVE 3D GLOBAL MIGRATION RADAR */}
+      {/* 15. INTERACTIVE 3D GLOBAL MIGRATION RADAR */}
       <InteractiveGlobeSection />
 
-      {/* 12. CLIENT SUCCESS STORIES & TESTIMONIALS */}
+      {/* 16. CLIENT SUCCESS STORIES & TESTIMONIALS */}
       <section className="py-16 sm:py-24 bg-[#16171A] text-white relative border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -377,10 +404,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 13. FREQUENTLY ASKED QUESTIONS (SMARTGEEK 8 PR FAQS) */}
+      {/* 17. MEDIA MENTIONS (SMARTGEEK 12 PUBLICATION LOGOS) */}
+      <MediaMentions />
+
+      {/* 18. FREQUENTLY ASKED QUESTIONS (SMARTGEEK 8 PR FAQS) */}
       <HomeFaq />
 
-      {/* 14. PRE-FOOTER CTA STRIP */}
+      {/* 19. PRE-FOOTER CTA STRIP */}
       <section className="bg-gradient-to-b from-[#141518] to-[#16171A] text-white py-16 sm:py-20 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
           <div className="w-14 h-14 rounded-2xl bg-[#E20935]/20 border border-[#E20935] flex items-center justify-center mx-auto">
@@ -398,16 +428,17 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
             <button
               onClick={() => openModal()}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider cursor-pointer"
+              className="btn-style-one w-full sm:w-auto"
             >
-              Book Free Consultation
+              <span>Book Free Consultation</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
             </button>
 
             <a
               href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-xs sm:text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              className="btn-style-two w-full sm:w-auto text-white bg-white/10 border-white/20 hover:border-[#E20935]"
             >
-              <PhoneCall className="w-4 h-4 text-[#E20935]" />
+              <PhoneCall className="w-4 h-4 text-[#E20935] mr-1" />
               <span>Call {COMPANY_INFO.phone}</span>
             </a>
           </div>

@@ -143,10 +143,10 @@ export default function OccupationDemandSection() {
               <div className="pt-4 mt-3 border-t border-slate-200">
                 <button
                   onClick={() => openModal(item.title)}
-                  className="w-full py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all flex items-center justify-center gap-1.5 shadow-md shadow-red-600/20 cursor-pointer"
+                  className="btn-style-one w-full text-center py-2.5 text-xs"
                 >
                   <span>Check Your Eligibility Now</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </button>
               </div>
             </div>
@@ -169,10 +169,10 @@ export default function OccupationDemandSection() {
 
           <button
             onClick={() => openModal()}
-            className="w-full md:w-auto px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider shrink-0 flex items-center justify-center gap-2 cursor-pointer"
+            className="btn-style-one w-full md:w-auto shrink-0"
           >
             <span>Request Custom ANZSCO Evaluation</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 ml-1" />
           </button>
         </div>
 

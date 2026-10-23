@@ -175,9 +175,10 @@ export default function HomeFaq() {
 
           <button
             onClick={() => openModal()}
-            className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-xl shadow-red-600/30 uppercase tracking-wider shrink-0 cursor-pointer"
+            className="btn-style-one w-full sm:w-auto shrink-0"
           >
-            Ask a Registered Lawyer
+            <span>Ask a Registered Lawyer</span>
+            <ArrowRight className="w-4 h-4 ml-1" />
           </button>
         </div>
 

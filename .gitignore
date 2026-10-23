@@ -46,3 +46,4 @@ upload.zip
 hostinger-upload.zip
 *.zip
 deploy.cjs
+scratch/

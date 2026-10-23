@@ -72,7 +72,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-6">
             <span className="flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors cursor-pointer">
               <MapPin className="w-3.5 h-3.5 text-[#E20935]" />
-              Noida Sector 62 & Melbourne VIC
+              Devika Tower, Nehru Place, New Delhi & Melbourne VIC
             </span>
             <a
               href={`mailto:${COMPANY_INFO.email}`}
@@ -364,7 +364,7 @@ export default function Navbar() {
           <div className="flex items-center justify-end shrink-0 gap-2 sm:gap-3">
             <button
               onClick={() => openModal()}
-              className="hidden sm:inline-flex items-center gap-2 px-3.5 xl:px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#E20935] hover:bg-[#c5072d] active:scale-95 transition-all shadow-md shadow-red-600/30 uppercase tracking-wider whitespace-nowrap cursor-pointer shrink-0"
+              className="btn-style-one hidden sm:inline-flex py-2.5 px-3.5 xl:px-5 text-xs whitespace-nowrap shrink-0"
             >
               <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
               <span>Book Consultation</span>
