@@ -40,7 +40,7 @@ DirectoryIndex index.html index.php
   # If a requested CSS file in _next/static/css does not exist, fallback to any available CSS
   RewriteCond %{REQUEST_URI} ^/_next/static/css/
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^_next/static/css/.*\.css$ /_next/static/css/61399910734fae8b.css [L]
+  RewriteRule ^_next/static/css/.*\.css$ /_next/static/css/6058e4785fc523de.css [L]
 
   # If a requested JS script in _next/ does not exist, serve empty.js to avoid SyntaxError '<'
   RewriteCond %{REQUEST_URI} ^/_next/.*\.js$

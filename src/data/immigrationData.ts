@@ -37,12 +37,12 @@ export interface CountryItem {
 export const COMPANY_INFO = {
   name: "Viraj Immigration",
   legalName: "Viraj Immigration Consultancy Services",
-  tagline: "Your Gateway to Global Residency, Careers & Citizenship",
-  phone: "+91 98765 43210",
-  whatsapp: "+919876543210",
+  tagline: "Dream, Apply, Achieve: Begin Your Global PR Journey",
+  phone: "+91 62621 91313",
+  whatsapp: "+916262191313",
   email: "info@virajvisasexpert.com",
   secondaryEmail: "info@virajvisasexpert.com",
-  officeIndia: "Level 4, Sovereign Corporate Tower, Sector 62, Noida, NCR, India",
+  officeIndia: "10th Floor, Devika Tower, 1001-A, Nehru Place, New Delhi, Delhi 110019",
   officeOverseas: "Suite 502, 120 Spencer Street, Melbourne VIC 3000, Australia",
   accreditations: [
     { title: "MARA Registered", code: "MARN: 1802914", country: "Australia" },
@@ -51,10 +51,10 @@ export const COMPANY_INFO = {
     { title: "ISO 9001:2015", code: "Certified Quality Mgmt", country: "Global" }
   ],
   stats: [
-    { label: "Successful Visa Grants", value: "8,500+" },
-    { label: "Visa Approval Rate", value: "98.7%" },
-    { label: "Years Industry Experience", value: "14+" },
-    { label: "Licensed Legal Counsels", value: "25+" }
+    { label: "Years Immigration Experience", value: "15+" },
+    { label: "Applications Experience", value: "30 K+" },
+    { label: "Audited Success Rate", value: "99.9%" },
+    { label: "Seeking Advice Every Year", value: "100 K+" }
   ]
 };
 
@@ -609,12 +609,21 @@ export const SUCCESS_STORIES_DATA = [
 
 export const OFFICE_LOCATIONS = [
   {
-    city: "Noida / Delhi NCR (Head Office)",
+    city: "New Delhi (Head Office)",
+    address: "10th Floor, Devika Tower, 1001-A, Nehru Place, New Delhi, Delhi 110019",
+    phone: "+91 62621 91313",
+    email: "info@virajvisasexpert.com",
+    hours: "Mon - Sat: 10:00 AM - 6:00 PM",
+    isHeadquarters: true,
+    mapCoordinates: { lat: 28.549, lng: 77.253 }
+  },
+  {
+    city: "Noida / Delhi NCR Corporate Office",
     address: "Level 4, Sovereign Corporate Tower, Sector 62, Noida, NCR, 201309",
-    phone: "+91 98765 43210",
+    phone: "+91 62621 91313",
     email: "info@virajvisasexpert.com",
     hours: "Mon - Sat: 9:30 AM - 6:30 PM",
-    isHeadquarters: true,
+    isHeadquarters: false,
     mapCoordinates: { lat: 28.628, lng: 77.364 }
   },
   {
@@ -645,3 +654,205 @@ export const OFFICE_LOCATIONS = [
     mapCoordinates: { lat: 19.066, lng: 72.868 }
   }
 ];
+
+export interface OccupationDemandItem {
+  id: string;
+  title: string;
+  category: string;
+  salaryAud: string;
+  salaryCad: string;
+  pathways: string[];
+  pointsBenchmark: string;
+  demandLevel: "Very High" | "Critical Shortage" | "Priority Fast-Track";
+  iconName: string;
+  description: string;
+}
+
+export const OCCUPATIONS_DEMAND: OccupationDemandItem[] = [
+  {
+    id: "it-professionals",
+    title: "IT Professionals & Software Engineers",
+    category: "Technology",
+    salaryAud: "AUD 85,000 - 150,000",
+    salaryCad: "CAD 90,000 - 155,000",
+    pathways: ["Subclass 189/190", "Canada Express Entry STEM", "Germany Chancenkarte"],
+    pointsBenchmark: "65 - 85 Points",
+    demandLevel: "Critical Shortage",
+    iconName: "Code",
+    description: "Software developers, cloud architects, cybersecurity specialists, data scientists, and DevOps engineers are on high-priority skilled occupation lists with accelerated invitation rounds."
+  },
+  {
+    id: "healthcare-workers",
+    title: "Healthcare Workers & Nursing Specialists",
+    category: "Healthcare",
+    salaryAud: "AUD 75,000 - 140,000",
+    salaryCad: "CAD 80,000 - 145,000",
+    pathways: ["Subclass 189/190 Fast-Track", "Canada Category-Based Healthcare", "UK Health & Care Visa"],
+    pointsBenchmark: "65 - 75 Points",
+    demandLevel: "Critical Shortage",
+    iconName: "Stethoscope",
+    description: "Registered nurses, general practitioners, medical lab technicians, and physiotherapists receive expedited state nominations and invitations at minimum cutoff thresholds."
+  },
+  {
+    id: "engineers",
+    title: "Engineers (Civil, Mechanical, Electrical)",
+    category: "Engineering",
+    salaryAud: "AUD 80,000 - 135,000",
+    salaryCad: "CAD 85,000 - 140,000",
+    pathways: ["Engineers Australia CDR Pathway", "Provincial Nominee Program (PNP)", "Subclass 491 Regional"],
+    pointsBenchmark: "70 - 80 Points",
+    demandLevel: "Very High",
+    iconName: "Cog",
+    description: "Civil infrastructure, structural, electrical, and mechanical engineers are needed across major national transport, energy, and urban development projects."
+  },
+  {
+    id: "finance-accounting",
+    title: "Financial & Accounting Professionals",
+    category: "Finance",
+    salaryAud: "AUD 70,000 - 130,000",
+    salaryCad: "CAD 75,000 - 130,000",
+    pathways: ["CPA / CA ANZ Assessment", "Express Entry FSW", "Subclass 190 State Nomination"],
+    pointsBenchmark: "75 - 85 Points",
+    demandLevel: "Very High",
+    iconName: "TrendingUp",
+    description: "Chartered accountants, auditors, financial analysts, and corporate controllers in corporate hubs like Sydney, Melbourne, Toronto, and Vancouver."
+  },
+  {
+    id: "skilled-trades",
+    title: "Skilled Trades & Technicians",
+    category: "Trades",
+    salaryAud: "AUD 60,000 - 120,000",
+    salaryCad: "CAD 65,000 - 115,000",
+    pathways: ["TRA Skills Assessment", "Federal Skilled Trades (FST)", "Provincial Nominee Streams"],
+    pointsBenchmark: "65 - 70 Points",
+    demandLevel: "Priority Fast-Track",
+    iconName: "Wrench",
+    description: "Electricians, plumbers, automotive mechanics, welders, and HVAC technicians benefit from minimal English requirements and direct job-ready pathways."
+  },
+  {
+    id: "teachers-educators",
+    title: "Teachers & Early Childhood Educators",
+    category: "Education",
+    salaryAud: "AUD 60,000 - 105,000",
+    salaryCad: "CAD 65,000 - 110,000",
+    pathways: ["AITSL Assessment", "Subclass 189 Independent", "State Nomination Priority"],
+    pointsBenchmark: "65 - 75 Points",
+    demandLevel: "Critical Shortage",
+    iconName: "GraduationCap",
+    description: "Secondary school educators, special education tutors, and early childhood teachers enjoy fast-track regional invitations and excellent work-life balance."
+  },
+  {
+    id: "supply-chain-logistics",
+    title: "Supply Chain & Logistics Managers",
+    category: "Logistics",
+    salaryAud: "AUD 75,000 - 130,000",
+    salaryCad: "CAD 75,000 - 125,000",
+    pathways: ["VETASSESS Professional", "Express Entry Transport Category", "Subclass 491"],
+    pointsBenchmark: "70 - 80 Points",
+    demandLevel: "Very High",
+    iconName: "Truck",
+    description: "Procurement managers, warehouse directors, distribution heads, and supply chain analysts managing international trade corridors."
+  },
+  {
+    id: "sales-marketing",
+    title: "Sales & Marketing Specialists",
+    category: "Marketing",
+    salaryAud: "AUD 70,000 - 125,000",
+    salaryCad: "CAD 70,000 - 120,000",
+    pathways: ["VETASSESS Marketing", "Subclass 190 State Sponsored", "Global Talent Employer Sponsored"],
+    pointsBenchmark: "75 - 85 Points",
+    demandLevel: "Very High",
+    iconName: "Target",
+    description: "Digital marketing managers, market research analysts, brand strategists, and enterprise sales directors driving multinational growth."
+  }
+];
+
+export interface ComparisonRow {
+  feature: string;
+  virajOffer: string;
+  othersDont: string;
+}
+
+export const SMART_GEEK_COMPARISON: ComparisonRow[] = [
+  {
+    feature: "Experience & Legal Credibility",
+    virajOffer: "15+ years of proven immigration expertise with verified grant records",
+    othersDont: "Limited experience with immigration laws & changing visa policies"
+  },
+  {
+    feature: "Visa Solutions & Pathways",
+    virajOffer: "Complete visa solutions: PR, Work, Business, Student & Investor visas",
+    othersDont: "Restricted visa offerings, focused on one category or country only"
+  },
+  {
+    feature: "Global Network & Legal Presence",
+    virajOffer: "Strong global presence in India, Australia & Canada with licensed barristers",
+    othersDont: "Small local teams with limited real-world international exposure"
+  },
+  {
+    feature: "Regulatory Licensing & Accreditations",
+    virajOffer: "Direct MARA (Australia) & CICC (Canada) registered migration consultants",
+    othersDont: "Unaccredited brokers relying on third-party sub-agents"
+  },
+  {
+    feature: "PR Pathway Optimization",
+    virajOffer: "Specialized expertise in PR points testing, state nominations & complex appeals",
+    othersDont: "Weak understanding of PR rules, resulting in frequent CRS point miscalculations"
+  },
+  {
+    feature: "Document Compliance & Zero Rejection",
+    virajOffer: "Dedicated 3-tier legal compliance audit to prevent visa rejections",
+    othersDont: "Inconsistent documentation checks leading to unnecessary refusals and delays"
+  },
+  {
+    feature: "Technology & Transparent Tracking",
+    virajOffer: "Milestone-driven client portal with real-time application tracking & updates",
+    othersDont: "Manual, slow processes with zero tracking and poor communication"
+  },
+  {
+    feature: "Client Advisory Approach",
+    virajOffer: "Personalized, client-first legal guidance at every milestone",
+    othersDont: "Generic, sales-driven approach with high upfront fees and little personal care"
+  },
+  {
+    feature: "End-to-End Migration Support",
+    virajOffer: "Complete support under one roof: Profile assessment, filing, grant to post-landing",
+    othersDont: "Disconnected services handled by multiple uncoordinated agencies"
+  }
+];
+
+export const SMART_GEEK_FAQS = [
+  {
+    q: "1. How to apply for Australian PR from India?",
+    a: "You can apply for Australian PR from India through skilled migration pathways like Subclass 189 (Skilled Independent), Subclass 190 (Skilled Nominated), or Subclass 491 (Skilled Work Regional) visas. The process includes skills assessment through relevant authorities (ACS, Engineers Australia, VETASSESS), achieving required IELTS or PTE scores, submitting an Expression of Interest (EOI) on SkillSelect, securing state nomination (if applying for 190 or 491), and lodging your visa application with comprehensive documentation."
+  },
+  {
+    q: "2. What is the eligibility score for Australian PR?",
+    a: "The minimum statutory eligibility score for Australian PR is 65 points under the Points Test. Points are awarded based on age (up to 30 pts), education (up to 20 pts), skilled work experience (up to 15 pts), English language proficiency (up to 20 pts for Superior English), and state nomination bonus (5 pts for Subclass 190, 15 pts for Subclass 491). While 65 is the threshold to enter the pool, competitive scores of 75-85 points ensure faster invitations."
+  },
+  {
+    q: "3. What is the age limit for Australian PR?",
+    a: "The maximum age limit to apply for Australian PR under General Skilled Migration (GSM) is 45 years at the time of invitation. Applicants aged 25–32 years receive the highest points (30 points), making this age bracket ideal for skilled migration. Applicants aged 33–39 receive 25 points, and 40–44 receive 15 points."
+  },
+  {
+    q: "4. How long does Australian PR processing take?",
+    a: "Australian PR processing typically ranges between 6 to 12 months, depending on the visa subclass, occupation demand, points score, and whether you have a state nomination. Skills assessment takes approximately 4-8 weeks, EOI invitation depends on draw frequency, and final Department of Home Affairs visa processing takes 5-8 months post-lodgement."
+  },
+  {
+    q: "5. What is the minimum IELTS score for Australian PR?",
+    a: "The statutory minimum IELTS score is 6 bands in each of the 4 modules (Competent English, 0 points). However, scoring 7 bands (Proficient English) grants 10 points, and scoring 8 bands (Superior English) grants 20 bonus points. Most successful IT, engineering, and finance applicants secure 7 or 8 bands in IELTS or 65+/79+ in PTE Academic to maximize their invitation probability."
+  },
+  {
+    q: "6. Do I need a PR consultant for an immigration visa?",
+    a: "While self-application is permitted, working with a licensed MARA migration consultant dramatically increases your approval rate and prevents costly mistakes. Australian immigration laws and occupation lists update frequently. A certified consultant ensures accurate ANZSCO job matching, bulletproof CDR/RPL skills reports, EOI optimization, and complete compliance with Department of Home Affairs guidelines."
+  },
+  {
+    q: "7. Which immigration visa is best for skilled professionals?",
+    a: "For skilled professionals with tertiary qualifications and work experience, points-based visas like Australia Subclass 189/190 and Canada Express Entry (Federal Skilled Worker) are the gold standard. They provide immediate permanent residency upon arrival, unrestricted work rights for your spouse, free public healthcare, subsidized world-class schooling for children, and a direct path to citizenship."
+  },
+  {
+    q: "8. How to choose the best immigration consultant in India?",
+    a: "Always verify that the consultancy operates under registered migration lawyers (such as Australian MARA or Canadian CICC registration numbers). Choose a firm with transparent milestone fees, documented grant letters, physical corporate offices in major hubs (like Delhi and NCR), and verifiable client testimonials. Avoid unregistered agents who promise fake job guarantees or lack statutory licenses."
+  }
+];
+
