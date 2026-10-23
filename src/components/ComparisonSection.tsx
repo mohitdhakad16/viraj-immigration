@@ -9,14 +9,13 @@ export default function ComparisonSection() {
   const { openModal } = useConsultationModal();
 
   return (
-    <section className="py-16 sm:py-24 bg-[#f8f6f1] relative border-b border-slate-200">
+    <section className="py-16 sm:py-24 bg-[#FAF8F7] relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-[#E20935] border border-red-200">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            Competitive Advantage
+        <div className="text-center max-w-3xl mx-auto space-y-2.5 mb-12 sm:mb-16">
+          <div className="sec-sub-title">
+            <span>Competitive Advantage</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight">
             What Makes Us Different From Others?

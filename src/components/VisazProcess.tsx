@@ -13,25 +13,25 @@ export default function VisazProcess() {
       step: "Step 01",
       title: "Online Assessment",
       desc: "Comprehensive evaluation of your age, qualifications, work history, and language test scores against current PR quotas.",
-      icon: <FileCheck className="w-7 h-7 text-[#E20935]" />
+      icon: <FileCheck className="w-12 h-12" />
     },
     {
       step: "Step 02",
       title: "Skills & Documents",
-      desc: "Submitting formal skills assessment through designated authorities (ACS, Engineers Australia, VETASSESS) with zero-defect CDR reports.",
-      icon: <Award className="w-7 h-7 text-[#E20935]" />
+      desc: "Submitting formal skills assessment through designated authorities (ACS, Engineers Australia, VETASSESS) with zero-defect reports.",
+      icon: <Award className="w-12 h-12" />
     },
     {
       step: "Step 03",
       title: "EOI & Nomination",
       desc: "Lodging Expression of Interest on SkillSelect & Express Entry, targeting high-probability state and provincial nominations (+600 pts).",
-      icon: <Send className="w-7 h-7 text-[#E20935]" />
+      icon: <Send className="w-12 h-12" />
     },
     {
       step: "Step 04",
       title: "Receive Visa Grant",
       desc: "Receiving your stamped Permanent Residency visa with comprehensive pre-departure briefings and post-landing settlement support.",
-      icon: <Plane className="w-7 h-7 text-[#E20935]" />
+      icon: <Plane className="w-12 h-12" />
     }
   ];
 
@@ -39,8 +39,8 @@ export default function VisazProcess() {
     <section className="py-20 lg:py-28 bg-[#FAF8F7] relative border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header (Matches theme_process.png) */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        {/* Section Header (Exact Match to theme_process.png) */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-2.5">
           <div className="sec-sub-title">
             <span>Working Process</span>
           </div>
@@ -49,9 +49,9 @@ export default function VisazProcess() {
           </h2>
         </div>
 
-        {/* Outer Steps Box with Visaz Connected Curved Line */}
+        {/* Outer Steps Box with Visaz Connected Curved Line & Directional Arrows */}
         <div className="relative">
-          {/* Connecting Curved Dotted Line (Matches theme_process.png) */}
+          {/* Connecting Curved Dotted Flight Line from Theme */}
           <div className="hidden lg:block absolute top-12 left-12 right-12 h-16 z-0 pointer-events-none opacity-40">
             <Image
               src="/visaz-assets/images/icons/icon-line.png"
@@ -65,34 +65,44 @@ export default function VisazProcess() {
             {steps.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl p-7 pt-9 border border-slate-200/90 shadow-sm hover:shadow-2xl hover:border-[#E20935] transition-all duration-300 text-center relative group flex flex-col justify-between"
+                className="relative text-center group cursor-pointer"
+                onClick={() => openModal(item.title)}
               >
-                <div>
-                  {/* Step Circular Icon Box */}
-                  <div className="w-20 h-20 rounded-full bg-[#FAF8F7] border-2 border-slate-200 group-hover:border-[#E20935] flex items-center justify-center mx-auto mb-6 group-hover:bg-[#E20935] transition-all duration-300 shadow-md">
-                    <span className="group-hover:text-white transition-colors duration-300">
-                      {React.cloneElement(item.icon, {
-                        className: "w-8 h-8 text-[#E20935] group-hover:text-white transition-colors duration-300"
-                      })}
-                    </span>
+                {/* Horizontal Directional Arrow to next step (Matches theme icon-arrow.png) */}
+                {idx < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 -right-6 z-20 pointer-events-none opacity-60">
+                    <Image
+                      src="/visaz-assets/images/icons/icon-arrow.png"
+                      alt="Next"
+                      width={28}
+                      height={28}
+                    />
                   </div>
+                )}
 
-                  {/* Step Tag */}
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider text-[#E20935] bg-red-50 border border-red-200 mb-2">
+                {/* Big Circular Icon with Red Border (Matches theme_process.png: 150px) */}
+                <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white border-2 border-[#E20935] text-[#E20935] group-hover:bg-[#E20935] group-hover:text-white flex items-center justify-center mx-auto mb-8 shadow-xl transition-all duration-300 relative">
+                  <span className="transition-transform duration-300 group-hover:scale-110">
+                    {item.icon}
+                  </span>
+                  
+                  {/* Small triangular pointer under the circle */}
+                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-t-8 border-t-[#E20935] group-hover:border-t-[#E20935] transition-colors" />
+                </div>
+
+                {/* Content Box */}
+                <div className="bg-white p-6 sm:p-7 shadow-[0_10px_30px_rgba(0,0,0,0.06)] group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#E20935] block mb-2">
                     {item.step}
                   </span>
 
-                  <h3 className="text-lg sm:text-xl font-extrabold text-[#16171A] group-hover:text-[#E20935] transition-colors mb-3">
+                  <h5 className="text-lg font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors mb-2.5">
                     {item.title}
-                  </h3>
+                  </h5>
 
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                     {item.desc}
                   </p>
-                </div>
-
-                <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-center text-xs font-bold text-slate-500 group-hover:text-[#E20935] transition-colors">
-                  <span>Phase 0{idx + 1} Protocol</span>
                 </div>
               </div>
             ))}

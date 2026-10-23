@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Globe2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useConsultationModal } from "@/context/ModalContext";
 
 const COUNTRIES = [
@@ -14,10 +14,10 @@ const COUNTRIES = [
     subclass: "Subclass 189, 190, 491"
   },
   {
-    name: "Canada",
-    slug: "canada",
+    name: "Dubai",
+    slug: "dubai",
     image: "/visaz-assets/images/resource/country1-3.jpg",
-    subclass: "Express Entry & PNP"
+    subclass: "Golden Visa & Investor PR"
   },
   {
     name: "Germany",
@@ -26,10 +26,10 @@ const COUNTRIES = [
     subclass: "Opportunity Card & Blue Card"
   },
   {
-    name: "United Kingdom",
-    slug: "uk",
+    name: "United States",
+    slug: "canada",
     image: "/visaz-assets/images/resource/country1-5.jpg",
-    subclass: "Skilled Worker & Global Talent"
+    subclass: "Skilled & Direct PR Streams"
   }
 ];
 
@@ -37,41 +37,52 @@ export default function VisazCountry() {
   const { openModal } = useConsultationModal();
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF8F7] relative overflow-hidden border-b border-slate-200">
-      {/* Background Monument Sketch */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+    <section className="py-20 lg:py-28 bg-[#FAF8F7] relative overflow-hidden border-t-4 border-[#E20935] border-b border-slate-200">
+      {/* Background Monument Sketch at bottom right (Matches theme_country.png) */}
+      <div className="absolute bottom-0 right-0 w-2/3 h-64 pointer-events-none opacity-20 z-0">
         <Image
           src="/visaz-assets/images/icons/bg-country.png"
           alt="Landmarks Background"
           fill
-          className="object-cover object-bottom"
+          className="object-contain object-bottom-right"
         />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Circular Photo with Consultant (Matches theme_country.png) */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-slate-200 border-8 border-white shadow-2xl overflow-hidden flex items-center justify-center">
-              <Image
-                src="/visaz-assets/images/resource/country1-1.png"
-                alt="Consultant Holding Globe and Passports"
-                fill
-                className="object-contain object-bottom scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+          {/* Left Column: Consultant Image standing in front of circular bg-overlay.png */}
+          <div className="lg:col-span-5 flex justify-center relative">
+            <div className="relative w-[340px] h-[400px] sm:w-[420px] sm:h-[480px]">
+              
+              {/* Circular Decorative Backdrop (bg-overlay.png from Theme) */}
+              <div className="absolute bottom-4 left-2 w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] rounded-full bg-cover bg-center shadow-2xl pointer-events-none z-0"
+                   style={{ backgroundImage: `url('/visaz-assets/images/icons/bg-overlay.png')` }}>
+              </div>
+
+              {/* Consultant Figure - breaks out of circle at top/right without clipping */}
+              <div className="relative w-full h-full z-10">
+                <Image
+                  src="/visaz-assets/images/resource/country1-1.png"
+                  alt="Consultant Holding Globe and Passports"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-contain object-bottom drop-shadow-2xl"
+                  priority
+                />
+              </div>
+
             </div>
           </div>
 
           {/* Right Column: Country Grid (Matches theme_country.png) */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               <div className="sec-sub-title">
                 <span>Choose Country</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#16171A] tracking-tight leading-tight">
-                Immigration: Choose <br className="hidden sm:block" />Your Destination Country
+                Immigration Choose <br className="hidden sm:block" />Your Country
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
                 Explore points benchmarks, annual incomes, lifestyle standards, and direct PR streams for the world&apos;s top immigration corridors.
@@ -82,32 +93,33 @@ export default function VisazCountry() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
               {COUNTRIES.map((c) => (
                 <div
-                  key={c.slug}
-                  className="bg-white rounded-2xl p-3.5 pr-0 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#E20935]/40 transition-all duration-300 flex items-center justify-between group overflow-hidden"
+                  key={c.name}
+                  className="bg-white p-5 pr-0 shadow-[0_10px_60px_rgba(171,171,171,0.25)] hover:shadow-2xl transition-all duration-300 flex items-center justify-between group relative overflow-hidden"
                 >
-                  <div className="flex items-center gap-3.5 pl-1.5">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 border-2 border-slate-100 shadow-xs">
+                  <div className="flex items-center gap-4 pl-1">
+                    {/* Round Flag/City Photo with 360 Spin on Hover */}
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-slate-100 shadow-sm transition-transform duration-700 group-hover:rotate-[360deg]">
                       <Image
                         src={c.image}
                         alt={c.name}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        className="object-cover"
                       />
                     </div>
                     <div>
-                      <h4 className="text-base font-extrabold text-[#16171A] group-hover:text-[#E20935] transition-colors leading-tight">
+                      <h4 className="text-lg font-bold text-[#16171A] group-hover:text-[#E20935] transition-colors leading-tight">
                         <Link href={`/countries/${c.slug}`}>{c.name}</Link>
                       </h4>
-                      <span className="text-[11px] text-slate-500 font-medium block mt-0.5">
+                      <span className="text-xs text-slate-500 font-medium block mt-1">
                         {c.subclass}
                       </span>
                     </div>
                   </div>
 
-                  {/* Red Square Arrow Button on the right edge (Exact Visaz match) */}
+                  {/* Square Red Arrow Button at Top Right / Edge */}
                   <Link
                     href={`/countries/${c.slug}`}
-                    className="w-12 h-14 bg-[#E20935] group-hover:bg-[#16171A] text-white flex items-center justify-center transition-colors shrink-0 rounded-l-none"
+                    className="w-11 h-11 bg-[#E20935] group-hover:bg-[#16171A] text-white flex items-center justify-center transition-colors shrink-0"
                     aria-label={`Explore ${c.name}`}
                   >
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -116,13 +128,21 @@ export default function VisazCountry() {
               ))}
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex items-center justify-between">
               <Link
                 href="/countries"
                 className="btn-style-one inline-flex"
               >
-                <span>View All Destination Countries &gt;</span>
+                <span>View All Countries &gt;</span>
               </Link>
+
+              {/* Theme Vertical Pagination Dots */}
+              <div className="hidden sm:flex items-center gap-1.5 pr-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#E20935]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+              </div>
             </div>
 
           </div>
